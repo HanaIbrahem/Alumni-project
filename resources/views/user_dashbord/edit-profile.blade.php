@@ -1,34 +1,3 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
-{{-- 
-
 @php
 $id=Auth::user()->id;
 $userdata=App\Models\user::find($id);
@@ -36,6 +5,7 @@ $userdata=App\Models\user::find($id);
 @extends('user_dashbord.master')
 
 @section('main')
+
 <div class="content-body">
     <div class="container-fluid">
         <div class="row">
@@ -51,16 +21,17 @@ $userdata=App\Models\user::find($id);
                                 @method('put')
                             
                                 <div class="form-group">
-                                    <input class="form-control form-control-lg" name="current_password" type="password" autocomplete="current-password" placeholder="form-control-lg">
+                                    <input class="form-control form-control-lg" name="current_password" type="password" autocomplete="current-password" 
+                                    placeholder="Current Password">
                                     <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control"  id="password" name="password" type="password"  autocomplete="new-password" placeholder="Default input">
+                                    <input class="form-control"  id="password" name="password" type="password"  autocomplete="new-password" placeholder="New Password">
                                     <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
 
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control form-control-sm" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password"placeholder="form-control-sm">
+                                    <input class="form-control form-control-sm" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password"placeholder="confirmation New Password">
                                     <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
 
                                 </div>
@@ -85,4 +56,5 @@ $userdata=App\Models\user::find($id);
         </div>
        
     </div>
-</div> --}}
+</div> 
+
