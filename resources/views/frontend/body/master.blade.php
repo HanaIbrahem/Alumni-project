@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/fonts/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/fonts/ionicons.min.css')}}">
 
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/vendor/slider/swiper-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/styles.css')}}">
+
     <link rel="stylesheet" href="{{asset('frontend/assets/css/main.css')}}">
 
     <!-- Font ausom link -->

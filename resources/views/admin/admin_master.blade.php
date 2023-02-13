@@ -1,159 +1,110 @@
+@php
+    use App\Models\University;
+    $websitesetup=University::find(1);
+@endphp
 <!doctype html>
 <html lang="en">
 
     <head>
         
         <meta charset="utf-8" />
-        <title>Dashboard | Upcube - Admin & Dashboard Template</title>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesdesign" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.ico')}} ">
-        <!-- jquery.vectormap css -->
-        <link href="{{asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css ')}}" rel="stylesheet" type="text/css" />
-
-        <!-- DataTables -->
-        <link href="{{asset('backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-
-        <!-- Responsive datatable examples -->
-        <link href="{{asset('backend/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />  
-
-        {{-- dropdown library --}}
-        <link href="{{asset('backend/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
-
-        <!-- Bootstrap Css -->
-        <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="{{asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
-        <link href="{{asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+        
+      
+        <link rel="stylesheet" href="{{asset('backend/vendor/chartist/css/chartist.min.css')}}">
+        <link href="{{asset('backend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
+        <link href="{{asset('backend/vendor/owl-carousel/owl.carousel.css" rel="stylesheet')}}">
+        <link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
       
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
+        <link rel="website icon" type="png" href="{{asset('upload/brand-logo.png')}}">
+        <title>{{$websitesetup->title}}</title>
     </head>
 
-    <body data-topbar="dark">
+    <body >
     
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
-        <!-- Begin page -->
-        <div id="layout-wrapper">
+        <div id="preloader" style="display: none;">
+            <div class="sk-three-bounce">
+                <div class="sk-child sk-bounce1"></div>
+                <div class="sk-child sk-bounce2"></div>
+                <div class="sk-child sk-bounce3"></div>
+            </div>
+        </div>
+        <div id="main-wrapper">
+            {{-- Start Navbar --}}
 
             
-          @include('admin.body.header')
+            <div class="nav-header">
+                <a href="index.html" class="brand-logo">
+                    <img src="{{asset('upload/brand-logo.png')}}"width="50" height="50" alt="">
+                    
+                      
+                </a>
+    
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span><span class="line"></span><span class="line"></span>
+                    </div>
+                </div>
+            </div>
+            {{--SHeder Navigatoiom  --}}
+            @include('admin.body.header')
 
             <!-- ========== Left Sidebar Start ========== -->
             @include('admin.body.sidebar')
+             
             <!-- Left Sidebar End -->
 
-            
 
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="main-content">
-
-                @yield('admen')
-                <!-- End Page-content -->
-               
-                @include('admin.body.footer')
-                
-            </div>
-            <!-- end main content-->
-
+             <!--**********************************
+            Content body start
+             ***********************************-->
+             @yield('admen')
+                 <!--**********************************
+            Content body end
+             ***********************************-->
+             @include('admin.body.footer')
         </div>
-        <!-- END layout-wrapper -->
-
-        <!-- Right Sidebar -->
-        {{-- <div class="right-bar">
-            <div data-simplebar class="h-100">
-                <div class="rightbar-title d-flex align-items-center px-3 py-4">
-            
-                    <h5 class="m-0 me-2">Settings</h5>
-
-                    <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
-                        <i class="mdi mdi-close noti-icon"></i>
-                    </a>
-                </div>
-
-                <!-- Settings -->
-                <hr class="mt-0" />
-                <h6 class="text-center mb-0">Choose Layouts</h6>
-
-                <div class="p-4">
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1">
-                    </div>
-
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
-                        <label class="form-check-label" for="light-mode-switch">Light Mode</label>
-                    </div>
-    
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2">
-                    </div>
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css">
-                        <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
-                    </div>
-    
-                    <div class="mb-2">
-                        <img src="assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="layout-3">
-                    </div>
-                    <div class="form-check form-switch mb-5">
-                        <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch" data-appStyle="assets/css/app-rtl.min.css">
-                        <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
-                    </div>
-
-            
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div> --}}
-        <!-- /Right-bar -->
-
-        <!-- JAVASCRIPT -->
-    
-
-        <!-- Plugins js -->
-        <!-- Right bar overlay-->
+               
         <div class="rightbar-overlay"></div>
 
         <!-- JAVASCRIPT -->
-        <script src=" {{asset('backend/assets/libs/jquery/jquery.min.js')}}"></script>
-        <script src=" {{asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-        <script src=" {{asset('backend/assets/libs/metismenu/metisMenu.min.js')}}"></script>
-        <script src=" {{asset('backend/assets/libs/simplebar/simplebar.min.js')}}"></script>
-        <script src=" {{asset('backend/assets/libs/node-waves/waves.min.js')}}"></script>
-        <script src="{{asset('assets/libs/dropzone/min/dropzone.min.js')}}"></script>
+      
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+	<script src="{{asset('backend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+	<script src="{{asset('backend/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+	<script src="{{asset('backend/vendor/global/global.min.js')}}"></script>
+	<!-- Chart piety plugin files -->
+    <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script>
+	
+	<!-- Apex Chart -->
+	<script src="{{asset('backend/vendor/apexchart/apexchart.js')}}"></script>
+	
+	<!-- Dashboard 1 -->
+	<script src="{{asset('backend/js/dashboard/dashboard-1.js')}}"></script>
+	
+	<script src="{{asset('backend/vendor/owl-carousel/owl.carousel.js')}}"></script>
+    <script src="{{asset('backend/js/custom.min.js')}}"></script>
+	<script src="{{asset('backend/js/deznav-init.js')}}"></script>
+    <script src="{{asset('backend/js/demo.js')}}"></script>
+    <script src="{{asset('backend/js/styleSwitcher.js')}}"></script>
+    
 
-
-        <!-- apexcharts -->
-        <script src=" {{asset('backend/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
-
-        <!-- jquery.vectormap map -->
-        <script src=" {{asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-        <script src=" {{asset('backend/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js')}}"></script>
-
-        <!-- Required datatable js -->
-        <script src=" {{asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-        <script src=" {{asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-        
-        <!-- Responsive examples -->
-        <script src=" {{asset('backend/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-        <script src=" {{asset('backend/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
-
-        <script src=" {{asset('backend/assets/js/pages/dashboard.init.js')}}"></script>
-
-        <!-- App js -->
-        <script src=" {{asset('backend/assets/js/app.js')}}"></script>
-        
-
+    <script src="{{asset('backend/js/validate.min.js')}}"></script>
+   
      
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  
+   <script>
+    
+</script>
   <script>
    @if(Session::has('message'))
    var type = "{{ Session::get('alert-type','info') }}"
@@ -176,25 +127,7 @@
    }
    @endif 
   </script>
- <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }} "></script>
-
- <!-- init js -->
- <script src="{{ asset('backend/assets/js/pages/form-editor.init.js') }} "></script>
-
- <!-- Required datatable js -->
-<script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-
-    <!-- Datatable init js -->
-<script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
-
-
-<script src="{{asset('backend/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
- <script src="{{ asset('backend/assets/js/code.js') }}"></script>
- <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+ 
 
   
   

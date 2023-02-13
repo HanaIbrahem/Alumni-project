@@ -78,4 +78,11 @@ class AdminController extends Controller
 
 
     }//end Methd 
+
+    public function profile()
+    {
+        return view('admin.admin_profile_view');
+            
+        
+    }
 }

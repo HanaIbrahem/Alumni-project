@@ -1,92 +1,30 @@
-<div class="vertical-menu">
-
-    <div data-simplebar class="h-100">
-
-        {{-- @php
-        
-        use Illuminate\Http\Request;
-        $id= auth::user()->id();
-        $userdata=App\Models\Admin::find($id);
-        @endphp --}}
-
-        <!-- User details -->
-        <div class="user-profile text-center mt-3">
-            <div class="">
-                {{-- <img src="{{(!empty($userdata->profile_image))?url('upload/admin_images/'.$userdata->profile_image):
-                url('upload/no_image.jpg') }}" alt="" class="avatar-md rounded-circle"> --}}
+<div class="deznav">
+    <div class="deznav-scroll mm-active ps ps--active-y">
+        <div class="main-profile">
+            <div class="image-bx">
+                <img src="images/Untitled-1.jpg" alt="">
+                <a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
             </div>
-            <div class="mt-3">
-                {{-- <h4 class="font-size-16 mb-1">{{$userdata->name}}</h4> --}}
-                <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i> Online</span>
-            </div>
+            <h5 class="name"><span class="font-w400">Hello,</span> Marquez</h5>
+            <p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="95f8f4e7e4e0f0efefefefd5f8f4fcf9bbf6faf8">[email&nbsp;protected]</a></p>
         </div>
+        <ul class="metismenu mm-show" id="menu">
+            
 
-        <!--- Sidemenu -->
-        <div id="sidebar-menu">
-            <!-- Left Menu Start -->
-            <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">Menu</li>
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
-                        <span>Website Setup</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('admin.home.setup')}}">Website</a></li>
-                        <li><a href="email-read.html">Header</a></li>
-                        <li><a href="email-read.html">Footer</a></li>
+            <li class="nav-label first">Webiste Setup</li>
+            <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-144-layout"></i>
+                    <span class="nav-text">Website</span>
+                </a>
+                <ul aria-expanded="false" class="mm-collapse mm-show left" style="">
+                    <li class="mm-active"><a href="{{route('admin.home.setup')}}" class="mm-active">Logo & Title</a></li>
+                    <li><a href="index-2.html">Header</a></li>
+                    <li><a href="index-2.html">Footer</a></li>
+                </ul>
 
-                    </ul>
-
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
-                        <span>Page Setup</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('admin.home.setup')}}">Home</a></li>
-                        <li><a href="email-read.html">About</a></li>
-                        <li><a href="email-read.html">Portfolu</a></li>
-
-                    </ul>
-                </li>
-
-                
-
-                <li class="menu-title">Pages</li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-account-circle-line"></i>
-                        <span>Authentication</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login.html">Login</a></li>
-                        <li><a href="auth-register.html">Register</a></li>
-                        <li><a href="auth-recoverpw.html">Recover Password</a></li>
-                        <li><a href="auth-lock-screen.html">Lock Screen</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-profile-line"></i>
-                        <span>Utility</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter.html">Starter Page</a></li>
-                        <li><a href="pages-timeline.html">Timeline</a></li>
-                        <li><a href="pages-directory.html">Directory</a></li>
-                        <li><a href="pages-invoice.html">Invoice</a></li>
-                        <li><a href="pages-404.html">Error 404</a></li>
-                        <li><a href="pages-500.html">Error 500</a></li>
-                    </ul>
-                </li>
-
-                
-
-                
-            </ul>
-        </div>
-        <!-- Sidebar -->
-    </div>
+            </li>
+               
+           
+        </ul>
+    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 650px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 355px;"></div></div></div>
 </div>

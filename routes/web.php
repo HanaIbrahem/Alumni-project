@@ -36,6 +36,10 @@ Route::get('/register', [AdminController::class,'AdminRegister'])->name('admin.r
 Route::post('/register/create', [AdminController::class,'AdminRegisterCreate'])->name('admin.register.create');
 
 
+Route::get('/dashbord/profile', [AdminController::class,'profile'])->name('admin.profile');
+
+
+
 } );
 
 /*
@@ -58,6 +62,8 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashbord/homesetup', [HomeSetupController::class,'index'])->name('admin.home.setup');
         //Post a data
         Route::post('/dashbord/homesetup/update', [HomeSetupController::class,'update'])->name('admin.home.setup.update');
+
+
 
 
 

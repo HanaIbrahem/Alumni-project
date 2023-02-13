@@ -5,21 +5,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<div class="page-content">
+<div class="content-body">
     <div class="container-fluid">
 
         <!-- start page title -->
     
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Website Setup</h4>
-    
-                </div>
-            </div>
-        </div>
         <!-- end page title -->
-        
         <div class="row">
             <div class="col-10">
                 <div class="card">
@@ -35,10 +26,10 @@
                                 @csrf
 
                                 <input type="hidden" name="id" value="1">
-                                <div class="row mb-3">
+                                <div class="row mb-3 form-group">
                                     <label for="Name" class="col-sm-2 col-form-label">Neme:</label>
                                     
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-6">
                                         <input class="form-control" name="name"
                                         value="{{$University->name}}" type="text" placeholder="name of website" id="example-search-input">
                                     </div>
@@ -47,7 +38,7 @@
                                 <div class="row mb-3 form-group">
                                     <label for="Title" class="col-sm-2 col-form-label">Titele of Website:</label>
                                     
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-6">
                                         <input class="form-control" type="text" name="title" placeholder="Titele of website" 
                                         value="{{$University->title}}" id="example-search-input">
                                     </div>
