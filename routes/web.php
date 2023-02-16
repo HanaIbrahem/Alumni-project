@@ -54,6 +54,7 @@ Route::get('/dashbord/profile', [AdminController::class,'profile'])->name('admin
 --------------- Start Admin Authentication -----------------------
 */
 
+Route::post('/dashbord/test', [HomeSetupController::class,'tets'])->name('admin.home.test');
 
 Route::middleware(['admin'])->group(function () {
 
@@ -64,10 +65,22 @@ Route::middleware(['admin'])->group(function () {
         Route::post('/dashbord/homesetup/update', [HomeSetupController::class,'update'])->name('admin.home.setup.update');
 
 
+        Route::get('/dashbord/faculty', [HomeSetupController::class,'Faculty'])->name('admin.home.faculty');
 
+        Route::post('/dashbord/faculty/add', [HomeSetupController::class,'FacultyAdd'])->name('admin.faculty.add');
+        Route::get('/dashbord/faculty/Edit/{id}', [HomeSetupController::class,'FacultyEdit'])->name('admin.faculty.edit');
+        Route::put('/dashbord/faculty/update', [HomeSetupController::class,'FacultyUpdate'])->name('admin.faculty.update');
 
+        Route::get('/dashbord/faculty/delet/{id}', [HomeSetupController::class,'DeletFaculty'])->name('admin.faculty.delete');
 
+        // Department Routes 
+        Route::get('/dashbord/department/add/{id}', [HomeSetupController::class,'DepartmentAdd'])->name('admin.department.add');
+        Route::post('/dashbord/department/store', [HomeSetupController::class,'DepartmentStor'])->name('admin.department.store');
 
+        Route::get('/dashbord/department/edit/{id}', [HomeSetupController::class,'DepartmentEdit'])->name('admin.department.edit');
+        Route::put('/dashbord/department/update', [HomeSetupController::class,'DepartmentUpdate'])->name('admin.department.update');
+
+        Route::get('/dashbord/department/delet/{id}', [HomeSetupController::class,'DepartmentDelet'])->name('admin.department.delete');
 
     });
 
@@ -82,11 +95,16 @@ Route::middleware(['admin'])->group(function () {
 /*
 --------------- Start Admin Authentication -----------------------
 */
+Route::get('/r', function () {
+    return view('d.register');
+});
+//get department for json
 
 
 Route::get('/', function () {
     return view('frontend.index');
 });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -95,7 +113,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/profile/info', [ProfileController::class, 'EditInfo'])->name('profile.edit.info');
 });

@@ -22,6 +22,10 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
         <link rel="website icon" type="png" href="{{asset('upload/brand-logo.png')}}">
+
+
+        {{-- validation javascript code support --}}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>{{$websitesetup->title}}</title>
     </head>
 
@@ -97,6 +101,11 @@
     <script src="{{asset('backend/js/demo.js')}}"></script>
     <script src="{{asset('backend/js/styleSwitcher.js')}}"></script>
     
+      {{-- Swit alert code js --}}
+      <script src="{{ asset('backend/js/code.js') }}"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
     <script src="{{asset('backend/js/validate.min.js')}}"></script>
    
@@ -129,7 +138,7 @@
   </script>
  
 
-  
+
   
  <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script>
 

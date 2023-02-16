@@ -18,7 +18,7 @@
                 </a>
                 <ul aria-expanded="false" class="mm-collapse mm-show left" style="">
                     <li class="mm-active"><a href="{{route('admin.home.setup')}}" class="mm-active">Logo & Title</a></li>
-                    <li><a href="index-2.html">Header</a></li>
+                    <li><a href="{{route('admin.home.faculty')}}">Faculty</a></li>
                     <li><a href="index-2.html">Footer</a></li>
                 </ul>
 

@@ -22,6 +22,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
         <link rel="website icon" type="png" href="{{asset('upload/brand-logo.png')}}">
+        
         <title>{{$websitesetup->title}}</title>
     </head>
 
@@ -100,9 +101,19 @@
 
     <script src="{{asset('backend/js/validate.min.js')}}"></script>
    
+    <script>
+        jQuery(document).ready(function(){
+            setTimeout(function() {
+                dezSettingsOptions.version = 'dark';
+                new dezSettings(dezSettingsOptions);
+            },1500)
+        });
+    </script>
      
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
    <script>
+
+    
     
 </script>
   <script>
