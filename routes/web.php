@@ -54,7 +54,6 @@ Route::get('/dashbord/profile', [AdminController::class,'profile'])->name('admin
 --------------- Start Admin Authentication -----------------------
 */
 
-Route::post('/dashbord/test', [HomeSetupController::class,'tets'])->name('admin.home.test');
 
 Route::middleware(['admin'])->group(function () {
 
@@ -95,9 +94,13 @@ Route::middleware(['admin'])->group(function () {
 /*
 --------------- Start Admin Authentication -----------------------
 */
+
 Route::get('/r', function () {
-    return view('d.register');
+    return view('d.h');
 });
+
+Route::post('/test', [HomeSetupController::class,'test'])->name('test');
+
 //get department for json
 
 

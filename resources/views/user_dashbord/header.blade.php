@@ -41,6 +41,7 @@ $userdata=App\Models\user::find($id);
                         <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                             <img src="{{(!empty($userdata->image_profile))?url('upload/admin_images/'.$userdata->profile_image):
                             url('upload/no_image.jpg') }}"  width="20" alt="">
+                            
                             <div class="header-info">
                                 <span>{{$userdata->name}}</span>
                                 <small>Alumni</small>

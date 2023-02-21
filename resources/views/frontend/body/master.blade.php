@@ -40,8 +40,8 @@
 
     {{-- Scripts --}}
 
-    <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/js/responsive-blog-card-slider-1.js')}}"></script>
-    <script src="{{asset('assets/js/responsive-blog-card-slider.js')}}"></script>
+    <script src="{{asset('frontend/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/responsive-blog-card-slider-1.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/responsive-blog-card-slider.js')}}"></script>
 </body>
 </html>

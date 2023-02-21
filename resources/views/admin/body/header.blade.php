@@ -41,6 +41,8 @@
                    
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                            <div class="bg-danger text-danger rounded" style="position: absolute;">a</div>
+
                             <img src="{{asset('backend/images/profile/pic1.jpg')}}" width="20" alt="">
                             <div class="header-info">
                                 <span>Johndoe</span>
