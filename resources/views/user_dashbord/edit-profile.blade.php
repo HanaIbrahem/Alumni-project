@@ -1,6 +1,9 @@
 @php
 $id=Auth::user()->id;
 $userdata=App\Models\user::find($id);
+use App\Models\Department;
+// $department=Department::where('id',1)->get();
+$department=Department::find($userdata->department);
 @endphp
 @extends('user_dashbord.master')
 
@@ -58,3 +61,4 @@ $userdata=App\Models\user::find($id);
     </div>
 </div> 
 
+@endsection

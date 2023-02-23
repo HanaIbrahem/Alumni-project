@@ -7,6 +7,7 @@
     use App\Models\Department;
     $date=Department::where('faculty_id',$id)->get();
 
+    
     use App\Models\Faculty;
     $faculty=Faculty::find($id);
     $i=1;

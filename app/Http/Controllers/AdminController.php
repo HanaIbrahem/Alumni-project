@@ -34,7 +34,7 @@ class AdminController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Admin::class],
+            'email' => ['required', 'string', 'email', 'max:255','ends_with:soran.edu.iq', 'unique:'.Admin::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -55,8 +55,6 @@ class AdminController extends Controller
     public function Login(Request $request){
         $check=$request->all();
         if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password']])) {
-            $userdata=Admin::find($request->id);
-
             return redirect()->route('admin.dashbord')->with('error','Admin login successfully');
         }
         else{

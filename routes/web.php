@@ -106,7 +106,7 @@ Route::post('/test', [HomeSetupController::class,'test'])->name('test');
 
 Route::get('/', function () {
     return view('frontend.index');
-});
+})->name('/');
 
 
 Route::get('/dashboard', function () {
@@ -119,6 +119,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/profile/info', [ProfileController::class, 'EditInfo'])->name('profile.edit.info');
+    Route::put('/profile/update/info', [ProfileController::class, 'UpdateInfo'])->name('profile.update.info');
+
 });
 
 

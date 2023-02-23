@@ -8,11 +8,12 @@ $userdata=App\Models\user::find($id);
     <div class="deznav-scroll mm-active ps ps--active-y">
         <div class="main-profile">
             <div class="image-bx">
-                <img src="{{(!empty($userdata->image_profile))?url('upload/admin_images/'.$userdata->profile_image):
-                url('upload/no_image.jpg') }}"  alt="">
+                <img src="{{(!empty($userdata->image_profile))?url('upload/images/profile/'.$userdata->image_profile):
+                            url('upload/no_image.jpg') }}" alt="">
                 <a href="{{route('profile.edit.info')}}"><i class="fa fa-cog" aria-hidden="true"></i></a>
             </div>
             <h5 class="name"><span class="font-w400">Hello,</span> {{$userdata->name}}</h5>
+            <h5>{{$userdata->type}}</h5>
             
         </div>
         <ul class="metismenu mm-show" id="menu">

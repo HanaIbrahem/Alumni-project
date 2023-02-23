@@ -1,6 +1,10 @@
 @php
 $id=Auth::user()->id;
 $userdata=App\Models\user::find($id);
+
+use App\Models\Department;
+// $department=Department::where('id',1)->get();
+$department=Department::find($userdata->department);
 @endphp
 @extends('user_dashbord.master')
 
@@ -53,27 +57,28 @@ $userdata=App\Models\user::find($id);
         <div class="row">
             <div class="col-lg-12">
                 <div class="profile card card-body px-3 pt-3 pb-0">
-                    <form action="">
+                    <form action="{{route('profile.update.info')}}" method="post"  enctype="multipart/form-data">
 
-
+                        @csrf
+                        @method('PUT')
                         <div class="profile-head">
                             <div class="photo-content">
-                                <div class="cover-photo" style="background-image:url({{(!empty($userdata->cover_image))?url('upload/admin_images/'.$userdata->profile_image):
+                                <div class="cover-photo" style="background-image:url({{(!empty($userdata->cover_image))?url('upload/images/cover/'.$userdata->cover_image):
                                     url('upload/no_image.jpg') }}) "></div>
                             </div>
                             <div class="profile-info">
                                 <div class="profile-photo">
-                                    <img src="{{(!empty($userdata->image_profile))?url('upload/admin_images/'.$userdata->profile_image):
+                                    <img src="{{(!empty($userdata->image_profile))?url('upload/images/profile/'.$userdata->image_profile):
                                     url('upload/no_image.jpg') }}" id="output" class="img-fluid rounded-circle" alt="">
                                 </div>
                                 <div class="profile-details">
                                     <div class="profile-name px-3 pt-2">
                                         <h4 class="text-primary mb-0">{{$userdata->name}}</h4>
-                                        <p>bio</p>
+                                        <p>{{$department->name}}</p>
                                     </div>
                                     <div class="profile-email px-2 pt-2">
                                         <h4>Email Protected</h4>
-                                        <p>Email:{{$userdata->email}}</p>
+                                        <p>{{$userdata->email}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -92,27 +97,42 @@ $userdata=App\Models\user::find($id);
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <input class="form-control form-control-lg" name="current_password" type="password" autocomplete="current-password" 
-                                placeholder="Bio" value="">
-                            </div>
-
-                            <div><label for="">Cover Profile</label></div>
+                           
+                            <div>
+                                <label for="">Cover Profile</label></div>
                             <div class="input-group mb-3">
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Upload</span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="cover_image" >
+                                    <input type="file" class="custom-file-input"  name="cover_image" >
                                     <label class="custom-file-label">Choose image</label>
                                 </div>
                             </div>
                             <div class="photo-content">
-                                <div class="cover-photo" style="background-image: url()" ><img width="100%" height="300px" src="{{(!empty($userdata->cover_image))?url('upload/admin_images/'.$userdata->profile_image):
-                                    url('upload/no_image.jpg') }}" name="image_cover"  
-                                     id="image" accept="image/*" onchange="loadFile(event)"></div>
+                                <div class="cover-photo" style="background-image: url()" >
+                                <img width="100%" height="300px" src="{{(!empty($userdata->cover_image))?url('upload/images/cover/'.$userdata->cover_image):
+                                    url('upload/no_image.jpg') }}" name="image_cover">
+                                    </div>
 
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control"  id="bio" name="bio" type="text"  autocomplete="new-password" placeholder="Bio">
+
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control"  id="job" name="job" type="text"  autocomplete="" placeholder="Current job">
+
+                            </div>
+                           
+                            <div class="form-group">
+                                <input class="form-control"  id="about" name="about" type="text"  autocomplete="new-password" placeholder="About your Self">
+
+                            </div>
+                          
+                            <div class="input-group mb-3">
+                                <input type="submit" class="btn btn-primary" value="Update">
                             </div>
 
 
@@ -138,69 +158,8 @@ output.onload = function() {
 }
 };
 
-
-
-
 </script>
 
 
-{{-- <div class="content-body">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-12 col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Update Your Information</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="basic-form custom_file_input">
-                            <form >
-                               
 
-                                <div class="form-group">
-                                    <input class="form-control form-control-lg" name="current_password" type="password" autocomplete="current-password" 
-                                    placeholder="Last Name">
-                                </div>
-
-                                <div class="form-group">
-                                    <input class="form-control form-control-lg" name="current_password" type="password" autocomplete="current-password" 
-                                    placeholder="Your Bio">
-                                </div>
-
-
-                                <div><label for="">Image Profile</label></div>
-                                <div class="input-group mb-3">
-
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input">
-                                        <label class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-
-
-                                <div><label for="">Image Profile</label></div>
-
-
-                                <div class="input-group mb-3">
-    
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input">
-                                        <label class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-                            
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div> --}}
+@endsection

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Validation\Rules\File;
 
 class ProfileController extends Controller
 {
@@ -51,7 +52,56 @@ class ProfileController extends Controller
 
     public function UpdateInfo(ProfileUpdateRequest $request): RedirectResponse{
 
-       
+        $user = $request->user();
+
+        //image profile upadet if exest
+        if($request->file('image_profile')){
+
+            $request->validate([
+                'image_profile' => ['required', File::image()],
+            
+            ]);
+            //remove recent imge 
+            if( $user->image_profile != null){
+
+                $imgh = 'upload/images/profile/'.$user->image_profile;
+                unlink($imgh);
+            }
+
+            $image = $request->file('image_profile');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url = $name_gen;
+            $image->move(public_path('upload/images/profile/'), $name_gen);
+            $user->image_profile= $save_url;
+
+        }
+         
+        // cover image update if exest
+        if($request->file('cover_image')){
+            $request->validate([
+                'cover_image' => ['required', File::image()],
+            ]);
+
+            //remove recent i,age
+            if( $user->cover_image !=null){
+                $imgh = 'upload/images/cover/'.$user->cover_image;
+                unlink($imgh);
+            }
+            //for cover iamge  update
+            $cover=$request->file('cover_image');
+            $name_gen = hexdec(uniqid()).'.'.$cover->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url2 = $name_gen;
+            $cover->move(public_path('upload/images/cover/'), $name_gen);
+            $user->cover_image=$save_url2;
+            
+        }
+
+        $user->bio = $request->input('bio');
+        $user->about= $request->input('job');
+        $user->job=$request->input('about');
+        $user->save();
+        return redirect()->back()->with('success', 'User information updated successfully.');
+
     }//end Method
 
 
@@ -75,4 +125,5 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    
 }

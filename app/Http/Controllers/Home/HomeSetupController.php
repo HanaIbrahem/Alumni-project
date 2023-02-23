@@ -42,10 +42,11 @@ class HomeSetupController extends Controller
             $imgh = $multi->logo;
             unlink($imgh);
 
+            
             $image = $request->file('logo');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
         
-            Image::make($image)->resize(80,40)->save('upload/'.$name_gen);
+            Image::make($image)->resize(100,100)->save('upload/'.$name_gen);
             $save_url = 'upload/'.$name_gen;
         
             University::findOrFail($slide_id)->update([

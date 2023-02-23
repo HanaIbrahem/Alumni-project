@@ -36,15 +36,15 @@ $userdata=App\Models\user::find($id);
                     </li>
                    
                     
-                   
+                    
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                            <img src="{{(!empty($userdata->image_profile))?url('upload/admin_images/'.$userdata->profile_image):
+                            <img src="{{(!empty($userdata->image_profile))?url('upload/images/profile/'.$userdata->image_profile):
                             url('upload/no_image.jpg') }}"  width="20" alt="">
                             
                             <div class="header-info">
                                 <span>{{$userdata->name}}</span>
-                                <small>Alumni</small>
+                                <small>{{$userdata->type}}</small>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">

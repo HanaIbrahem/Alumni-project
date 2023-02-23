@@ -25,17 +25,13 @@ return new class extends Migration
 
 
 
-            // //important fields 
-            // $table->string('lname');
-            // $table->integer('department');
-            // $table->enum('gender', ['male', 'female']);
-            // $table->enum('type', ['Teacher','Alumni', 'Student']);
-            // //Nulable fildes 
-            // $table->string('image_profile')->nullable();
-            // $table->string('cover_image')->nullable();
-            // $table->text('bio')->nullable();
-            // $table->longText('about')->nullable();;
-            // $table->text('job')->nullable();
+            //important fields 
+            //Nulable fildes 
+            $table->string('image_profile')->nullable();
+            $table->string('cover_image')->nullable();
+            $table->text('bio')->nullable();
+            $table->longText('about')->nullable();;
+            $table->text('job')->nullable();
            
         });
     }
