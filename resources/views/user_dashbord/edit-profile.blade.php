@@ -11,6 +11,16 @@ $department=Department::find($userdata->department);
 
 <div class="content-body">
     <div class="container-fluid">
+
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+                    <p class="mb-0">Your  dashboard </p>
+                </div>
+            </div>
+           
+        </div>
         <div class="row">
             <div class="col-xl-12 col-lg-12">
                 <div class="card">

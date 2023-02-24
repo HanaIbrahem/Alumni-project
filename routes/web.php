@@ -36,7 +36,7 @@ Route::get('/register', [AdminController::class,'AdminRegister'])->name('admin.r
 Route::post('/register/create', [AdminController::class,'AdminRegisterCreate'])->name('admin.register.create');
 
 
-Route::get('/dashbord/profile', [AdminController::class,'profile'])->name('admin.profile');
+Route::get('/dashbord/profile', [AdminController::class,'profile'])->name('admin.profile')->middleware('admin');
 
 
 
@@ -54,10 +54,18 @@ Route::get('/dashbord/profile', [AdminController::class,'profile'])->name('admin
 --------------- Start Admin Authentication -----------------------
 */
 
-
 Route::middleware(['admin'])->group(function () {
 
     Route::prefix('admin')->group(function (){
+
+        // update admin informaito
+
+        Route::get('/dashbord/profile/edit', [AdminController::class,'ProfileEdit'])->name('admin.profile.edit');
+
+        Route::put('/dashbord/profile/store', [AdminController::class,'ProfileUpdate'])->name('admin.profile.update');
+
+
+
         // Get Url
         Route::get('/dashbord/homesetup', [HomeSetupController::class,'index'])->name('admin.home.setup');
         //Post a data
@@ -98,6 +106,10 @@ Route::middleware(['admin'])->group(function () {
 Route::get('/r', function () {
     return view('d.h');
 });
+Route::get('/r/upload', function () {
+    return view('d.h');
+})->name('upload');
+
 
 Route::post('/test', [HomeSetupController::class,'test'])->name('test');
 
@@ -114,10 +126,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/change-password', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/change-password', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/delete', [ProfileController::class, 'getdestroy'])->name('profile.destroy.get');
     Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    
     Route::get('/profile/info', [ProfileController::class, 'EditInfo'])->name('profile.edit.info');
     Route::put('/profile/update/info', [ProfileController::class, 'UpdateInfo'])->name('profile.update.info');
 

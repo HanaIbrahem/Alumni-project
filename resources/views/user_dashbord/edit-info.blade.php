@@ -110,26 +110,34 @@ $department=Department::find($userdata->department);
                                     <label class="custom-file-label">Choose image</label>
                                 </div>
                             </div>
-                            <div class="photo-content">
-                                <div class="cover-photo" style="background-image: url()" >
-                                <img width="100%" height="300px" src="{{(!empty($userdata->cover_image))?url('upload/images/cover/'.$userdata->cover_image):
-                                    url('upload/no_image.jpg') }}" name="image_cover">
-                                    </div>
+                            
+                            <div class="form-group">
+                                <label for="" class="text-primary">Bio</label>
+                                <input class="form-control"  id="bio" name="bio" type="text" value="{{$userdata->bio}}" autocomplete="new-password" placeholder="Bio">
 
                             </div>
                             <div class="form-group">
-                                <input class="form-control"  id="bio" name="bio" type="text"  autocomplete="new-password" placeholder="Bio">
+                                <label for="" class="text-primary">Current Job</label>
 
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control"  id="job" name="job" type="text"  autocomplete="" placeholder="Current job">
+                                <input class="form-control"  id="job" name="job" type="text" value="{{$userdata->job}}" autocomplete="" placeholder="Current job">
 
                             </div>
                            
                             <div class="form-group">
-                                <input class="form-control"  id="about" name="about" type="text"  autocomplete="new-password" placeholder="About your Self">
+                                <label for="" class="text-info">About your Self</label>
+
+
+                                <div id="container2">
+           
+                                    <textarea name="about" type="text" id="editor" cols="30" rows="50">
+                                        {!!$userdata->about!!}
+                                    </textarea>
+                                </div>
 
                             </div>
+                           
+                            
+   
                           
                             <div class="input-group mb-3">
                                 <input type="submit" class="btn btn-primary" value="Update">

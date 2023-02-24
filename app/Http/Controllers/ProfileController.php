@@ -97,8 +97,8 @@ class ProfileController extends Controller
         }
 
         $user->bio = $request->input('bio');
-        $user->about= $request->input('job');
-        $user->job=$request->input('about');
+        $user->about= $request->input('about');
+        $user->job=$request->input('job');
         $user->save();
         return redirect()->back()->with('success', 'User information updated successfully.');
 
@@ -108,6 +108,9 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
+    public function getdestroy(){
+        return view('user_dashbord.delete-profile');
+    }
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [

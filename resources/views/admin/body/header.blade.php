@@ -1,3 +1,5 @@
+
+
 <div class="header">
     <div class="header-content">
         <nav class="navbar navbar-expand">
@@ -43,9 +45,10 @@
                         <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                             <div class="bg-danger text-danger rounded" style="position: absolute;">a</div>
 
-                            <img src="{{asset('backend/images/profile/pic1.jpg')}}" width="20" alt="">
+                            <img src="{{(!empty($admin->image_profile))?url('upload/images/profile/adminimg/'.$admin->image_profile):
+                            url('upload/no_image.jpg') }}"  width="20" alt="">
                             <div class="header-info">
-                                <span>Johndoe</span>
+                                <span>{{$admin->name}}</span>
                                 <small>Admin</small>
                             </div>
                         </a>

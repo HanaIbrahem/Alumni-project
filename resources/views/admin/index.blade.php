@@ -3,9 +3,8 @@
 @section('admen')
     
 
-{{-- <h3>{{Auth::guard('admin')->user()->name}}</h3> --}}
 @php
-    $hana= Auth::guard('admin')->user();
+    $admin= Auth::guard('admin')->user();
 
 @endphp
 <div class="content-body">
@@ -66,12 +65,13 @@
                         </div>
                         <div class="profile-info">
                             <div class="profile-photo">
-                                <img src="images/profile/profile.png" class="img-fluid rounded-circle" alt="">
+                                <img src=" {{(!empty($admin->image_profile))?url('upload/images/profile/adminimg/'.$admin->image_profile):
+                                url('upload/no_image.jpg') }}"  width="20" alt="{{$admin->name}}">              
                             </div>
                             <div class="profile-details">
                                 <div class="profile-name px-3 pt-2">
-                                    <h4 class="text-primary mb-0">Mitchell C. Shay</h4>
-                                    <p>UX / UI Designer</p>
+                                    <h4 class="text-primary mb-0">{{$admin->name}}</h4>
+                                    <p>Admin</p>
                                 </div>
                                 <div class="profile-email px-2 pt-2">
                                     <h4 class="text-muted mb-0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="670e09010827021f060a170b024904080a">[email&nbsp;protected]</a></h4>

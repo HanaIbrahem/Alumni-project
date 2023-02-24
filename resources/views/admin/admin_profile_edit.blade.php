@@ -2,92 +2,140 @@
 
 @section('admen')
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@php
+        $admin= Auth::guard('admin')->user();
 
-
-<div class="page-content">
+    
+    
+@endphp
+<div class="content-body">
     <div class="container-fluid">
-    
-    <div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-    
-                <h4 class="card-title">Edit Profile Page </h4>
-    
-                <form method="post" action="{{route('store.profile')}}" enctype="multipart/form-data">
-                    @csrf
-    
-                <div class="row mb-3">
-                    <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
-                    <div class="col-sm-10">
-                        <input name="name" class="form-control" type="text" value="{{ $editData->name }}"  id="example-text-input">
+        <!-- Add Project -->
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+                    <p class="mb-0">Your dashboard </p>
+                </div>
+            </div>
+            
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="profile card card-body px-3 pt-3 pb-0">
+                    <div class="profile-head">
+                        <div class="photo-content">
+                            <div class="cover-photo" style="background-image:url({{(!empty($admin->cover_image))?url('upload/images/cover/adminimg/'.$admin->cover_image):
+                                url('upload/no_image.jpg') }}) "></div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-photo">
+
+                                    <img src="{{(!empty($admin->image_profile))?url('upload/images/profile/adminimg/'.$admin->image_profile):
+                                    url('upload/no_image.jpg') }}" class="img-fluid rounded-circle" id="output" alt="">
+                            </div>
+                            <div class="profile-details">
+                                <div class="profile-name px-3 pt-2">
+                                    <h4 class="text-primary mb-0">{{$admin->name}}</h4>
+                                    <p>Admin</p>
+                                </div>
+                                <div class="profile-email px-2 pt-2">
+                                    <h4 class="text-muted mb-0">{{$admin->email}}</h4>
+                                    <p>Email</p>
+                                </div>
+                               
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- end row -->
-    
-                  <div class="row mb-3">
-                    <label for="example-text-input" class="col-sm-2 col-form-label">User Email</label>
-                    <div class="col-sm-10">
-                        <input name="email" class="form-control" type="text" value="{{ $editData->email }}"  id="example-text-input">
-                    </div>
-                </div>
-                <!-- end row -->
-    
-    
-                  <div class="row mb-3">
-                    <label for="example-text-input" class="col-sm-2 col-form-label">UserName</label>
-                    <div class="col-sm-10">
-                        <input name="username" class="form-control" type="text" value="{{ $editData->username }}"  id="example-text-input">
-                    </div>
-                </div>
-                <!-- end row -->
-    
-    
-                <div class="row mb-3">
-                    <label for="example-text-input" class="col-sm-2 col-form-label">Profile Image </label>
-                    <div class="col-sm-10">
-           <input name="profile_image" class="form-control" type="file"  id="image">
-                    </div>
-                </div>
-                <!-- end row -->
-    
-                  <div class="row mb-3">
-                     <label for="example-text-input" class="col-sm-2 col-form-label">  </label>
-                    <div class="col-sm-10">
-                        <img id="showImage" class="rounded avatar-lg" src="{{(!empty($editData->profile_image))?url('upload/admin_images/'.$editData->profile_image):
-                        url('upload/no_image.jpg') }}
-                        " alt="Card image cap">
-                    </div>
-                </div>
-                <!-- end row -->
-                <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Profile">
-                </form>
-    
-    
-    
             </div>
         </div>
-    </div> <!-- end col -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="profile card card-body px-3 pt-3 pb-0">
+                    <form action="{{route('admin.profile.update')}}" method="post"  enctype="multipart/form-data">
+
+                        @csrf
+                        @method('PUT')
+                        <div class="profile-head">
+                           
+                           
+                            <div><label for="">Image Profile</label></div>
+
+
+                            <div class="input-group mb-3">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="image_profile"  
+                                     id="image" accept="image/*" onchange="loadFile(event)">
+                                    <label class="custom-file-label">Choose Image</label>
+                                </div>
+                            </div>
+
+                           
+                            <div>
+                                <label for="">Cover Profile</label></div>
+                            <div class="input-group mb-3">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input"  name="cover_image" >
+                                    <label class="custom-file-label">Choose image</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="text-primary">Bio</label>
+                                <input class="form-control"  id="bio" name="bio" type="text" value="{{$admin->bio}}" autocomplete="new-password" placeholder="Bio">
+
+                            </div>
+                           
+                           
+                            <div class="form-group">
+                                <label for="" class="text-info">About your Self</label>
+
+
+                                <div id="container2">
+           
+                                    <textarea name="about" type="text" id="editor" cols="30" rows="20">
+                                        {!!$admin->about!!}
+                                    </textarea>
+                                </div>
+
+                            </div>
+                           
+                            
+                            <div class="input-group mb-3">
+                                <input type="submit" class="btn btn-primary" value="Update">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       
     </div>
+
     
+</div>
     
-    
-    </div>
-    </div>
-    
-    
-    <script type="text/javascript">
+<script type="text/javascript">
         
-        $(document).ready(function(){
-            $('#image').change(function(e){
-                var reader = new FileReader();
-                reader.onload = function(e){
-                    $('#showImage').attr('src',e.target.result);
-                }
-                reader.readAsDataURL(e.target.files['0']);
-            });
-        });
-    </script>
-    
+    var loadFile = function(event) {
+var output = document.getElementById('output');
+output.src = URL.createObjectURL(event.target.files[0]);
+output.onload = function() {
+  URL.revokeObjectURL(output.src) // free memory
+}
+};
+
+</script>
+
 @endsection

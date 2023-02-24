@@ -12,6 +12,7 @@ use Illuminate\Validation\Rules;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\Rules\File;
 
 class AdminController extends Controller
 {
@@ -79,8 +80,60 @@ class AdminController extends Controller
 
     public function profile()
     {
-        return view('admin.admin_profile_view');
-            
+        return view('admin.admin_profile_view');   
         
+    }
+    
+    public function ProfileEdit(){
+        return view('admin.admin_profile_edit');
+    }
+    public function ProfileUpdate(Request $request){
+
+        $admin=$request->user('admin');
+        
+        //update user profile image
+        if($request->file('image_profile')){
+            $request->validate([
+                'image_profile' => ['required', File::image()],
+            
+            ]);
+            //remove recent imge 
+            if( $admin->image_profile != null){
+
+                $imgh = 'upload/images/profile/adminimg/'.$admin->image_profile;
+                unlink($imgh);
+            }
+            $image = $request->file('image_profile');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url = $name_gen;
+            $image->move(public_path('upload/images/profile/adminimg/'), $name_gen);
+            $admin->image_profile= $save_url;
+        }
+
+        //update user cover image 
+        if($request->file('cover_image')){
+            $request->validate([
+                'cover_image' => ['required', File::image()],
+            ]);
+
+            //remove recent image
+            if( $admin->cover_image !=null){
+                $imgh = 'upload/images/cover/adminimg/'.$admin->cover_image;
+                unlink($imgh);
+            }
+            //for cover iamge  update
+            $cover=$request->file('cover_image');
+            $name_gen = hexdec(uniqid()).'.'.$cover->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url2 = $name_gen;
+            $cover->move(public_path('upload/images/cover/adminimg/'), $name_gen);
+            $admin->cover_image=$save_url2;
+
+        }
+
+        $admin->bio = $request->input('bio');
+        $admin->about= $request->input('about');
+        $admin->save();
+        return redirect()->back()->with('success', 'User information updated successfully.');
+
     }
 }

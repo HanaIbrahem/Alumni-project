@@ -20,14 +20,14 @@ $userdata=App\Models\user::find($id);
             
 
             <li class="nav-label first">Your Profile</li>
-            <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void() " aria-expanded="false">
                     <i class="flaticon-144-layout"></i>
                     <span class="nav-text">Profile</span>
                 </a>
                 <ul aria-expanded="false" class="mm-collapse mm-show left" style="">
-                    <li class="mm-active"><a href="{{route('profile.edit')}}" class="">Change Password</a></li>
-                    <li><a href="{{route('profile.edit.info')}}">Update Your Informayion</a></li>
-                    <li><a href="{{route('profile.destroy')}}">Delete Your Acount</a></li>
+                    <li class="mm-active"><a href="{{route('profile.edit.info')}}">Update Your Informayion</a></li>
+                    <li ><a href="{{route('profile.edit')}}" class="">Change Password</a></li>
+                    <li><a href="{{route('profile.destroy.get')}}">Delete Your Acount</a></li>
                         {{-- <li>
                             <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
                                 @csrf
