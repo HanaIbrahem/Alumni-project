@@ -4,10 +4,15 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
+// websites components
+use App\Http\Controllers\component\NewsController;
+use App\Http\Controllers\component\EventController;
+use App\Http\Controllers\component\CareerController;
 
 // Pages 
 use App\Http\Controllers\Home\HomeSetupController;
 /*
+
 
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +21,7 @@ use App\Http\Controllers\Home\HomeSetupController;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+| github puch link https://github.com/HanaIbrahem/Alumni-project.git
 */
 /*
 --------------- Start Admin Cotroller -----------------------
@@ -58,12 +63,16 @@ Route::middleware(['admin'])->group(function () {
 
     Route::prefix('admin')->group(function (){
 
-        // update admin informaito
+        // update admin informaiton
 
         Route::get('/dashbord/profile/edit', [AdminController::class,'ProfileEdit'])->name('admin.profile.edit');
 
         Route::put('/dashbord/profile/store', [AdminController::class,'ProfileUpdate'])->name('admin.profile.update');
 
+        //update admins password 
+        Route::get('/dashbord/profile/change-password', [AdminController::class,'ProfileChangePassword'])->name('admin.changepasswor');
+
+        Route::put('/dashbord/profile/change-password/update', [AdminController::class,'ProfileChangePasswordUpdate'])->name('admin.changepassword.update');
 
 
         // Get Url
@@ -89,6 +98,33 @@ Route::middleware(['admin'])->group(function () {
 
         Route::get('/dashbord/department/delet/{id}', [HomeSetupController::class,'DepartmentDelet'])->name('admin.department.delete');
 
+
+
+        // componenet routes 
+
+        //news controllers
+        Route::get('/dashbord/news', [NewsController::class,'index'])->name('news.get');
+        Route::post('/dashbord/news/store', [NewsController::class,'store'])->name('news.store');
+
+        Route::get('/dashbord/news/edit/{id}', [NewsController::class,'edit'])->name('news.edit');
+        Route::put('/dashbord/news/update', [NewsController::class,'update'])->name('news.update');
+        Route::get('/dashbord/news/delet/{id}', [NewsController::class,'destroy'])->name('news.destroy');
+
+
+        //career controllers
+        Route::get('/dashbord/career', [CareerController::class,'index'])->name('career.get');
+        Route::post('/dashbord/career/store', [CareerController::class,'store'])->name('career.store');
+        Route::get('/dashbord/career/edit/{id}', [CareerController::class,'edit'])->name('career.edit');
+        Route::put('/dashbord/career/update', [CareerController::class,'update'])->name('career.update');
+        Route::get('/dashbord/career/delet/{id}', [CareerController::class,'destroy'])->name('career.destroy');
+
+
+        //event controllers
+        Route::get('/dashbord/event', [CareerController::class,'index'])->name('event.get');
+        Route::post('/dashbord/event/store', [CareerController::class,'store'])->name('event.store');
+        Route::get('/dashbord/event/edit/{id}', [CareerController::class,'edit'])->name('event.edit');
+        Route::put('/dashbord/event/update', [CareerController::class,'update'])->name('event.update');
+        Route::get('/dashbord/event/delet/{id}', [CareerController::class,'destroy'])->name('event.destroy');
     });
 
     

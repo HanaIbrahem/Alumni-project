@@ -14,6 +14,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rules\File;
 
+
 class AdminController extends Controller
 {
     //
@@ -78,15 +79,17 @@ class AdminController extends Controller
 
     }//end Methd 
 
+    // Update profile 
     public function profile()
     {
         return view('admin.admin_profile_view');   
         
-    }
+    }//end method 
     
+
     public function ProfileEdit(){
         return view('admin.admin_profile_edit');
-    }
+    }//end method
     public function ProfileUpdate(Request $request){
 
         $admin=$request->user('admin');
@@ -135,5 +138,37 @@ class AdminController extends Controller
         $admin->save();
         return redirect()->back()->with('success', 'User information updated successfully.');
 
-    }
+    }//end method  
+
+    // Update password get
+    public function ProfileChangePassword(){
+
+        return view('admin.admin_change_password');
+    }//end method  
+
+    // Update password store
+    public function ProfileChangePasswordUpdate(Request $request): RedirectResponse{
+
+
+
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $user=$request->user('admin');
+
+        $hashedPassword = $user->password;
+    
+        if (Hash::check($request->current_password, $hashedPassword)) {
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
+            Auth::guard('admin')->logout();
+            return redirect()->route('/')->with('success', 'Password updated successfully. Please login with your new password.');
+        }
+    
+        return redirect()->back()->withErrors(['current_password' => 'The provided password does not match your current password.']);
+    }//end method  
+
 }
