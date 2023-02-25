@@ -26,6 +26,7 @@ class NewsController extends Controller
     public function create()
     {
         //
+        return view('admin.components.news.news-create');
     }
 
     /**
@@ -37,6 +38,7 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request->all());
     }
 
     /**

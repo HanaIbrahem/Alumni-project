@@ -104,27 +104,29 @@ Route::middleware(['admin'])->group(function () {
 
         //news controllers
         Route::get('/dashbord/news', [NewsController::class,'index'])->name('news.get');
+        Route::get('/dashbord/news/create', [NewsController::class,'create'])->name('news.create');
         Route::post('/dashbord/news/store', [NewsController::class,'store'])->name('news.store');
-
         Route::get('/dashbord/news/edit/{id}', [NewsController::class,'edit'])->name('news.edit');
         Route::put('/dashbord/news/update', [NewsController::class,'update'])->name('news.update');
-        Route::get('/dashbord/news/delet/{id}', [NewsController::class,'destroy'])->name('news.destroy');
+        Route::get('/dashbord/news/destroy/{id}', [NewsController::class,'destroy'])->name('news.destroy');
 
 
         //career controllers
         Route::get('/dashbord/career', [CareerController::class,'index'])->name('career.get');
+        Route::get('/dashbord/career/create', [NewsController::class,'create'])->name('career.create');
         Route::post('/dashbord/career/store', [CareerController::class,'store'])->name('career.store');
         Route::get('/dashbord/career/edit/{id}', [CareerController::class,'edit'])->name('career.edit');
         Route::put('/dashbord/career/update', [CareerController::class,'update'])->name('career.update');
-        Route::get('/dashbord/career/delet/{id}', [CareerController::class,'destroy'])->name('career.destroy');
+        Route::get('/dashbord/career/destroy/{id}', [CareerController::class,'destroy'])->name('career.destroy');
 
 
         //event controllers
-        Route::get('/dashbord/event', [CareerController::class,'index'])->name('event.get');
-        Route::post('/dashbord/event/store', [CareerController::class,'store'])->name('event.store');
-        Route::get('/dashbord/event/edit/{id}', [CareerController::class,'edit'])->name('event.edit');
-        Route::put('/dashbord/event/update', [CareerController::class,'update'])->name('event.update');
-        Route::get('/dashbord/event/delet/{id}', [CareerController::class,'destroy'])->name('event.destroy');
+        Route::get('/dashbord/event', [EventController::class,'index'])->name('event.get');
+        Route::get('/dashbord/event/create', [EventController::class,'create'])->name('event.create');
+        Route::post('/dashbord/event/store', [EventController::class,'store'])->name('event.store');
+        Route::get('/dashbord/event/edit/{id}', [EventController::class,'edit'])->name('event.edit');
+        Route::put('/dashbord/event/update', [EventController::class,'update'])->name('event.update');
+        Route::get('/dashbord/event/destroy/{id}', [EventController::class,'destroy'])->name('event.destroy');
     });
 
     

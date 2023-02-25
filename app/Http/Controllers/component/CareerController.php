@@ -15,6 +15,7 @@ class CareerController extends Controller
     public function index()
     {
         //
+        return view('admin.components.career.career');
     }
 
     /**
@@ -25,6 +26,7 @@ class CareerController extends Controller
     public function create()
     {
         //
+        return view('admin.components.career.career-create');
     }
 
     /**
@@ -58,6 +60,7 @@ class CareerController extends Controller
     public function edit($id)
     {
         //
+        return view('admin.components.career.career-edit');
     }
 
     /**

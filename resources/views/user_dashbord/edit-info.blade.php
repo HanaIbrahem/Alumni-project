@@ -128,7 +128,7 @@ $department=Department::find($userdata->department);
 
 
                                 <div id="container2">
-           
+        
                                     <textarea name="about" type="text" id="editor" cols="30" rows="50">
                                         {!!$userdata->about!!}
                                     </textarea>
@@ -167,7 +167,6 @@ output.onload = function() {
 };
 
 </script>
-
 
 
 @endsection

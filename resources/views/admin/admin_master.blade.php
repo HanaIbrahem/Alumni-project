@@ -129,10 +129,7 @@
     <script src="{{asset('backend/js/validate.min.js')}}"></script>
    
      
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-   <script>
-    
-</script>
+
   <script>
    @if(Session::has('message'))
    var type = "{{ Session::get('alert-type','info') }}"
@@ -304,7 +301,7 @@
      });
  </script>
   
- <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script>
+ {{-- <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script> --}}
 
   
     </body>
