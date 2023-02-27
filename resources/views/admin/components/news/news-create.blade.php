@@ -125,7 +125,7 @@
                     required : true,
                 }, image: {
                     required : true,
-                }, detail: {
+                }, description: {
                     required : true,
                 }, type: {
                     required : true,
@@ -142,8 +142,8 @@
                     required : 'Please Choose Image',
                 },
                 
-                detail: {
-                    required : 'Detail Required    ',
+                description: {
+                    required : 'Please Enter Title    ',
 
                 },
                 type: {

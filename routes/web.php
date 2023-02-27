@@ -113,7 +113,7 @@ Route::middleware(['admin'])->group(function () {
 
         //career controllers
         Route::get('/dashbord/career', [CareerController::class,'index'])->name('career.get');
-        Route::get('/dashbord/career/create', [NewsController::class,'create'])->name('career.create');
+        Route::get('/dashbord/career/create', [CareerController::class,'create'])->name('career.create');
         Route::post('/dashbord/career/store', [CareerController::class,'store'])->name('career.store');
         Route::get('/dashbord/career/edit/{id}', [CareerController::class,'edit'])->name('career.edit');
         Route::put('/dashbord/career/update', [CareerController::class,'update'])->name('career.update');

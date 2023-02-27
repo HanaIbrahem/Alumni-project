@@ -66,8 +66,36 @@
                                     placeholder="Title Here!"></textarea>                                    </div>
                                 </div>
                               
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Type of Career</label> <br>
+                                    <div class="col-sm-10">
+                                    <input class="form-control bg-light " name="type" type="text"
+                                    placeholder="Type Here!" >                 
+                                    </div>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Company Name</label> <br>
+                                    <div class="col-sm-10">
+                                    <input class="form-control bg-light " name="company_name" type="text"
+                                    placeholder="Type Here!">                 
+                                    </div>
+                                </div>
 
-                                <div class="input-group mb-3 mt-4  form-group">
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Salary</label> <br>
+                                    <div class="col-sm-10">
+                                    <input class="form-control bg-light " name="salary" type="text"
+                                    placeholder="Type Here!">                 
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-danger">Expire Date</label> <br>
+                                    <div class="col-sm-10">
+                                    <input type="date" class="datepicker-default form-control picker__input" name="expiredate" id="">
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3 mt-4 col-md-10  form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Upload Image</span>
                                     </div>
@@ -76,7 +104,9 @@
                                         class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
-                                    <img src="" id="output" alt="" style="">
+                                </div>
+                                <div class="input-group mb-3 mt-4 form-group " >
+                                    <img src="" id="output" alt="" style="max-height: 200px" style="">
                                 </div>
                                 
                                 
@@ -85,7 +115,7 @@
                                 <div class="form-group" >
                                     <label class="col-sm-2 col-form-label card-title text-primary">Description</label><br>
                                     <div class="col-sm-12 ">
-                                        <textarea name="description" type="text"  id="editor" cols="30" rows="20">
+                                        <textarea name="detail" type="text"  id="editor" cols="30" rows="20">
                                             
                                         </textarea>
                                     </div>
@@ -119,7 +149,18 @@
                     required : true,
                 }, description: {
                     required : true,
-                }, 
+                }, type: {
+                    required : true,
+                }, salary: {
+                    required : true,
+                }, company_name: {
+                    required : true,
+                }, expiredate:{
+                    required : true,
+
+                }
+                
+                
             },
             messages :{
                 title: {
@@ -134,6 +175,23 @@
                     required : 'Please Enter Title    ',
 
                 },
+                type: {
+                    required : 'Please Enter Type of News    ',
+
+                },salary:{
+                    required : 'Please Enter Salary    ',
+
+                },company_name:{
+                    required : 'Please Enter Company Name',
+
+                },salary:{
+                    required : 'Please Enter Salary    ',
+
+                },expiredate:{
+                    required : 'Please Enter Expire Date    ',
+
+                }
+
             },
             errorElement : 'span', 
             errorPlacement: function (error,element) {
