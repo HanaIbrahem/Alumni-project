@@ -568,4 +568,3 @@
 <script src="{{asset('backend/js/demo.js')}}"></script>
 <script src="{{asset('backend/js/styleSwitcher.js')}}"></script>
 @endsection
-

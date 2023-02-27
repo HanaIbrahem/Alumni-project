@@ -55,34 +55,45 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="{{route('news.store')}}" method="post" id="myForm">
+                            <form action="{{route('news.store')}}" method="post"
+                            enctype="multipart/form-data" id="myForm">
                                 @csrf
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-form-label">Title</label> <br>
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Title</label> <br>
                                     <div class="col-sm-10">
-                                    <textarea class="form-control " name="title" rows="4" id="comment" style="height: 100px;"
+                                    <textarea class="form-control bg-light " name="title" rows="4" id="comment" style="height: 100px;"
                                     placeholder="Title Here!"></textarea>                                    </div>
                                 </div>
                               
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Type of news</label> <br>
+                                    <div class="col-sm-10">
+                                    <input class="form-control bg-light " name="type" type="text"
+                                    placeholder="Type Here!">                 
+                                    </div>
+                                </div>
 
-                                <div class="input-group mb-3 form-group">
+                                <div class="input-group mb-3 mt-4  form-group col-sm-10">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Upload Image</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file"name="image"  id="image" accept="image/*" onchange="loadFile(event)"
+                                        <input type="file" name="image"  id="image" accept="image/*" onchange="loadFile(event)"
                                         class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
+                                <div class="input-group mb-3 mt-4 form-group " >
+                                    <img src="" id="output" alt="" style="max-height: 200px" style="">
+                                </div>
                                 
-                                <img src="" id="output" alt="" style="width:500px;height:400px">
+                                
 
 
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-form-label">Description</label><br>
-                                    <div class="col-sm-10 ">
-                                        <textarea name="description" type="text" id="editor" cols="30" rows="20">
+                                <div class="form-group" >
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Description</label><br>
+                                    <div class="col-sm-12 ">
+                                        <textarea name="detail" type="text"  id="editor" cols="30" rows="20">
                                             
                                         </textarea>
                                     </div>
@@ -114,9 +125,13 @@
                     required : true,
                 }, image: {
                     required : true,
-                }, description: {
+                }, detail: {
+                    required : true,
+                }, type: {
                     required : true,
                 }, 
+                
+                
             },
             messages :{
                 title: {
@@ -127,8 +142,12 @@
                     required : 'Please Choose Image',
                 },
                 
-                description: {
-                    required : 'Please Enter Title    ',
+                detail: {
+                    required : 'Detail Required    ',
+
+                },
+                type: {
+                    required : 'Please Enter Type of News    ',
 
                 },
             },

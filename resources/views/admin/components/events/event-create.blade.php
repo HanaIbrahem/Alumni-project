@@ -2,6 +2,7 @@
 
 @section('admen')
 
+
 <div class="content-body">
     <div class="container-fluid">
 
@@ -50,42 +51,33 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Post News</h4>
+                        <h4 class="card-title">Post a Career</h4>
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="{{route('news.update')}}" method="post"
-                            enctype="multipart/form-data" id="myForm">
+                            <form action="{{route('event.store')}}" method="post" enctype="multipart/form-data" 
+                             id="myForm">
                                 @csrf
-                                @method("PUT")
-                                <input type="hidden" name="id" value="{{$news->id}}">
+
+                                @method("POST")
                                 <div class="form-group mb-4">
                                     <label class="col-sm-2 col-form-label card-title text-primary">Title</label> <br>
                                     <div class="col-sm-10">
-                                    <textarea class="form-control bg-light " name="title"
-                                     rows="4" id="comment" style="height: 100px;" 
-                                    placeholder="Title Here!">{{$news->title}}</textarea></div>
+                                    <textarea class="form-control bg-light " name="title" rows="4" id="comment" style="height: 100px;"
+                                    placeholder="Title Here!"></textarea>                                    </div>
                                 </div>
                               
-                                <div class="form-group mb-4">
-                                    <label class="col-sm-2 col-form-label card-title text-primary">Type of news</label> <br>
-                                    <div class="col-sm-10">
-                                    <input class="form-control bg-light " name="type" type="text"
-                                    placeholder="Type Here!" value="{{$news->type}}">                 
-                                    </div>
-                                </div>
-                                <div class="input-group mb-3 mt-4  form-group col-sm-10">
+
+                                <div class="input-group mb-3 mt-4  form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Upload Image</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" name="image"  id="image" accept="image/*" onchange="loadFile(event)"
+                                        <input type="file"name="image"  id="image" accept="image/*" onchange="loadFile(event)"
                                         class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
-                                </div>
-                                <div class="input-group mb-3 mt-4 form-group " >
-                                    <img src="{{asset('upload/images/news/'.$news->image)}}" id="output" alt="" style="max-height: 200px" style="">
+                                    <img src="" id="output" alt="" style="">
                                 </div>
                                 
                                 
@@ -94,8 +86,8 @@
                                 <div class="form-group" >
                                     <label class="col-sm-2 col-form-label card-title text-primary">Description</label><br>
                                     <div class="col-sm-12 ">
-                                        <textarea name="detail" type="text"  id="editor" cols="30" rows="20">
-                                            {!! $news->detail!!}
+                                        <textarea name="description" type="text"  id="editor" cols="30" rows="20">
+                                            
                                         </textarea>
                                     </div>
                                 </div>
@@ -104,7 +96,7 @@
                                 
 
 
-                                <input type="submit" value="Update" class="btn btn-primary">
+                                <input type="submit" value="Post" class="btn btn-primary">
                                
                             </form>
                         </div>
@@ -124,27 +116,23 @@
             rules: {
                 title: {
                     required : true,
-                },  description: {
+                }, image: {
                     required : true,
-                }, type: {
+                }, description: {
                     required : true,
                 }, 
-                
-                
             },
             messages :{
                 title: {
                     required : 'Please Enter Title    ',
                 },
 
-                
+                image: {
+                    required : 'Please Choose Image',
+                },
                 
                 description: {
                     required : 'Please Enter Title    ',
-
-                },
-                type: {
-                    required : 'Please Enter Type of News    ',
 
                 },
             },

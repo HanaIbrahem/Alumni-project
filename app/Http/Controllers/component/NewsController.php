@@ -4,6 +4,14 @@ namespace App\Http\Controllers\component;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\News;
+use Carbon\Carbon;
+
+use Illuminate\Validation\Rules\File;
+use Illuminate\Validation\Rules;
+use Illuminate\Http\RedirectResponse;
+
+use Image;
 
 class NewsController extends Controller
 {
@@ -38,7 +46,32 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
+        // dd($request->all());
+        
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'detail' => ['required', 'string'],
+            'type' => ['required', 'string','max:255'],
+            'image'=>['required',File::image()],
+
+        ]);
+
+        $image = $request->file('image');
+
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+        $save_url =$name_gen;
+        $image->move(public_path('upload/images/news/'), $name_gen);
+
+        $news = News::create([
+            'title' => $request->title,
+            'detail' => $request->detail,
+            'type' => $request->type,
+            'image' => $save_url,
+            'created_at'=>Carbon::now(),
+        ]);
+        
+       
+        return  redirect()->back();
     }
 
     /**
@@ -61,6 +94,9 @@ class NewsController extends Controller
     public function edit($id)
     {
         //
+        $news=News::findOrFail($id);
+
+        return view('admin.components.news.news-edit',compact('news'));
     }
 
     /**
@@ -70,9 +106,40 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //$faculty_id=$request->ggg;
+
+    
+        $news=News::findOrFail($request->id);
+        if($request->file('image')){
+
+            $request->validate([
+                'image' => ['required', File::image()],
+            
+            ]);
+
+            //remove recent imge 
+            
+            $imgh = 'upload/images/news/'.$news->image;
+            unlink($imgh);
+    
+
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url = $name_gen;
+            $image->move(public_path('upload/images/news/'), $name_gen);
+            $news->image= $save_url;
+        }
+
+        $news->type = $request->input('type');
+        $news->title= $request->input('title');
+        $news->detail=$request->input('detail');
+        $news->save();
+        return  redirect()->route('news.get');
+
+
+        
     }
 
     /**
@@ -84,5 +151,13 @@ class NewsController extends Controller
     public function destroy($id)
     {
         //
+        $news=News::find($id);
+
+        // for deleting image with is
+        $imgh = 'upload/images/news/'.$news->image;
+        unlink($imgh);
+
+        $news->delete();
+        return  redirect()->back();
     }
 }

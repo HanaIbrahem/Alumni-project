@@ -51,21 +51,23 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Post News</h4>
+                        <h4 class="card-title">Post a Career</h4>
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="{{route('news.store')}}" method="post" id="myForm">
+                            <form action="{{route('career.store')}}" enctype="multipart/form-data"   method="post" id="myForm">
                                 @csrf
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-form-label">Title</label> <br>
+
+                                @method("POST")
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Title</label> <br>
                                     <div class="col-sm-10">
-                                    <textarea class="form-control " name="title" rows="4" id="comment" style="height: 100px;"
+                                    <textarea class="form-control bg-light " name="title" rows="4" id="comment" style="height: 100px;"
                                     placeholder="Title Here!"></textarea>                                    </div>
                                 </div>
                               
 
-                                <div class="input-group mb-3 form-group">
+                                <div class="input-group mb-3 mt-4  form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Upload Image</span>
                                     </div>
@@ -74,15 +76,16 @@
                                         class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
+                                    <img src="" id="output" alt="" style="">
                                 </div>
                                 
-                                <img src="" id="output" alt="" style="width:500px;height:400px">
+                                
 
 
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-form-label">Description</label><br>
-                                    <div class="col-sm-10 ">
-                                        <textarea name="description" type="text" id="editor" cols="30" rows="20">
+                                <div class="form-group" >
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Description</label><br>
+                                    <div class="col-sm-12 ">
+                                        <textarea name="description" type="text"  id="editor" cols="30" rows="20">
                                             
                                         </textarea>
                                     </div>
