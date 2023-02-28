@@ -153,11 +153,12 @@
                     required : true,
                 }, salary: {
                     required : true,
+                    number:true,
                 }, company_name: {
                     required : true,
                 }, expiredate:{
                     required : true,
-
+                    date: true,
                 }
                 
                 
@@ -180,7 +181,6 @@
 
                 },salary:{
                     required : 'Please Enter Salary    ',
-
                 },company_name:{
                     required : 'Please Enter Company Name',
 
@@ -189,6 +189,7 @@
 
                 },expiredate:{
                     required : 'Please Enter Expire Date    ',
+                    
 
                 }
 

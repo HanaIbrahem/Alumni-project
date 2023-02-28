@@ -150,10 +150,12 @@
                     required : true,
                 }, salary: {
                     required : true,
+                    number:true,
                 }, company_name: {
                     required : true,
                 }, expiredate:{
                     required : true,
+                    date:true,
 
                 }
                 

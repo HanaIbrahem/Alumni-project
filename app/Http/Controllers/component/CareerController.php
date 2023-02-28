@@ -112,7 +112,39 @@ class CareerController extends Controller
     public function update(Request $request)
     {
         //
-        dd($request->all());
+        $career=Career::findOrFail($request->id);
+        if($request->file('image')){
+
+            $request->validate([
+                'image' => ['required', File::image()],
+            
+            ]);
+
+            //remove recent imge 
+            
+            $imgh = 'upload/images/career/'.$news->image;
+            unlink($imgh);
+    
+
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url = $name_gen;
+            $image->move(public_path('upload/images/career/'), $name_gen);
+            $news->image= $save_url;
+        }
+
+
+
+         $career->title = $request->input('title');
+         $career->detail = $request->input('detail');
+         $career->type = $request->input('type');
+         $career->company_name=$request->input('company_name');
+         $career->salary_range=$request->input('salary');
+         $career->duration=$request->input('expiredate');
+        
+        $career->save();
+        return  redirect()->route('career.get');
+
     }
 
     /**
@@ -124,5 +156,14 @@ class CareerController extends Controller
     public function destroy($id)
     {
         //
+        //
+        $career=News::find($id);
+
+        // for deleting image with it
+        $imgh = 'upload/images/career/'.$career->image;
+        unlink($imgh);
+
+        $career->delete();
+        return  redirect()->back();
     }
 }
