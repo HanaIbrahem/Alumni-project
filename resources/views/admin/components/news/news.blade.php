@@ -1,12 +1,16 @@
 @extends('admin.admin_master')
 
+@section("database-style-libs")
+<link href="{{asset('backend/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+@endsection
+
+
 @section('admen')
 @php
     use App\Models\News;
     $news=News::all();
     $i=1;
 @endphp
-<link href="{{asset('backend/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 
 <div class="content-body">
     <div class="container-fluid">
@@ -109,11 +113,10 @@
     </div>
 </div>
 
-<script src="{{asset('backend/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('backend/js/plugins-init/datatables.init.js')}}"></script>
-<script src="{{asset('backend/js/custom.min.js')}}"></script>
-<script src="{{asset('backend/js/deznav-init.js')}}"></script>
-<script src="{{asset('backend/js/demo.js')}}"></script>
-<script src="{{asset('backend/js/styleSwitcher.js')}}"></script>
 @endsection
 
+{{-- To import libraris --}}
+@section("database-libs-import")
+<script src="{{asset('backend/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('backend/js/plugins-init/datatables.init.js')}}"></script>
+@endsection

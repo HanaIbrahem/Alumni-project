@@ -1,8 +1,6 @@
 @extends('admin.admin_master')
 
 @section('admen')
-{{-- validation javascript code support --}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <div class="content-body">

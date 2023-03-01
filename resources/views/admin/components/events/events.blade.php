@@ -1,7 +1,11 @@
 @extends('admin.admin_master')
 
-@section('admen')
+@section("database-style-libs")
 <link href="{{asset('backend/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+@endsection
+
+
+@section('admen')
 
 
 @php
@@ -115,10 +119,11 @@
     </div>
 </div>
 
+
+@endsection
+
+{{-- To import libraris --}}
+@section("database-libs-import")
 <script src="{{asset('backend/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('backend/js/plugins-init/datatables.init.js')}}"></script>
-<script src="{{asset('backend/js/custom.min.js')}}"></script>
-<script src="{{asset('backend/js/deznav-init.js')}}"></script>
-<script src="{{asset('backend/js/demo.js')}}"></script>
-<script src="{{asset('backend/js/styleSwitcher.js')}}"></script>
 @endsection
