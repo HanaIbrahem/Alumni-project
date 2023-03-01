@@ -51,15 +51,27 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Post a Career</h4>
+                        <h4 class="card-title">Post an Event</h4>
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="{{route('event.store')}}" method="post" enctype="multipart/form-data" 
-                             id="myForm">
+                            <form action="{{route('event.store')}}" enctype="multipart/form-data"   method="post" id="myForm">
                                 @csrf
 
                                 @method("POST")
+
+                                @if (count($errors))
+                                <div class="alert alert-danger alert-dismissible alert-alt solid fade show">
+                                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                                    </button>
+                                    <strong>Error!</strong> 
+                                    <ul>
+                                    @foreach ($errors->all() as $message )
+                                    <li>{{ $message}}</li>
+                                    @endforeach
+                                    </ul>
+                                </div>
+                                @endif
                                 <div class="form-group mb-4">
                                     <label class="col-sm-2 col-form-label card-title text-primary">Title</label> <br>
                                     <div class="col-sm-10">
@@ -67,8 +79,28 @@
                                     placeholder="Title Here!"></textarea>                                    </div>
                                 </div>
                               
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Type of Event</label> <br>
+                                    <div class="col-sm-10">
+                                    <input class="form-control bg-light " name="type" type="text"
+                                    placeholder="Type Here!" >                 
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-danger">Start Date</label> <br>
+                                    <div class="col-sm-10">
+                                    <input type="datetime-local" class="datepicker-default form-control picker__input" name="startdate" id="">
+                                    </div>
+                                </div>
 
-                                <div class="input-group mb-3 mt-4  form-group">
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-danger">Expire Date</label> <br>
+                                    <div class="col-sm-10">
+                                    <input type="datetime-local" class="datepicker-default form-control picker__input" name="expiredate" id="">
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3 mt-4 col-md-10  form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Upload Image</span>
                                     </div>
@@ -77,7 +109,9 @@
                                         class="custom-file-input">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
-                                    <img src="" id="output" alt="" style="">
+                                </div>
+                                <div class="input-group mb-3 mt-4 form-group " >
+                                    <img src="" id="output" alt="" style="max-height: 200px" style="">
                                 </div>
                                 
                                 
@@ -86,7 +120,7 @@
                                 <div class="form-group" >
                                     <label class="col-sm-2 col-form-label card-title text-primary">Description</label><br>
                                     <div class="col-sm-12 ">
-                                        <textarea name="description" type="text"  id="editor" cols="30" rows="20">
+                                        <textarea name="detail" type="text"  id="editor" cols="30" rows="20">
                                             
                                         </textarea>
                                     </div>
@@ -118,9 +152,19 @@
                     required : true,
                 }, image: {
                     required : true,
-                }, description: {
+                }, detail: {
                     required : true,
-                }, 
+                }, type: {
+                    required : true,
+                }, expiredate:{
+                    required : true,
+                    date: true,
+                }, startdate:{
+                    required : true,
+                    date: true,
+                }
+                
+                
             },
             messages :{
                 title: {
@@ -131,10 +175,19 @@
                     required : 'Please Choose Image',
                 },
                 
-                description: {
+                detail: {
                     required : 'Please Enter Title    ',
 
                 },
+                type: {
+                    required : 'Please Enter Type of Event    ',
+
+                },expiredate:{
+                    required : 'Please Enter Expire Date    ',
+                },startdate:{
+                    required : 'Please Enter Start Date    ',
+                }
+
             },
             errorElement : 'span', 
             errorPlacement: function (error,element) {

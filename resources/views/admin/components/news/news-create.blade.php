@@ -58,6 +58,19 @@
                             <form action="{{route('news.store')}}" method="post"
                             enctype="multipart/form-data" id="myForm">
                                 @csrf
+
+                                @if (count($errors))
+                                <div class="alert alert-danger alert-dismissible alert-alt solid fade show">
+                                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                                    </button>
+                                    <strong>Error!</strong> 
+                                    <ul>
+                                    @foreach ($errors->all() as $message )
+                                    <li>{{ $message}}</li>
+                                    @endforeach
+                                    </ul>
+                                </div>
+                                @endif
                                 <div class="form-group mb-4">
                                     <label class="col-sm-2 col-form-label card-title text-primary">Title</label> <br>
                                     <div class="col-sm-10">

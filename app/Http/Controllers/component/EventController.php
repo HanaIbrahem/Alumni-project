@@ -5,6 +5,13 @@ namespace App\Http\Controllers\component;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
+use Illuminate\Validation\Rules\File;
+use Illuminate\Validation\Rules;
+use Illuminate\Http\RedirectResponse;
+use App\Models\Events;
+use Carbon\Carbon;
+
 class EventController extends Controller
 {
     /**
@@ -38,6 +45,35 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'detail' => ['required', 'string'],
+            'type' => ['required', 'string','max:255'],
+            'image'=>['required',File::image()],
+        
+            'expiredate' => ['required','date','after:today'],
+            'startdate' => ['required','date','after:today'],
+        ], [
+            'expiredate' => 'The date must be greater than today.',
+        ]);
+        $image = $request->file('image');
+
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+        $save_url =$name_gen;
+        $image->move(public_path('upload/images/event/'), $name_gen);
+
+        $event = Events::create([
+            'title' => $request->title,
+            'detail' => $request->detail,
+            'type' => $request->type,
+            'image' => $save_url,
+            'startdate'=>$request->startdate,
+            'enddate'=>$request->expiredate,
+            'created_at'=>Carbon::now(),
+        ]);
+        
+       
+        return  redirect()->back();
     }
 
     /**
@@ -60,7 +96,8 @@ class EventController extends Controller
     public function edit($id)
     {
         //
-        return view('admin.components.events.event-edit');
+        $event=Events::find($id);
+        return view('admin.components.events.event-edit',compact('event'));
     }
 
     /**
@@ -70,9 +107,41 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+
+        $event=Events::findOrFail($request->id);
+        if($request->file('image')){
+
+            $request->validate([
+                'image' => ['required', File::image()],
+            
+            ]);
+
+            //remove recent imge 
+            
+            $imgh = 'upload/images/event/'.$event->image;
+            unlink($imgh);
+    
+
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url = $name_gen;
+            $image->move(public_path('upload/images/event/'), $name_gen);
+            $event->image= $save_url;
+        }
+
+
+
+         $event->title = $request->input('title');
+         $event->detail = $request->input('detail');
+         $event->type = $request->input('type');
+         $event->enddate=$request->input('expiredate');
+         $event->startdate=$request->input('startdate');
+        
+        $event->save();
+        return  redirect()->route('event.get');
     }
 
     /**
@@ -84,5 +153,13 @@ class EventController extends Controller
     public function destroy($id)
     {
         //
+        $event=Events::find($id);
+
+        // for deleting image with it
+        $imgh = 'upload/images/event/'.$event->image;
+        unlink($imgh);
+
+        $event->delete();
+        return  redirect()->back();
     }
 }

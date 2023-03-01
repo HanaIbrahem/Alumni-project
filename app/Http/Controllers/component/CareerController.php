@@ -53,7 +53,10 @@ class CareerController extends Controller
         
             'company_name' => ['required', 'string','max:255'],
             'salary' => ['required', 'string','max:255'],
-            'expiredate' => ['required', 'date'],
+            'expiredate' => ['required','date','after:today'],
+
+        ], [
+            'expiredate' => 'The date must be greater than today.',
         ]);
 
         $image = $request->file('image');
@@ -122,7 +125,7 @@ class CareerController extends Controller
 
             //remove recent imge 
             
-            $imgh = 'upload/images/career/'.$news->image;
+            $imgh = 'upload/images/career/'.$career->image;
             unlink($imgh);
     
 
@@ -130,7 +133,7 @@ class CareerController extends Controller
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $save_url = $name_gen;
             $image->move(public_path('upload/images/career/'), $name_gen);
-            $news->image= $save_url;
+            $career->image= $save_url;
         }
 
 
