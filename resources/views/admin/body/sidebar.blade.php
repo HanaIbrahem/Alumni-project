@@ -18,12 +18,39 @@
                     <span class="nav-text">Website</span>
                 </a>
                 <ul aria-expanded="false" class="mm-collapse mm-show left" style="">
-                    <li class="mm-active"><a href="{{route('admin.home.setup')}}" class="">Logo & Title</a></li>
+                    <li class="mm-active"><a href="{{route('admin.home.setup')}}" class="">Logo&Title</a></li>
                     <li><a href="{{route('admin.home.faculty')}}">Faculty</a></li>
                     <li><a href="#">Footer</a></li>
                 </ul>
 
             </li>
+            <li class="nav-label">Posts</li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-077-menu-1"></i>
+                    <span class="nav-text">Post</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">News</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('news.get')}}">News List</a></li>
+                            <li><a href="{{route('news.create')}}">Post News</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Career</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('career.get')}}">Career List</a></li>
+                            <li><a href="{{route('career.create')}}">Post Career</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Events</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('event.get')}}">Evants List</a></li>
+                            <li><a href="{{route('event.create')}}">Post Events</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
                
            
         </ul>

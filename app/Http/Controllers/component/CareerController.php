@@ -157,7 +157,7 @@ class CareerController extends Controller
     {
         //
         //
-        $career=News::find($id);
+        $career=Career::find($id);
 
         // for deleting image with it
         $imgh = 'upload/images/career/'.$career->image;
