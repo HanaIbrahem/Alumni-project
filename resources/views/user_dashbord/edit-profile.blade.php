@@ -36,16 +36,16 @@ $department=Department::find($userdata->department);
                                 <div class="form-group">
                                     <input class="form-control form-control-lg" name="current_password" type="password" autocomplete="current-password" 
                                     placeholder="Current Password">
-                                    <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+                                    <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2 text-danger" />
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control"  id="password" name="password" type="password"  autocomplete="new-password" placeholder="New Password">
-                                    <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+                                    <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2 text-danger" />
 
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control form-control-sm" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password"placeholder="confirmation New Password">
-                                    <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+                                    <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2 text-danger" />
 
                                 </div>
                                 <div class="form-group">

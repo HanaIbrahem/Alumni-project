@@ -150,3 +150,15 @@ output.onload = function() {
 </script>
 
 @endsection
+
+@section("profile-editor")
+<script src="{{asset('backend/vendor/ckeditor/ckeditor.js')}}"></script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+@endsection

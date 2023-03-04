@@ -9,6 +9,18 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 
+
+use Faker\Generator as Faker;
+
+// $factory->define(App\News::class, function (Faker $faker) {
+//     return [
+//         'type' => $faker->sentence,
+//         'image' => $Storage::putFile('public/upload/images/news', new File($faker->image('public/upload/images/news/1758982499619655.png', 400, 300, null, false))),
+//         'title' => $faker->sentence,
+//         'detail' => $faker->paragraph,
+//     ];
+// });
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\News>
  */
@@ -16,19 +28,17 @@ class NewsFactory extends Factory
 {
     /**
      * Define the model's default state.
-     *
+     * 
      * @return array<string, mixed>
      */
     public function definition()
     {
         
         return [
-            //
-            'type' => $request->type,
-            'image' => $Storage::putFile('public/avatars', new File($faker->image('public/storage/avatars', 400, 300, null, false))),
-            'title' => $faker->sentence,
-            'detail' => $faker->paragraph,
-            'created_at' => Carbon::now()->subDays(rand(1, 30)),
+            'type' => "k",
+            'image' => $Storage::putFile('public/upload/images/news', new File($faker->image('public/upload/images/news/1758982499619655.png', 400, 300, null, false))),
+            'title' => "kk",
+            'detail' => "k",
         ];
     }
 }

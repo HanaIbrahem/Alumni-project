@@ -107,11 +107,11 @@
 	<script src="{{asset('backend/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 	<script src="{{asset('backend/vendor/global/global.min.js')}}"></script>
 	<!-- Chart piety plugin files -->
-    <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script>
+    {{-- <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script>
 	
 	<!-- Apex Chart -->
 	<script src="{{asset('backend/vendor/apexchart/apexchart.js')}}"></script>
-	
+	 --}}
 	<!-- Dashboard 1 -->
 	<script src="{{asset('backend/js/dashboard/dashboard-1.js')}}"></script>
 	
@@ -136,7 +136,8 @@
 
   @yield("editor")
   
-  
+  @yield("profile-editor")
+
  {{-- <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script> --}}
 
   

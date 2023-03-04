@@ -1,8 +1,4 @@
 
-@php
-$id=Auth::user()->id;
-$userdata=App\Models\user::find($id);
-@endphp
 <div class="header">
     <div class="header-content">
         <nav class="navbar navbar-expand">
@@ -20,13 +16,7 @@ $userdata=App\Models\user::find($id);
                     </div>
                 </div>
                 <ul class="navbar-nav header-right main-notification">
-                    <li class="nav-item dropdown notification_dropdown">
-                        <a class="nav-link bell dz-theme-mode" id="icon" href="#">
-
-                            <i id="icon-light" class="fa fa-sun-o"></i>
-                            <i id="icon-dark" class="fa fa-moon-o"></i>
-                        </a>
-                    </li>
+                    
                    
                     <li class="nav-item dropdown notification_dropdown">
                         <a class="nav-link bell dz-fullscreen" href="#">

@@ -52,7 +52,7 @@ class EventController extends Controller
             'image'=>['required',File::image()],
         
             'expiredate' => ['required','date','after:today'],
-            'startdate' => ['required','date','after:today'],
+            'startdate' => ['required','date','after:expiredate'],
         ], [
             'expiredate' => 'The date must be greater than today.',
         ]);

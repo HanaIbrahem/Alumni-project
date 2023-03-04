@@ -8,6 +8,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\component\NewsController;
 use App\Http\Controllers\component\EventController;
 use App\Http\Controllers\component\CareerController;
+use App\Http\Controllers\component\GallaryController;
+
 
 // Pages 
 use App\Http\Controllers\Home\HomeSetupController;
@@ -127,6 +129,14 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashbord/event/edit/{id}', [EventController::class,'edit'])->name('event.edit');
         Route::put('/dashbord/event/update', [EventController::class,'update'])->name('event.update');
         Route::get('/dashbord/event/destroy/{id}', [EventController::class,'destroy'])->name('event.destroy');
+
+        //Gallary controllers
+        Route::get('/dashbord/gallary', [GallaryController::class,'index'])->name('gallary.get');
+        Route::get('/dashbord/gallary/create', [GallaryController::class,'create'])->name('gallary.create');
+        Route::post('/dashbord/gallary/store', [GallaryController::class,'store'])->name('gallary.store');
+        Route::get('/dashbord/gallary/edit/{id}', [GallaryController::class,'edit'])->name('gallary.edit');
+        Route::put('/dashbord/gallary/update', [GallaryController::class,'update'])->name('gallary.update');
+        Route::get('/dashbord/gallary/destroy/{id}', [GallaryController::class,'destroy'])->name('gallary.destroy');
     });
 
     

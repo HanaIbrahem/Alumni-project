@@ -9,7 +9,6 @@ $department=Department::find($userdata->department);
 @extends('user_dashbord.master')
 
 @section('main')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="content-body">
     <div class="container-fluid">
@@ -61,6 +60,19 @@ $department=Department::find($userdata->department);
 
                         @csrf
                         @method('PUT')
+
+                        @if (count($errors))
+                        <div class="alert alert-danger alert-dismissible alert-alt solid fade show">
+                            <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                            </button>
+                            <strong>Error!</strong> 
+                            <ul>
+                            @foreach ($errors->all() as $message )
+                            <li>{{ $message}}</li>
+                            @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <div class="profile-head">
                             <div class="photo-content">
                                 <div class="cover-photo" style="background-image:url({{(!empty($userdata->cover_image))?url('upload/images/cover/'.$userdata->cover_image):
@@ -170,3 +182,16 @@ output.onload = function() {
 
 
 @endsection
+
+
+@section("editor")
+<script src="{{asset('backend/vendor/ckeditor/ckeditor.js')}}"></script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+=@endsection

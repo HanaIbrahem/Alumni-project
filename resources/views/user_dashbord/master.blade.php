@@ -1,4 +1,7 @@
 @php
+
+    $id=Auth::user()->id;
+    $userdata=App\Models\user::find($id);
     use App\Models\University;
     $websitesetup=University::find(1);
 @endphp
@@ -14,16 +17,14 @@
         <!-- App favicon -->
         
       
-        <link rel="stylesheet" href="{{asset('backend/vendor/chartist/css/chartist.min.css')}}">
+        {{-- <link rel="stylesheet" href="{{asset('backend/vendor/chartist/css/chartist.min.css')}}"> --}}
         <link href="{{asset('backend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
-        <link href="{{asset('backend/vendor/owl-carousel/owl.carousel.css" rel="stylesheet')}}">
+        {{-- <link href="{{asset('backend/vendor/owl-carousel/owl.carousel.css" rel="stylesheet')}}"> --}}
         <link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
       
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
         <link rel="website icon" type="png" href="{{asset('upload/brand-logo.png')}}">
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
         {{-- Tetxt editor --}}
 
@@ -102,29 +103,29 @@
     ***********************************-->
     <!-- Required vendors -->
 	<script src="{{asset('backend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-	<script src="{{asset('backend/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+	{{-- <script src="{{asset('backend/vendor/chart.js/Chart.bundle.min.js')}}"></script> --}}
 	<script src="{{asset('backend/vendor/global/global.min.js')}}"></script>
 	<!-- Chart piety plugin files -->
-    <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script>
+    {{-- <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script> --}}
 	
 	<!-- Apex Chart -->
-	<script src="{{asset('backend/vendor/apexchart/apexchart.js')}}"></script>
+	{{-- <script src="{{asset('backend/vendor/apexchart/apexchart.js')}}"></script> --}}
 	
 	<!-- Dashboard 1 -->
-	<script src="{{asset('backend/js/dashboard/dashboard-1.js')}}"></script>
+	{{-- <script src="{{asset('backend/js/dashboard/dashboard-1.js')}}"></script> --}}
 	
-	<script src="{{asset('backend/vendor/owl-carousel/owl.carousel.js')}}"></script>
+	{{-- <script src="{{asset('backend/vendor/owl-carousel/owl.carousel.js')}}"></script> --}}
     <script src="{{asset('backend/js/custom.min.js')}}"></script>
 	<script src="{{asset('backend/js/deznav-init.js')}}"></script>
-    <script src="{{asset('backend/js/demo.js')}}"></script>
-    <script src="{{asset('backend/js/styleSwitcher.js')}}"></script>
+    {{-- <script src="{{asset('backend/js/demo.js')}}"></script> --}}
+    {{-- <script src="{{asset('backend/js/styleSwitcher.js')}}"></script> --}}
     
 
     <script src="{{asset('backend/js/validate.min.js')}}"></script>
 
     {{-- form editor --}}  
-    <script src="{{asset('backend/vendor/ckeditor/ckeditor.js')}}"></script>
 
+    @yield("editor")
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/decoupled-document/ckeditor.js"></script> --}}
 
     
@@ -138,45 +139,7 @@
             },1500)
         });
     </script>
-
-<script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
-
    
-
-   
-
-  <script>
-   @if(Session::has('message'))
-   var type = "{{ Session::get('alert-type','info') }}"
-   switch(type){
-      case 'info':
-      toastr.info(" {{ Session::get('message') }} ");
-      break;
-  
-      case 'success':
-      toastr.success(" {{ Session::get('message') }} ");
-      break;
-  
-      case 'warning':
-      toastr.warning(" {{ Session::get('message') }} ");
-      break;
-  
-      case 'error':
-      toastr.error(" {{ Session::get('message') }} ");
-      break; 
-   }
-   @endif 
-  </script>
- 
-  
-
-  
     </body>
 
 </html>

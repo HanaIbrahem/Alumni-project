@@ -1,9 +1,4 @@
 
-@php
-$id=Auth::user()->id;
-$userdata=App\Models\user::find($id);
-@endphp
-
 <div class="deznav">
     <div class="deznav-scroll mm-active ps ps--active-y">
         <div class="main-profile">
