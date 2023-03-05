@@ -101,7 +101,7 @@
                              <label for="example-text-input" class="col-sm-2 col-form-label">  </label>
                             <div class="col-sm-10" >
                                   <img id="showImage" class="rounded avatar-lg" 
-                                  style="max-width: 300px;max-height:300px" src="{{  url('upload/no_image.jpg') }}" alt="Card image cap">
+                                  style="max-width:100px;max-height:100px" src="{{  url('upload/no_image.jpg') }}" alt="Card image cap">
                             </div>
                            </div>
                         <!-- end row -->

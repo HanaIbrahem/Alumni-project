@@ -48,6 +48,13 @@
                             <li><a href="{{route('event.create')}}">Post Events</a></li>
                         </ul>
                     </li>
+
+                    <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Gallary</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('gallary.get')}}">Gallary List</a></li>
+                            <li><a href="{{route('gallary.create')}}">Add Image</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
 

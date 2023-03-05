@@ -121,6 +121,8 @@
     {{-- <script src="{{asset('backend/js/styleSwitcher.js')}}"></script> --}}
     
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="{{asset('backend/js/validate.min.js')}}"></script>
 
     {{-- form editor --}}  

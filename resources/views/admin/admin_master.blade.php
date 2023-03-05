@@ -18,9 +18,9 @@
         <!-- App favicon -->
         
       
-        <link rel="stylesheet" href="{{asset('backend/vendor/chartist/css/chartist.min.css')}}">
+        {{-- <link rel="stylesheet" href="{{asset('backend/vendor/chartist/css/chartist.min.css')}}"> --}}
         <link href="{{asset('backend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
-        <link href="{{asset('backend/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+        {{-- <link href="{{asset('backend/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet"> --}}
         <link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
       
 
@@ -104,7 +104,7 @@
     ***********************************-->
     <!-- Required vendors -->
 	<script src="{{asset('backend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-	<script src="{{asset('backend/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+	{{-- <script src="{{asset('backend/vendor/chart.js/Chart.bundle.min.js')}}"></script> --}}
 	<script src="{{asset('backend/vendor/global/global.min.js')}}"></script>
 	<!-- Chart piety plugin files -->
     {{-- <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script>
@@ -113,13 +113,13 @@
 	<script src="{{asset('backend/vendor/apexchart/apexchart.js')}}"></script>
 	 --}}
 	<!-- Dashboard 1 -->
-	<script src="{{asset('backend/js/dashboard/dashboard-1.js')}}"></script>
+	{{-- <script src="{{asset('backend/js/dashboard/dashboard-1.js')}}"></script> --}}
 	
-	<script src="{{asset('backend/vendor/owl-carousel/owl.carousel.js')}}"></script>
+	{{-- <script src="{{asset('backend/vendor/owl-carousel/owl.carousel.js')}}"></script> --}}
     <script src="{{asset('backend/js/custom.min.js')}}"></script>
 	<script src="{{asset('backend/js/deznav-init.js')}}"></script>
-    <script src="{{asset('backend/js/demo.js')}}"></script>
-    <script src="{{asset('backend/js/styleSwitcher.js')}}"></script>
+    {{-- <script src="{{asset('backend/js/demo.js')}}"></script> --}}
+    {{-- <script src="{{asset('backend/js/styleSwitcher.js')}}"></script> --}}
     
       {{-- Swit alert code js --}}
       <script src="{{ asset('backend/js/code.js') }}"></script>

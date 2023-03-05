@@ -21,7 +21,8 @@ class GallaryController extends Controller
     public function index()
     {
         //
-        return view('admin.components.gallary.gallary');
+        $gallary=Gallary::all();
+        return view('admin.components.gallary.gallary',compact('gallary'));
     }
 
     /**
@@ -50,6 +51,8 @@ class GallaryController extends Controller
          
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
+            'image' => ['required'],
+
         ]);
 
        $image = $request->file('image');
@@ -95,7 +98,10 @@ class GallaryController extends Controller
     public function edit($id)
     {
         //
-        return view('admin.components.gallary.gallary-edit',compact());
+    
+        $gallary=Gallary::find($id);
+
+        return view('admin.components.gallary.gallary-edit',compact('gallary'));
 
     }
 
@@ -106,9 +112,44 @@ class GallaryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+
+          
+    
+
+        $gallary=Gallary::findOrFail($request->id);
+        if($request->file('image')){
+
+            $request->validate([
+                'image' => ['required', File::image()],
+            
+            ]);
+
+            //remove recent imge 
+            
+            $imgh = 'upload/images/gallary/'.$gallary->image;
+            unlink($imgh);
+    
+
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url = $name_gen;
+            $image->move(public_path('upload/images/gallary/'), $name_gen);
+            $gallary->image= $save_url;
+        }   
+
+    
+
+
+        $gallary->title = $request->input('title');
+
+        
+        $gallary->save();
+        return  redirect()->route('gallary.get');
+    
+
     }
 
     /**
@@ -120,5 +161,11 @@ class GallaryController extends Controller
     public function destroy($id)
     {
         //
+        $gallary=Gallary::findOrFail($id);
+        // To Remove Image  from folder
+        $imgh = 'upload/images/gallary/'.$gallary->image;
+        unlink($imgh);
+        $gallary->delete();
+        return redirect()->back();
     }
 }
