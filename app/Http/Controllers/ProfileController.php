@@ -128,5 +128,28 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    // Update second email !! Suporting email for users
+    public function showForm(){
+        
+        return view('user_dashbord.second-email');
+    }
+
+    public function updateemail(Request $request)
+    {
+        $request->validate([
+            'second_email' => 'required|email|unique:users,second_email',
+        ]);
+    
+        auth()->user()->update([
+            'second_email' => $request->input('second_email'),
+            'second_email_verified_at' => null,
+        ]);
+    
+        // auth()->user()->sendEmailVerificationNotification('second_email');
+    
+        return redirect()->back();
+    }
+
     
 }

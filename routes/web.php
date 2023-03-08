@@ -179,9 +179,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/delete', [ProfileController::class, 'getdestroy'])->name('profile.destroy.get');
     Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    
+    // user information
     Route::get('/profile/info', [ProfileController::class, 'EditInfo'])->name('profile.edit.info');
     Route::put('/profile/update/info', [ProfileController::class, 'UpdateInfo'])->name('profile.update.info');
+
+    // User second email
+
+    Route::get('profile/second-email', [ProfileController::class, 'showForm'])->name('second-email.form');
+    Route::post('profile/second-email', [ProfileController::class, 'updateemail'])->name('second-email.update');
+    
+
 
 });
 

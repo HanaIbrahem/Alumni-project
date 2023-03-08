@@ -17,10 +17,18 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $enumValues = ['Teacher','Alumni', 'Student'];
+        $gender =['male', 'female'];
+
         return [
-            'name' => fake()->name(),
+            'name' => fake()->name(1),
+            'lname' => fake()->name(1),
+            'second_email' => fake()->unique()->safeEmail(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'gender'=> fake()->randomElement($gender),
+            'department'=>"1",
+            'type'=>fake()->randomElement($enumValues),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
