@@ -24,7 +24,7 @@
                 </ul>
 
             </li>
-            <li class="nav-label">Posts</li>
+            <li class="nav-label">App</li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                 <i class="flaticon-077-menu-1"></i>
                     <span class="nav-text">Post</span>
@@ -56,9 +56,17 @@
                         </ul>
                     </li>
                 </ul>
-            </li>
-
                
+            </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class=" fa fa-user"></i>
+                <span class="nav-text">Auth</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="#">Users List</a></li>
+                <li><a href="#"></a></li>
+                
+            </ul>               
            
         </ul>
     <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 650px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 355px;"></div></div></div>
