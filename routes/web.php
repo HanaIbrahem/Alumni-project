@@ -10,7 +10,10 @@ use App\Http\Controllers\component\EventController;
 use App\Http\Controllers\component\CareerController;
 use App\Http\Controllers\component\GallaryController;
 
+// admi reset passwordlik
 
+use App\Http\Controllers\AuthAdmin\PasswordResetLinkControllerAdmin;
+use App\Http\Controllers\AuthAdmin\NewPasswordController;
 // Pages 
 use App\Http\Controllers\Home\HomeSetupController;
 /*
@@ -42,6 +45,19 @@ Route::get('/register', [AdminController::class,'AdminRegister'])->name('admin.r
 
 Route::post('/register/create', [AdminController::class,'AdminRegisterCreate'])->name('admin.register.create');
 
+// forget password Link
+Route::get('forgot-password', [PasswordResetLinkControllerAdmin::class, 'create'])
+->name('admin.password.request');
+
+Route::post('forgot-password', [PasswordResetLinkControllerAdmin::class, 'store'])
+->name('admin.password.email');
+
+// Reset Password form
+Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+->name('admin.password.reset');
+
+Route::post('reset-password', [NewPasswordController::class, 'store'])
+->name('admin.password.store');
 
 Route::get('/dashbord/profile', [AdminController::class,'profile'])->name('admin.profile')->middleware('admin');
 

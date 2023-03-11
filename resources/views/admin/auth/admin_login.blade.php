@@ -65,7 +65,9 @@
                             <input type="password" id="password" class="form-control" name="password" placeholder="Password" >
                         </div>
                         
-                        
+                        <div class="mb-3 form-group">
+                            <a class="text-primary" href="{{route('admin.password.request')}}">forget your password</a>
+                        </div>
                         <div>
                             <!-- Button -->
                             <div class="d-grid " style="width: 30%">

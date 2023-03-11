@@ -24,11 +24,11 @@ class AdminController extends Controller
     public function Index(){
 
 
-        return view('admin.admin_login');
+        return view('admin.auth.admin_login');
     }//end Methd 
 
     public function AdminRegister(){
-        return view('admin.admin_register');
+        return view('admin.auth.admin_register');
 
     }//end method 
 
@@ -143,7 +143,7 @@ class AdminController extends Controller
     // Update password get
     public function ProfileChangePassword(){
 
-        return view('admin.admin_change_password');
+        return view('admin.auth.admin_change_password');
     }//end method  
 
     // Update password store
