@@ -146,6 +146,7 @@ class ProfileController extends Controller
             'second_email_verified_at' => null,
         ]);
     
+        
         auth()->user()->sendEmailVerificationNotification('second_email');
     
         return redirect()->back();

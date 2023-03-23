@@ -16,6 +16,11 @@ use App\Http\Controllers\AuthAdmin\PasswordResetLinkControllerAdmin;
 use App\Http\Controllers\AuthAdmin\NewPasswordController;
 // Pages 
 use App\Http\Controllers\Home\HomeSetupController;
+
+
+// frontend controllers
+use App\Http\Controllers\frontendController;
+
 /*
 
 
@@ -205,6 +210,18 @@ Route::middleware('auth')->group(function () {
     Route::post('profile/second-email', [ProfileController::class, 'updateemail'])->name('second-email.update');
     
 
+    
+
+
+});
+
+
+// foront end controller
+
+Route::prefix('soran.edu.iq/alumni/')->group(function (){
+
+    Route::get('news',[frontendController::class,'NewsPage'])->name('news.page');
+    Route::get('news/{id}',[frontendController::class,'NewsShow'])->name('news.show');
 
 });
 

@@ -24,6 +24,8 @@
 
 
     <link rel="website icon" type="png" href="{{asset('upload/brand-logo.png')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/vendor/aos/aos.css')}}">
+
     <title>{{$websitesetup->title}}</title>
 </head>
 <body>
@@ -43,5 +45,15 @@
     <script src="{{asset('frontend/assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/responsive-blog-card-slider-1.js')}}"></script>
     <script src="{{asset('frontend/assets/js/responsive-blog-card-slider.js')}}"></script>
+
+
+    <script src="{{asset('frontend/assets/vendor/aos/aos.js')}}"></script>
+    
+    <script>
+      AOS.init({
+        duration: 3000,
+        once: true,
+      });
+    </script>
 </body>
 </html>
