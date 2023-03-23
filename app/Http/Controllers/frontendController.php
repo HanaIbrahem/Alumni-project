@@ -23,7 +23,7 @@ class frontendController extends Controller
         //     ->orderBy('created_at','desc')
         //     ->get();
 
-        $news=News::latest()->paginate(10);
+        $news=News::latest()->paginate(12);
 
         // catigory news
         $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
@@ -43,6 +43,21 @@ class frontendController extends Controller
         ->get();
 
         return view('frontend.news-show',compact('news','recentnews','newsCount'));
+
+
+    }//end method
+
+    public function NewsShowGroutBy($type){
+
+        // catig
+        $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
+        ->groupBy('type')->orderBy('count','desc')->limit(5)
+        ->get();
+
+        $news = News::where('type', "$type")
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(12);
+        return view('frontend.news',compact('news','newsCount'));
 
 
     }//end method

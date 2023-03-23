@@ -222,6 +222,9 @@ Route::prefix('soran.edu.iq/alumni/')->group(function (){
 
     Route::get('news',[frontendController::class,'NewsPage'])->name('news.page');
     Route::get('news/{id}',[frontendController::class,'NewsShow'])->name('news.show');
+    Route::get('news/catygory/{id}',[frontendController::class,'NewsShowGroutBy'])->name('news.groupby');
+
+    
 
 });
 

@@ -33,7 +33,7 @@
                                  </a>
                                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                    @foreach ( $newsCount as $catygory )
-                                   <li><a class="dropdown-item" href="">{{$catygory->type}}</a></li>
+                                   <li><a class="dropdown-item" href="{{route('news.groupby',$catygory->type)}}">{{$catygory->type}}</a></li>
 
                                    @endforeach
                                  </ul>
