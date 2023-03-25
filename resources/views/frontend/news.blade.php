@@ -10,7 +10,7 @@
             <div class="row bg-dark  ">
                 <div class="col-1"></div>
                 <div class="col-md-8">
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
+                    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark ">
                         <button class="navbar-toggler  text-primary border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon "></span>
                           </button>
@@ -44,7 +44,7 @@
                           </div>
                           <form class="d-flex">
                             <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-light rounded-pill" type="submit">Search</button>
+                            <button class="btn btn-outline-secondary rounded-pill" type="submit">Search</button>
                           </form>
                         
                     </nav>

@@ -104,6 +104,15 @@
                                 </div>
 
                                 <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Location</label> <br>
+                                    <div class="col-sm-10">
+                                    <input class="form-control bg-light " name="location" type="text"
+                                    placeholder="Type Here!" value="{{$career->location}}">                 
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group mb-4">
                                     <label class="col-sm-2 col-form-label card-title text-danger">Expire Date</label> <br>
                                     <div class="col-sm-10">
                                     <input type="date" class="datepicker-default form-control picker__input"
@@ -170,9 +179,11 @@
                     required : true,
                     date:true,
 
+                },location:{
+                    required:true,
                 }
                 
-                
+            
             },
             messages :{
                 title: {
@@ -195,7 +206,10 @@
                 },expiredate:{
                     required : 'Please Enter Expire Date    ',
 
+                },location:{
+                    required : 'Please Enter Location    ',
                 }
+
 
             },
             errorElement : 'span', 

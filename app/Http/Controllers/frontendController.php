@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use App\Models\Career;
 use DB;
 class frontendController extends Controller
 {
@@ -61,5 +62,43 @@ class frontendController extends Controller
 
 
     }//end method
+
+    //Career Pages
+    public function CareerPpage(){
+
+        $career=Career::latest()->paginate(5);
+        // Career count type
+        $careercount = Career::select(DB::raw('type, COUNT(*) as count'))
+        ->groupBy('type')->orderBy('count','desc')->limit(5)
+        ->get();
+
+        $location = Career::select(DB::raw('location, COUNT(*) as count'))
+        ->groupBy('location')->orderBy('count','desc')->limit(5)
+        ->get();
+    
+        return view('frontend.career',compact('career','careercount','location'));
+    }//end method
+
+    public function CareerShowGroutBy(Request $request){
+
+     $career = Career::where([
+                 ['type', $request->type],
+                 ['location', $request->location]
+             ])
+             ->orderBy('created_at', 'desc')
+             ->paginate(5);
+        // recent careers
+        $careercount = Career::select(DB::raw('type, COUNT(*) as count'))
+        ->groupBy('type')->orderBy('count','desc')->limit(5)
+        ->get();
+
+        $location = Career::select(DB::raw('location, COUNT(*) as count'))
+        ->groupBy('location')->orderBy('count','desc')->limit(5)
+        ->get();
+
+        return view('frontend.career',compact('career','careercount','location'));
+        
+
+    }
 
 }

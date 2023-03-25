@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('type');
             $table->string('company_name');
             $table->string('salary_range');
+            $table->string('location');
+
             $table->longText('detail');  
             $table->string('image');
             $table->date('duration');

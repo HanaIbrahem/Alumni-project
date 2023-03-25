@@ -98,7 +98,16 @@
                                     <label class="col-sm-2 col-form-label card-title text-primary">Salary</label> <br>
                                     <div class="col-sm-10">
                                     <input class="form-control bg-light " name="salary" type="text"
-                                    placeholder="Type Here!">                 
+                                    placeholder="Salary Here!">                 
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Location</label> <br>
+                                    <div class="col-sm-10">
+                                    <input class="form-control bg-light " name="location" type="text"
+                                    placeholder="Location Here!">                 
                                     </div>
                                 </div>
 
@@ -172,6 +181,8 @@
                 }, expiredate:{
                     required : true,
                     date: true,
+                }location:{
+                    required : true,
                 }
                 
                 
@@ -204,7 +215,12 @@
                     required : 'Please Enter Expire Date    ',
                     
 
+                },location:{
+                    required : 'Please Enter Location    ',
+                    
+
                 }
+
 
             },
             errorElement : 'span', 

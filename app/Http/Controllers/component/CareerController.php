@@ -72,6 +72,7 @@ class CareerController extends Controller
             'image' => $save_url,
             'company_name'=>$request->company_name,
             'salary_range'=>$request->salary,
+            'location'=>$request->location,
             'duration'=>$request->expiredate,
             'created_at'=>Carbon::now(),
         ]);
@@ -143,6 +144,7 @@ class CareerController extends Controller
          $career->type = $request->input('type');
          $career->company_name=$request->input('company_name');
          $career->salary_range=$request->input('salary');
+         $career->location=$request->input('location');
          $career->duration=$request->input('expiredate');
         
         $career->save();

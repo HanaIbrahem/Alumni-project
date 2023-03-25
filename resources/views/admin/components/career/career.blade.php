@@ -76,6 +76,7 @@
                                         <th>Company Name</th>
                                         <th>Image</th>
                                         <th>Salary</th>
+                                        <th>Location</th>
                                         <th class="text-warning">Expired</th>
                                         <th>Created At</th>
                                         <th>Updated At</th>
@@ -93,9 +94,11 @@
                                             <td><img src="{{asset('upload/images/career/'.$item->image)}}"
                                                 width="50px" height="50px"></td>
                                             <td>{{$item->salary_range}}</td>
+                                            <td>{{$item->location}}</td>
                                             <td class="text-warning">{{$item->duration}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td>{{$item->updated_at}}</td>
+
                                             <td>
                                                 <div class="d-flex">
                                                     <a href="{{route('career.edit',$item->id)}}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>

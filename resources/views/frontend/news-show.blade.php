@@ -55,7 +55,7 @@
               <h3 class="sidebar-title">Categories</h3>
               <ul class="mt-3">
                 @foreach ( $newsCount as $catygory )
-                <li><a href="#">{{$catygory->type}} <span class="hilite">{{$catygory->count}}</span></a></li>
+                <li><a href="{{route('news.groupby',$catygory->type)}}">{{$catygory->type}} <span class="hilite">{{$catygory->count}}</span></a></li>
 
                 @endforeach
               </ul>

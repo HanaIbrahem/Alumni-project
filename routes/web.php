@@ -218,11 +218,16 @@ Route::middleware('auth')->group(function () {
 
 // foront end controller
 
-Route::prefix('soran.edu.iq/alumni/')->group(function (){
+Route::prefix('/alumni/')->group(function (){
 
     Route::get('news',[frontendController::class,'NewsPage'])->name('news.page');
     Route::get('news/{id}',[frontendController::class,'NewsShow'])->name('news.show');
     Route::get('news/catygory/{id}',[frontendController::class,'NewsShowGroutBy'])->name('news.groupby');
+
+    // Career Roues
+    Route::get('career',[frontendController::class,'CareerPpage'])->name('career.page');
+    Route::post('career/catygory/',[frontendController::class,'CareerShowGroutBy'])->name('career.groupby');
+
 
     
 
