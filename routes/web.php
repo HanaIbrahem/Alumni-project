@@ -9,6 +9,7 @@ use App\Http\Controllers\component\NewsController;
 use App\Http\Controllers\component\EventController;
 use App\Http\Controllers\component\CareerController;
 use App\Http\Controllers\component\GallaryController;
+use App\Http\Controllers\component\alluserscontroller;
 
 // admi reset passwordlik
 
@@ -158,6 +159,12 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashbord/gallary/edit/{id}', [GallaryController::class,'edit'])->name('gallary.edit');
         Route::put('/dashbord/gallary/update', [GallaryController::class,'update'])->name('gallary.update');
         Route::get('/dashbord/gallary/destroy/{id}', [GallaryController::class,'destroy'])->name('gallary.destroy');
+  
+
+        // list all users 
+        Route::get('/dashbord/users', [alluserscontroller::class,'index'])->name('allusers.get');
+        Route::get('/dashbord/users/destroy/{id}', [alluserscontroller::class,'destroy'])->name('allusers.destroy');
+
     });
 
     
@@ -227,9 +234,11 @@ Route::prefix('/alumni/')->group(function (){
     // Career Roues
     Route::get('career',[frontendController::class,'CareerPpage'])->name('career.page');
     Route::post('career/catygory/',[frontendController::class,'CareerShowGroutBy'])->name('career.groupby');
+    Route::get('career/{id}',[frontendController::class,'CareerShow'])->name('career.show');
 
+    Route::get('gallary',[frontendController::class,'GallaryPpage'])->name('gallary.page');
+    Route::get('gallary/{type}',[frontendController::class,'GallaryGroupBY'])->name('gallary.groupby');
 
-    
 
 });
 

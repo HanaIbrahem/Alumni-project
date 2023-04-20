@@ -104,7 +104,6 @@
     ***********************************-->
     <!-- Required vendors -->
 	<script src="{{asset('backend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-	{{-- <script src="{{asset('backend/vendor/chart.js/Chart.bundle.min.js')}}"></script> --}}
 	<script src="{{asset('backend/vendor/global/global.min.js')}}"></script>
 	<!-- Chart piety plugin files -->
     {{-- <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script> --}}
@@ -138,6 +137,8 @@
   
   @yield("profile-editor")
 
+  {{-- chart libs --}}
+  @yield("chart")
  {{-- <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script> --}}
 
   

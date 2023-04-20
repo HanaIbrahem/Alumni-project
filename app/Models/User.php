@@ -54,6 +54,9 @@ class User extends Authenticatable
         return $this->belongsTo(Department::class);
     }
 
+
+    
+
     public function hasVerifiedEmail()
     {
         if (empty($this->second_email_verified_at)) {

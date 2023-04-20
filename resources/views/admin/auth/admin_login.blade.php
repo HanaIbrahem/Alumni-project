@@ -10,17 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{$websitesetup->title}}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+   
+    <link rel="stylesheet" href="{{asset('frontend/assets/bootstrap/css/bootstrap.min.css')}}">
+    <script src="{{asset('frontend/assets/bootstrap/js/bootstrap.min.js')}}"></script>
 </head>
 <body>
   <section class="container d-flex flex-column ">
     <div class="row align-items-center justify-content-center g-0 min-vh-100">
         <div class="col-lg-5 col-md-8 py-8 py-xl-0">
             <!-- Card -->
-            <div class="card shadow">
+            <div class="card shadow rounded">
                
                 <!-- Card body -->
                 <div class="card-body p-6">
@@ -29,7 +28,7 @@
                     <div class="mb-4 text-center">
                         <div class="row">
                             <div class="col"></div>
-                            <div class="col"> <a href="{{route('/')}}"><img src="{{$websitesetup->logo}}" class="rounded mx-auto d-block" alt=""></a>
+                            <div class="col"> <a href="{{route('/')}}"><img src="{{asset($websitesetup->logo)}}" class="rounded mx-auto d-block" alt=""></a>
                             </div>
                             <div class="col"></div>
                         </div>

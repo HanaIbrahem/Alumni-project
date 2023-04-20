@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Career;
+use App\Models\Gallary;
 use DB;
 class frontendController extends Controller
 {
@@ -79,6 +80,14 @@ class frontendController extends Controller
         return view('frontend.career',compact('career','careercount','location'));
     }//end method
 
+    public function CareerShow($id){
+
+
+        $career=Career::findOrFail($id);
+        return view('frontend.career-show',compact('career'));
+    }//Career Show
+
+
     public function CareerShowGroutBy(Request $request){
 
      $career = Career::where([
@@ -100,5 +109,34 @@ class frontendController extends Controller
         
 
     }
+
+    //Gallary pages 
+    public function GallaryPpage(){
+
+
+        //count images orderby title
+        $gallargroups = Gallary::select(DB::raw('title, COUNT(*) as count'))
+          ->groupBy('title')->orderBy('count','desc')->limit(5)
+          ->get();
+
+        // all gallary order by last added images
+        $gallary=Gallary::latest()->paginate(16);
+        return view('frontend.gallary',compact('gallary','gallargroups'));
+    }//end method
+
+    public function GallaryGroupBY($type){
+
+          // gallary groups
+          $gallargroups = Gallary::select(DB::raw('title, COUNT(*) as count'))
+          ->groupBy('title')->orderBy('count','desc')->limit(5)
+          ->get();
+
+          //all images groupby type
+          $gallary = Gallary::where('title', $type)
+        ->orderBy('created_at', 'desc')
+        ->paginate(16);
+
+        return view('frontend.gallary',compact('gallary','gallargroups'));
+    }//end method
 
 }

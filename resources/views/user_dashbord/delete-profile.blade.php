@@ -25,7 +25,7 @@
                         <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
                         </button>
                         <strong>Warning!</strong> <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quod soluta possimus? Delectus corporis reprehenderit velit impedit ipsam exercitationem vitae nam quod ratione, id non, fugit quidem dicta. Sint, voluptatibus!  
+                            Are you sure you want to delete your account? This action cannot be undone. All of your data will be permanently deleted. If you're certain, please click "Delete" below.  
                         </p>
                     </div>
                     <form action="{{route('profile.destroy')}}" method="post">

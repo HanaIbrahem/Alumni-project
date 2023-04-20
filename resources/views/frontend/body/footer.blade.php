@@ -4,20 +4,19 @@
         <div class="col-lg-4 col-md-6 col-12">
           <!-- about company -->
           <div class="mb-4">
-            <img src="../../assets/images/brand/logo/logo.svg" alt="" class="logo-inverse ">
+            <img src="{{asset($websitesetup->logo)}}" alt="" width="100" height="100" class="logo-inverse ">
             <div class="mt-4">
-              <p>Geek is feature-rich components and beautifully Bootstrap UIKit for developers, built with bootstrap
-                responsive framework.</p>
+              <p>{{$websitesetup->name}}</p>
               <!-- social media -->
               <div class="mb-4">
-                <p>339 McDermott Points Hettingerhaven, NV 15283</p>
-                <p class="mb-1">Email: <a href="#">support@geeksui.com</a></p>
-                <p>Phone: <span class="text-dark fw-semi-bold">(000) 123 456 789</span></p>
+                <p>Contact</p>
+                <p class="mb-1">Email: <a href="" class="text-dark">support@soran.edu.iq.com</a></p>
+                <p>Phone: <span class="text-dark fw-semi-bold">(964) 123 456 789</span></p>
                
-                <div class="d-flex">
+                {{-- <div class="d-flex">
                   <a href="#"><img src="../../assets/images/svg/appstore.svg" alt="" class="img-fluid"></a>
                   <a href="#" class="ms-2"><img src="../../assets/images/svg/playstore.svg" alt="" class="img-fluid"></a>
-                </div>
+                </div> --}}
     
               </div>
             </div>

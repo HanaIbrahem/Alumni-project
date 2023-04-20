@@ -125,7 +125,7 @@
                                 <div class="ms-xl-3 w-100 mt-3 mt-xl-1">
                                     <div class="d-flex justify-content-between mb-5">
                                         <div>
-                                            <h3 class="mb-1 fs-4"><a href="job-single.html" class="text-inherit">{{$item->title}}</a>
+                                            <h3 class="mb-1 fs-4"><a href="{{route('career.show',$item->id)}}" class="text-inherit">{{$item->title}}</a>
                                                 <span class="badge bg-danger-soft ms-2">Featured Job</span>
                                             </h3>
 

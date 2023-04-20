@@ -63,8 +63,7 @@
                 <span class="nav-text">Auth</span>
             </a>
             <ul aria-expanded="false">
-                <li><a href="#">Users List</a></li>
-                <li><a href="#"></a></li>
+                <li><a href="{{route('allusers.get')}}">Users List</a></li>
                 
             </ul>               
            
