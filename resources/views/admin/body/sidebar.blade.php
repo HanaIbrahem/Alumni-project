@@ -12,7 +12,7 @@
         <ul class="metismenu mm-show" id="menu">
             
 
-            <li class="nav-label first">Webiste Setup</li>
+            {{-- <li class="nav-label first">Webiste Setup</li>
             <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-144-layout"></i>
                     <span class="nav-text">Website</span>
@@ -23,8 +23,23 @@
                     <li><a href="#">Footer</a></li>
                 </ul>
 
-            </li>
-            <li class="nav-label">App</li>
+            </li> --}}
+
+
+         
+
+             <li class="nav-label first">App</li>
+           <li >
+               <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                   <i class="fa fa-id-card"></i>
+                   <span class="nav-text">Profile</span>
+               </a>
+               <ul class="mm-collapse left" aria-expanded="false">
+                   <li class="mm-active"><a href="{{route('admin.profile.edit')}}" class="">Edit Profile</a></li>
+                   <li><a href="{{route('admin.changepasswor')}}">Change password</a></li>
+               </ul>
+           </li>
+            
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                 <i class="flaticon-077-menu-1"></i>
                     <span class="nav-text">Post</span>

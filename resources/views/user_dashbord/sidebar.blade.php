@@ -16,7 +16,7 @@
 
             <li class="nav-label first">Your Profile</li>
             <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void() " aria-expanded="false">
-                    <i class="flaticon-144-layout"></i>
+                    <i class="fa fa-id-card"></i>
                     <span class="nav-text">Profile</span>
                 </a>
                 <ul aria-expanded="false" class="mm-collapse mm-show left" style="">

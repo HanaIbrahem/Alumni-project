@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{$websitesetup->title}}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/material-kit.css')}}">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -26,7 +26,7 @@
                 <div class="card-body p-6">
                   
                    
-                    <div class="mb-4 text-center">
+                    <div class="mb-4 ">
                         <div class="row">
                             <div class="col"></div>
                             <div class="col"> <a href="{{route('/')}}"><img src="{{$websitesetup->logo}}" class="rounded mx-auto d-block" alt=""></a>
@@ -55,12 +55,12 @@
                         <!-- Username -->
                        
                         <!-- Email -->
-                        <div class="mb-3 form-group">
+                        <div class="mb-3 input-group input-group-outline my-3">
                             {{-- <label for="email" class="form-label">Email</label> --}}
                             <input type="email" id="email" class="form-control" name="email" placeholder="Email address here" >
                         </div>
                         <!-- Password -->
-                        <div class="mb-3 form-group">
+                        <div class="mb-3 input-group input-group-outline my-3">
                             {{-- <label for="password" class="form-label">Password</label> --}}
                             <input type="password" id="password" class="form-control" name="password" placeholder="Password" >
                         </div>
@@ -74,7 +74,7 @@
                         </div>
                          @endif
                         
-                        <div>
+                        <div class="text-cente">
                             <!-- Button -->
                             <div class="d-grid " style="width: 30%">
                                 <button type="submit" class="rounded btn btn-primary">Login

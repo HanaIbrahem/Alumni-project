@@ -61,7 +61,7 @@
                             <div class="profile-photo">
 
                                     <img src="{{(!empty($admin->image_profile))?url('upload/images/profile/adminimg/'.$admin->image_profile):
-                                    url('upload/no_image.jpg') }}" class="img-fluid rounded-circle" alt="">
+                                    url('upload/no_image.jpg') }}" class="rounded-circle" width="75" alt="">
                             </div>
                             <div class="profile-details">
                                 <div class="profile-name px-3 pt-2">
