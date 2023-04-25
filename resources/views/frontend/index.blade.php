@@ -2,8 +2,12 @@
 
 @section('main')
     <!-- -------- START HEADER 9 w/ floating img and bg  ------- -->
-    <header class="position-relative">
+    {{-- <header class="position-relative">
         <div class="page-header min-vh-100 position-relative">
+            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy">
+                <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+            </video>
+            <span class="mask bg-gradient-dark"></span>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center mx-auto mt-n7">
@@ -18,7 +22,29 @@
                 </div>
             </div>
         </div>
+    </header> --}}
+
+    <header class="position-relative">
+        <div class="page-header min-vh-75 position-relative"
+            style="background-image: url('https://images.unsplash.com/photo-1460794418188-1bb7dba2720d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80');"
+            loading="lazy">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center mx-auto mt-n7">
+                        <h1 class="text-white fadeIn2 fadeInBottom">
+                            Your alumni community
+                        </h1>
+                        <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-8">
+                            Stay connected for life to our University community.
+                        </p>
+                        <a type="submit" href="{{route('register')}}" class="btn bg-white me-2 fadeIn1 fadeInBottom">Get started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
+
     <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
 
         <div class="container my-5">
@@ -28,7 +54,14 @@
                         <div class="col-lg-8 ms-auto me-auto">
                             <h3 class="title mb-4">Alimni Community</h3>
                             <p class="text-dark">
-                                An alumni community is a group of individuals who have graduated from a particular school, college, or university. This community is formed by people who share a common experience of having attended the same institution, and often includes former students, faculty members, and staff. Alumni communities are usually organized by the institution itself, and they provide a means for former students to stay connected to their alma mater and to each other. The community can be a valuable resource for networking, career opportunities, and social events, and can help alumni to maintain a sense of connection to their educational institution even after they have graduated.
+                                An alumni community is a group of individuals who have graduated from a particular school,
+                                college, or university. This community is formed by people who share a common experience of
+                                having attended the same institution, and often includes former students, faculty members,
+                                and staff. Alumni communities are usually organized by the institution itself, and they
+                                provide a means for former students to stay connected to their alma mater and to each other.
+                                The community can be a valuable resource for networking, career opportunities, and social
+                                events, and can help alumni to maintain a sense of connection to their educational
+                                institution even after they have graduated.
                             </p>
                         </div>
                     </div>
@@ -82,7 +115,7 @@
                     <!-- -------- START Features w/ 4 infos - just colored icons -------- -->
                     <section class="py-4">
                         <div class="container">
-                            <div class="row text-center" >
+                            <div class="row text-center">
                                 <div class="col-sm-12">
                                     <h3 class="mb-5">Our Community</h3>
                                 </div>

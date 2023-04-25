@@ -30,18 +30,21 @@
       display: block;
     }
 </style>
-<section class="hero bg-gray text-center">
+
+<header>
+  <div class="page-header min-vh-45 bg-light text-center">
+
     <div class="container">
-        <div class="row" style="padding:10% 5%">
-            <div class="col-lg-10 m-auto p-50 ">
-                <h2>Hello! Welcome to Soran University photo gallery With Creative & Unique Style</h2>
-            </div>
-        </div>
-    </div>
-</section>
+      <div class="row" style="padding:10% 5%">
+          <div class="col-lg-10 m-auto p-50 ">
+              <h2>Hello! Welcome to Soran University photo gallery With Creative & Unique Style</h2>
+          </div>
+      </div>
+  </div>
+</header>
 
-
-<section class="gallery__section">
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n3 mb-4">
+  <section class="gallery__section">
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -69,11 +72,14 @@
         </div>
     </div>
     <!-- pagination start -->
-    <div class="pagination-wrap" style="margin-left:10%">
+    <div class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
       {{ $gallary->links('vendor.pagination.custom') }}
     </div>
     <!-- pagination end -->
 </section>
+</div>
+
+
 
 <script src="{{asset('backend/vendor/lightgallery/js/lightgallery-all.min.js')}}"></script>
 <script>
@@ -84,8 +90,13 @@
            $(this).addClass('active').siblings().removeClass('active');
          });
        
-         $('#lightgallery').lightGallery();
+         $('#lightgallery').lightGallery({
+          download: true,
+    share: true
+         });
+
        });
 </script>
+
 
 @endsection

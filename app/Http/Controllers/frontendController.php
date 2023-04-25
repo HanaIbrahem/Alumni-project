@@ -25,13 +25,14 @@ class frontendController extends Controller
         //     ->orderBy('created_at','desc')
         //     ->get();
 
-        $news=News::latest()->paginate(12);
+        $news=News::latest()->paginate(6);
 
         // catigory news
         $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
                            ->groupBy('type')->orderBy('count','desc')->limit(5)
                            ->get();
         
+        // $recent = News::latest()->take(10)->get();
         return view('frontend.news',compact('news','newsCount'));
     }//end method
 

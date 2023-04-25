@@ -24713,6 +24713,7 @@ body:not(.dark-version) .sidenav.bg-transparent .collapse .nav-item .nav-link.ac
 .pagination.pagination-primary .page-item.active>.page-link:hover {
   background-image: linear-gradient(195deg, #4da6ff 0%, #0066cc 100%);
   border: none;
+  color: #fff;
 }
 
 .pagination.pagination-secondary .page-item.active>.page-link,

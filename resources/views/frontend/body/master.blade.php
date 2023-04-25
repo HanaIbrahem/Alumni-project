@@ -32,7 +32,7 @@
 
     <title>{{$websitesetup->title}}</title>
 </head>
-<body>
+<body class="">
 
     @include('frontend.body.header')
 
