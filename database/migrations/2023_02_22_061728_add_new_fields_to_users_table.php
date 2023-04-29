@@ -19,6 +19,9 @@ return new class extends Migration
             $table->integer('department')->after('lname');
             $table->enum('gender', ['male', 'female'])->after('department');
             $table->enum('type', ['Teacher','Alumni', 'Student'])->after('gender');
+
+            // $table->foreign('department_id')->references('id')->on('department');
+
         });
     }
 

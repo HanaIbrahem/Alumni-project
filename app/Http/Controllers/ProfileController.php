@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Validation\Rules\File;
+use App\Models\post;
 
 class ProfileController extends Controller
 {
@@ -130,26 +131,143 @@ class ProfileController extends Controller
     }
 
     // Update second email !! Suporting email for users
-    public function showForm(){
+    public function ContactLinks(){
         
-        return view('user_dashbord.second-email');
+        return view('user_dashbord.contactlinks');
     }
 
     public function updateemail(Request $request)
     {
-        $request->validate([
-            'second_email' => 'required|email|unique:users,second_email',
-        ]);
+       $request->validate([
+           'facebook' => 'string|nullable',
+           'linkedin' => 'string|nullable',
+           'phonenumber' => 'string|nullable', 
+       ]);
     
-        auth()->user()->update([
-            'second_email' => $request->input('second_email'),
-            'second_email_verified_at' => null,
-        ]);
+       $user = $request->user();
+       $user->facebook = $request->input('facebook');
+       $user->linkedin= $request->input('linkedin');
+       $user->phonenumber=$request->input('phonenumber');
+       $user->save();
     
         
-        auth()->user()->sendEmailVerificationNotification('second_email');
     
         return redirect()->back();
+    }
+
+
+    //get all posts
+    public function ListPost(){
+        
+        $posts = post::where('user_id', auth()->id())->get();
+
+        return view('user_dashbord.post-list',compact('posts'));
+    }
+    public function MakePost(){
+
+        return view('user_dashbord.post');
+    }
+
+    public function PostStor(Request $request){
+      
+
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required|string',
+            'image' => ['required', File::image()],
+
+        ]);
+        //  for cover iamge  update
+         $img=$request->file('image');
+         $name_gen = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();  // 3434343443.jpg
+         $save_url2 = $name_gen;
+         $img->move(public_path('upload/images/post/'), $name_gen);
+        
+        $post = new post();
+        $post->image=$save_url2;
+        $post->title = $validatedData['title'];
+        $post->content = $validatedData['content'];
+        $post->user_id = Auth::id();
+        $post->show="no";
+        $post->save();
+
+        return redirect()->back();
+    }//end method
+
+    public function PostDelet($id){
+        $post=post::find($id);
+
+        if ($post->user_id==Auth::id()) {
+            $imgh = 'upload/images/post/'.$post->image;
+            unlink($imgh);
+    
+            $post->delete();
+            return  redirect()->back();
+
+        }
+
+
+        // for deleting image with it
+       
+        
+        return  redirect()->back();
+    }
+
+    public function PostEdit($id){
+
+        $post=post::find($id);
+
+        if ($post->user_id==Auth::id()) {
+
+            return view('user_dashbord.post-edit',compact('post'));
+        }
+         return redirect()->back();
+        
+
+       
+    }
+
+    public function PostUdate(Request $request){
+
+        
+    
+        $post=post::findOrFail($request->id);
+
+        if ($post->user_id==Auth::id()) {
+
+           
+
+            if($request->file('image')){
+    
+                $request->validate([
+                    'image' => ['required', File::image()],
+                
+                ]);
+              
+    
+                $imgh = 'upload/images/post/'.$post->image;
+                unlink($imgh);
+    
+                $image = $request->file('image');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+                $save_url = $name_gen;
+                $image->move(public_path('upload/images/post/'), $name_gen);
+                $post->image= $save_url;
+    
+            }
+    
+       
+         
+             $post->title = $request->input('title');
+             $post->content = $request->input('content');
+             $post->show="no";
+             $post->save();
+            return  redirect()->back();
+        }
+        return  redirect()->back();
+
+
+       
     }
 
     

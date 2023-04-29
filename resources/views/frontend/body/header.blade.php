@@ -38,7 +38,7 @@
         
                         <li class="nav-item mx-2">
                             <a class="nav-link ps-2 d-flex "
-                                role="button" >
+                                role="button"  href="{{route('event.page')}}">
                                 <i class="material-icons opacity-6 me-1 text-md fa-solid fa-calendar-days"></i>
                                 Events
                             </a>
@@ -98,7 +98,10 @@
                                   <a href="{{route('gallary.page')}}" class="dropdown-item border-radius-md">
                                     <span>Gallary</span>
                                   </a>
-                                  <a href="" class="dropdown-item border-radius-md">
+                                  <a href="{{route('alumni.page')}}" class="dropdown-item border-radius-md">
+                                    <span>Alumins </span>
+                                  </a>
+                                  <a href="{{route('alumnipost.page')}}" class="dropdown-item border-radius-md">
                                     <span>Alumin Story</span>
                                   </a>
                                 </div>
@@ -122,9 +125,8 @@
                                     <span>Sign In</span>
                                   </a>
                                 </div>
-                              </div>
-                            
-        
+                            </div>
+            
                         </li>
                         @if (!Auth::check())
                             <!-- If user is not logged in -->

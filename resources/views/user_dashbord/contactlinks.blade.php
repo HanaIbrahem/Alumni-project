@@ -26,11 +26,11 @@ $department=Department::find($userdata->department);
             <div class="col-xl-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Change Password</h4>
+                        <h4 class="card-title">Update your contact Links</h4>
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form method="post" action="{{ route('second-email.form') }}">
+                            <form method="post" action="{{ route('contactlinks.update') }}">
                            
                                 @csrf
                                 @method("POST")
@@ -50,9 +50,16 @@ $department=Department::find($userdata->department);
                                 @endif
                     
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label form-labe text-primary">Email</label><br>
+                                    <label class="col-sm-2 col-form-label form-labe text-primary">Facebook</label><br>
                                     <div class="col-sm-12">
-                                        <input type="email" class="form-control form-control" name="second_email" value="{{ old('second_email') }}" placeholder="Second Email">
+                                        <input type="text" class="form-control form-control" name="facebook" value="{{$userdata->facebook}}" placeholder="Facebook Link">
+                                    </div>
+                                    <label class="col-sm-2 col-form-label form-labe text-primary">Linkedin</label><br>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control form-control" name="linkedin" value="{{$userdata->linkedin}}" placeholder="Linkedin Link">
+                                    </div>   <label class="col-sm-2 col-form-label form-labe text-primary">Phone number</label><br>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control form-control" name="phonenumber" value="{{$userdata->phonenumber}}" placeholder="phone Number">
                                     </div>
                                 </div>
 

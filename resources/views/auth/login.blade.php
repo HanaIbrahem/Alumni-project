@@ -40,7 +40,7 @@
 
                     {{-- Validation Errors --}}
                     @if (count($errors))
-                    <div class="div alert-danger">
+                    <div class="div alert-danger text-white">
                         @foreach ($errors->all() as $message )
                             <li>{{ $message}}</li>
                         @endforeach

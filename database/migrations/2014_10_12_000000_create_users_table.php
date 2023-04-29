@@ -27,7 +27,9 @@ return new class extends Migration
 
             //important fields 
             //Nulable fildes 
-            $table->string('second_email')->nullable()->unique();
+            $table->string('facebook')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('phonenumber')->nullable();
             $table->string('image_profile')->nullable();
             $table->string('cover_image')->nullable();
             $table->text('bio')->nullable();

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\post;
 use DB;
 class alluserscontroller extends Controller
 {
@@ -45,5 +46,28 @@ class alluserscontroller extends Controller
  
        $user->delete();
        return  redirect()->back();
+    }
+
+
+    public function Postlist(){
+
+        $posts = Post::latest()->get();    
+        return view('admin.components.alumniposts.alumni-posts',compact('posts'));
+    }
+
+    public function Postshow($id){
+
+       $posts = Post::find($id);
+       
+       if ($posts->show == "no") {
+           $posts->show = "yes";
+           $posts->save();
+           return redirect()->back();
+       }
+       
+       $posts->show = "no";
+       $posts->save();
+       return redirect()->back();
+
     }
 }

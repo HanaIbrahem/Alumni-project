@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Career;
 use App\Models\Gallary;
+
+use App\Models\Events;
+use App\Models\User;
+use App\Models\post;
 use DB;
 class frontendController extends Controller
 {
@@ -139,5 +143,79 @@ class frontendController extends Controller
 
         return view('frontend.gallary',compact('gallary','gallargroups'));
     }//end method
+
+
+    //event page
+    public function EventsPage(){
+
+        $event=Events::latest()->paginate(6);
+        return view('frontend.event',compact('event'));
+    }//end method
+
+    public function EventsShow($id){
+
+        $event=Events::findOrFail($id);
+        return view('frontend.event-show',compact('event'));
+    }
+    
+    // Start Alumni routes
+
+    public function Alumni(){
+
+        $alumni = User::query()->paginate(15);
+        $usersByDepartment = DB::table('users')
+            ->select('department', DB::raw('count(*) as total'))
+            ->groupBy('department')
+            ->get();
+        
+        return view('frontend.alumni',compact('alumni'));
+    }//end method
+
+    public function AlumniGroupBy($type){
+     
+
+        $alumni = DB::table('users')->where('type', $type)->paginate(15);;
+        $usersByDepartment = DB::table('users')
+            ->select('department', DB::raw('count(*) as total'))
+            ->groupBy('department')
+            ->get();
+        
+
+        return view('frontend.alumni',compact('alumni'));
+
+    }//end method 
+
+    public function AlumniGroupByDep($dep){
+
+        $usersByDepartment = DB::table('users')
+        ->select('department', DB::raw('count(*) as total'))
+        ->groupBy('department')
+        ->get();
+        $alumni = User::where('department', $dep)->paginate(15);
+        return view('frontend.alumni',compact('alumni'));
+
+    }//end method
+
+    public function AlumniShow($id){
+
+        $alumni = User::findOrFail($id);
+
+        // dd($alumni);
+        return view('frontend.alumni-show',compact('alumni'));
+    }
+
+    public function AlumniPosts(){
+         $posts = post::where('show', 'yes')->paginate(5);
+        return view('frontend.alumni-posts',compact('posts'));
+    }
+
+    public function AlumniPostsshow($id){
+
+        $posts = post::find($id);
+        if (  $posts->show=="yes") {
+            return view('frontend.alumni-post-show',compact('posts'));
+        }
+        return  redirect()->back();
+    }
 
 }

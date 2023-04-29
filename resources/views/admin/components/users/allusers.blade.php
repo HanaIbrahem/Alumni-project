@@ -8,10 +8,9 @@
 @php
     $i=0;
     $sum=0;
-    use App\Models\Department;
 
-// $department=Department::where('id',1)->get();
-//$department=Department::find($userdata->department);
+    use App\Models\Department;
+    $department = Department::all();
 @endphp
 
 
@@ -137,7 +136,7 @@
                                             <td>{{$item->email}}</td>
                                             <td>{{$item->gender}}</td>
                                             <td>{{$item->created_at->format('Y/n/j')}}</td>
-                                            <td>k</td>
+                                            <td>{{ $department->where('id', $item->department)->value('name') }}</td>
     
                                             <td>
                                                 <div class="d-flex">

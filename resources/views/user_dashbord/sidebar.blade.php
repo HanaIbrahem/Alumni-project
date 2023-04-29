@@ -63,8 +63,30 @@
                         </li> --}}
                 </ul>
 
+                
+
             </li>
-               
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="las la-sms"></i>
+                <span class="nav-text">Contact</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route('contactlinks.form')}}">Contact Links</a></li>
+                
+            </ul>  
+            
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-044-file"></i>
+                <span class="nav-text">Post</span>
+            </a>
+            <ul aria-expanded="false" class="mm-collapse left" style="">
+                <li><a href="{{route('postlist.get')}}">Post List</a></li>
+                <li><a href="{{route('post.get')}}">Make Post</a></li>
+            </ul>
+        </li>
+       
+           
            
         </ul>
     <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 650px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 355px;"></div></div></div>

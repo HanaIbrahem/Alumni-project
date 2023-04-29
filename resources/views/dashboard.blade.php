@@ -74,19 +74,40 @@ $department=Department::find($userdata->department);
                                     <h4>Email Protected</h4>
                                     <p>{{$userdata->email}}</p>
                                 </div>
-                                {{-- <div class="dropdown ml-auto">
-                                    <a href="#" class="btn btn-primary light sharp" data-toggle="dropdown" aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i> View profile</li>
-                                        <li class="dropdown-item"><i class="fa fa-users text-primary mr-2"></i> Add to close friends</li>
-                                        <li class="dropdown-item"><i class="fa fa-ban text-primary mr-2"></i> Block</li>
-                                    </ul>
-                                </div> --}}
+                              
+                               
                             </div>
+                           
                         </div>
+                       
+
                     </div>
                 </div>
             </div>
+            <div class="col-xl-12">
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h5 class="card-title">{{$userdata->bio}}</h5>
+
+                     
+                       <p class="text-info text-sm">Last Update:{{$userdata->updated_at->format('M j, Y')}}</p>
+
+
+                    </div>
+                    <div class="" style="margin-left: 20px">
+                        <p class="text-start">
+                            <a href="{{$userdata->facebook}}" class="p-2" ><i class="fa fa-lg fa-facebook text-info"></i></a>
+                            <a href="{{$userdata->linkedin}}" class="p-2"><i class="fa fa-lg fa-linkedin text-primary"></i></a>
+                         </p>
+                    </div>
+                
+                    <div class="card-body mb-0">
+                       {!!$userdata->about !!}
+                    </div>
+                </div>
+            </div>
+
+            
         </div>
        
     </div>

@@ -16,7 +16,7 @@ class News extends Seeder
     {
     
         
-        \App\Models\News::factory(10)->create();
+       // \App\Models\News::factory(10)->create();
 
     }
 }

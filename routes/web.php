@@ -165,6 +165,10 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashbord/users', [alluserscontroller::class,'index'])->name('allusers.get');
         Route::get('/dashbord/users/destroy/{id}', [alluserscontroller::class,'destroy'])->name('allusers.destroy');
 
+        Route::get('/dashbord/users/post/', [alluserscontroller::class,'Postlist'])->name('posts.get');
+        Route::get('/dashbord/users/post/{id}', [alluserscontroller::class,'Postshow'])->name('postsshow.get');
+
+        
     });
 
     
@@ -213,11 +217,20 @@ Route::middleware('auth')->group(function () {
 
     // User second email
 
-    Route::get('profile/second-email', [ProfileController::class, 'showForm'])->name('second-email.form');
-    Route::post('profile/second-email', [ProfileController::class, 'updateemail'])->name('second-email.update');
+    Route::get('profile/contactlink', [ProfileController::class, 'ContactLinks'])->name('contactlinks.form');
+    Route::post('profile/contactlinkupdate', [ProfileController::class, 'updateemail'])->name('contactlinks.update');
     
 
-    
+    // post 
+    //get all posts
+    Route::get('posts', [ProfileController::class, 'ListPost'])->name('postlist.get');
+    // get post page 
+    Route::get('post', [ProfileController::class, 'MakePost'])->name('post.get');
+    Route::post('post/stor', [ProfileController::class, 'PostStor'])->name('post.stor');
+    Route::get('post/dele/{id}', [ProfileController::class, 'PostDelet'])->name('post.delet');
+    Route::get('post/edit/{id}', [ProfileController::class, 'PostEdit'])->name('post.edit');
+    Route::put('post/update', [ProfileController::class, 'PostUdate'])->name('post.update');
+
 
 
 });
@@ -227,6 +240,7 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('/alumni/')->group(function (){
 
+    // news routes 
     Route::get('news',[frontendController::class,'NewsPage'])->name('news.page');
     Route::get('news/{id}',[frontendController::class,'NewsShow'])->name('news.show');
     Route::get('news/catygory/{id}',[frontendController::class,'NewsShowGroutBy'])->name('news.groupby');
@@ -236,9 +250,24 @@ Route::prefix('/alumni/')->group(function (){
     Route::post('career/catygory/',[frontendController::class,'CareerShowGroutBy'])->name('career.groupby');
     Route::get('career/{id}',[frontendController::class,'CareerShow'])->name('career.show');
 
+    // Gallary routes
     Route::get('gallary',[frontendController::class,'GallaryPpage'])->name('gallary.page');
     Route::get('gallary/{type}',[frontendController::class,'GallaryGroupBY'])->name('gallary.groupby');
 
+    // events routes
+    Route::get('events',[frontendController::class,'EventsPage'])->name('event.page');
+    Route::get('events/{id}',[frontendController::class,'EventsShow'])->name('event.show');
+
+    // Alumni routes
+    Route::get('AlumniStudents',[frontendController::class,'Alumni'])->name('alumni.page');
+    Route::get('AlumniStudents/{type}',[frontendController::class,'AlumniGroupBy'])->name('alumnigroupby.page');
+    Route::get('AlumniStudents/department/{dep}',[frontendController::class,'AlumniGroupByDep'])->name('alumnigroupbydep.page');
+
+    // show individual alumnis 
+    Route::get('AlumniStudent/{id}',[frontendController::class,'AlumniShow'])->name('alumnishow.page');
+
+    Route::get('Alumniposts',[frontendController::class,'AlumniPosts'])->name('alumnipost.page');
+    Route::get('Alumniposts/{id}',[frontendController::class,'AlumniPostsshow'])->name('alumnipostshow.page');
 
 });
 

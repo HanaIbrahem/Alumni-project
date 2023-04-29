@@ -12,18 +12,7 @@
         <ul class="metismenu mm-show" id="menu">
             
 
-            {{-- <li class="nav-label first">Webiste Setup</li>
-            <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-144-layout"></i>
-                    <span class="nav-text">Website</span>
-                </a>
-                <ul aria-expanded="false" class="mm-collapse mm-show left" style="">
-                    <li class="mm-active"><a href="{{route('admin.home.setup')}}" class="">Logo&Title</a></li>
-                    <li><a href="{{route('admin.home.faculty')}}">Faculty</a></li>
-                    <li><a href="#">Footer</a></li>
-                </ul>
-
-            </li> --}}
+           
 
 
          
@@ -74,13 +63,33 @@
                
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-044-file"></i>
+                <span class="nav-text">Alumni Posts</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route('posts.get')}}">Post Lists</a></li>
+                
+            </ul>  
+
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                 <i class=" fa fa-user"></i>
                 <span class="nav-text">Auth</span>
             </a>
             <ul aria-expanded="false">
                 <li><a href="{{route('allusers.get')}}">Users List</a></li>
                 
-            </ul>               
+            </ul>  
+            <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-144-layout"></i>
+                    <span class="nav-text">Website</span>
+                </a>
+                <ul aria-expanded="false" class="mm-collapse mm-show left" style="">
+                    <li class="mm-active"><a href="{{route('admin.home.setup')}}" class="">Logo&Title</a></li>
+                    <li><a href="{{route('admin.home.faculty')}}">Faculty</a></li>
+                    <li><a href="#">Footer</a></li>
+                </ul>
+
+            </li>             
            
         </ul>
     <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 650px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 355px;"></div></div></div>

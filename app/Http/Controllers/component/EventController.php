@@ -51,8 +51,8 @@ class EventController extends Controller
             'type' => ['required', 'string','max:255'],
             'image'=>['required',File::image()],
         
-            'expiredate' => ['required','date','after:today'],
-            'startdate' => ['required','date','after:expiredate'],
+            'expiredate' => ['required','date','after:startdate'],
+            'startdate' => ['required','date','after:today'],
         ], [
             'expiredate' => 'The date must be greater than today.',
         ]);
@@ -131,6 +131,8 @@ class EventController extends Controller
             $image->move(public_path('upload/images/event/'), $name_gen);
             $event->image= $save_url;
         }
+
+        
 
 
 
