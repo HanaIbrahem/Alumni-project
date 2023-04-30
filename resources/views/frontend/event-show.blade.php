@@ -4,7 +4,8 @@
     
     <header>
         <div class="page-header min-vh-45"
-            style="background-size: cover; transform: translate3d(0px, 0px, 0px);"
+        style="background-image: url('{{asset('upload/Untitled.jpg')}}')"
+
             loading="lazy">
             <span class="mask bg-gradient-dark opacity-8"></span>
             <div class="container">

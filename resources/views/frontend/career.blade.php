@@ -6,7 +6,7 @@
 
     <header class="position-relative">
         <div class="page-header min-vh-75 position-relative"
-            style="background-image: url('https://images.unsplash.com/photo-1460794418188-1bb7dba2720d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80');"
+            style="background-image: url('{{asset('upload/Untitled.jpg')}}');"
             loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
@@ -29,7 +29,7 @@
     <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
 
         <div class="container my-5">
-            <section class="pt-7 pb-5">
+            {{-- <section class="pt-7 pb-5">
                 <div class="container">
                     <div class="row text-center">
                         <div class="col-lg-4 col-md-6">
@@ -57,9 +57,9 @@
                     </div>
                 </div>
             </section>
+         --}}
         
-        
-            <section class="py-sm-3 py-1 border-top border-primary">
+            <section class="py-sm-3 py-1">
                 <div class="container ">
                     <div class="row">
                         <div class="col-lg-6">

@@ -26,7 +26,7 @@
 
     <header class="position-relative">
         <div class="page-header min-vh-75 position-relative"
-            style="background-image: url('https://images.unsplash.com/photo-1460794418188-1bb7dba2720d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80');"
+            style="background-image: url('{{asset('upload/Untitled.jpg')}}');"
             loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
@@ -66,9 +66,50 @@
                         </div>
                     </div>
 
+                   
+                    <!-- -------- START Features w/ 4 infos - just colored icons -------- -->
+                    <section class="py-4">
+                        <div class="container">
+                            <div class="row text-center" style="border-top: 2px solid #1A73E8">
+                                <div class="col-sm-12">
+                                    <h3 class="mb-5">Our Community</h3>
+                                </div>
+                                <div class="col-lg-3 col-md-6 bg-primary rounded  mb-2 text-white">
+                                    <div class="info">
+                                        <i class="material-icons text-gradient text-dark fa fa-dollar text-3xl"></i>
+                                        <h5 class="mt-3 text-white">Career Oportunity</h5>
+                                        <p>Access lifelong career and enterprise support.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="info">
+                                        <i
+                                            class="material-icons text-gradient fa-solid fa-pen-to-square text-info text-3xl"></i>
+                                        <h5 class="mt-3">Update your Info</h5>
+                                        <p>Update your information and keep touch with university</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="info">
+                                        <i class="material-icons text-gradient fa fa-search text-info text-3xl"></i>
+                                        <h5 class="mt-3">Search Alumni</h5>
+                                        <p>Searchs for alumi and checking here experince</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="info">
+                                        <i class="material-icons fa fa-calendar text-info text-3xl"></i>
+                                        <h5 class="mt-3">Upcome Events</h5>
+                                        <p>Grow your professional network by joining our online community</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <section class="pt-3 pb-4 " id="">
                         <div class="container">
-                            <div class="row" style="border-top: 2px solid #1A73E8">
+                            <div class="row" >
                                 <div class="col-lg-12 mx-auto py-3">
                                     <div class="row">
                                         <div class="col-md-3 position-relative">
@@ -112,51 +153,12 @@
                             </div>
                         </div>
                     </section>
-                    <!-- -------- START Features w/ 4 infos - just colored icons -------- -->
-                    <section class="py-4">
-                        <div class="container">
-                            <div class="row text-center">
-                                <div class="col-sm-12">
-                                    <h3 class="mb-5">Our Community</h3>
-                                </div>
-                                <div class="col-lg-3 col-md-6 bg-primary rounded  mb-2 text-white">
-                                    <div class="info">
-                                        <i class="material-icons text-gradient text-dark fa fa-dollar text-3xl"></i>
-                                        <h5 class="mt-3 text-white">Career Oportunity</h5>
-                                        <p>We get insulted by others, lose trust for those We get back.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="info">
-                                        <i
-                                            class="material-icons text-gradient fa-solid fa-pen-to-square text-info text-3xl"></i>
-                                        <h5 class="mt-3">Update My Information</h5>
-                                        <p>We get insulted by others, lose trust for those We get back.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="info">
-                                        <i class="material-icons text-gradient fa fa-search text-info text-3xl"></i>
-                                        <h5 class="mt-3">Search Alumni</h5>
-                                        <p>We get insulted by others, lose trust for those We get back.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="info">
-                                        <i class="material-icons fa fa-calendar text-info text-3xl"></i>
-                                        <h5 class="mt-3">Upcome Events</h5>
-                                        <p>We get insulted by others, lose trust for those We get back.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
                     <!-- -------- END Features w/ 4 infos - just colored icons -------- -->
                 </div>
             </section>
 
             <!-- START Blogs w/ 3 rows w/ image on left & title, text, author on end-->
-            <section class="py-5">
+            {{-- <section class="py-5">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 ms-auto me-auto">
@@ -251,7 +253,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
             <!-- END Blogs w/ 3 rows w/ image on left & title, text, author on end-->
 
         </div>

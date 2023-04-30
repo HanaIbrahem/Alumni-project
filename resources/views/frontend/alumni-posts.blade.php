@@ -6,7 +6,7 @@
 @section('main')
     <header>
         <div class="page-header min-vh-50"
-            style="background-image: url('https://images.unsplash.com/photo-1491156855053-9cdff72c7f85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2200&amp;q=80')"
+            style="background-image: url('{{asset('upload/Untitled.jpg')}}')"
             loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container">

@@ -269,6 +269,11 @@ Route::prefix('/alumni/')->group(function (){
     Route::get('Alumniposts',[frontendController::class,'AlumniPosts'])->name('alumnipost.page');
     Route::get('Alumniposts/{id}',[frontendController::class,'AlumniPostsshow'])->name('alumnipostshow.page');
 
+    // about page 
+    Route::get('about',[frontendController::class,'About'])->name('about.page');
+    Route::get('cantact',[frontendController::class,'Contact'])->name('contact.page');
+
+
 });
 
 

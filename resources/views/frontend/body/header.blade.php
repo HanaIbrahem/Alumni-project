@@ -11,7 +11,7 @@
         <nav  class="navbar navbar-expand-lg blur border-radius-xl position-absolute my-3 top-0 border-bottom py-2 z-index-3 shadow my-3 py-2 start-0 end-0 mx-4">
             <div class="container">
         
-                <a class="navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim"
+                <a class="navbar-brand" href="{{route('/')}}" rel="tooltip" title="Designed and Coded by Creative Tim"
                     data-placement="bottom" target="_blank">
                     <img src="{{ asset('' . $websitesetup->logo) }}" width="20" alt="down-arrow" class="arrow ms-1 rounded-pill">
                     <span class="text-primary bold ">{{ $websitesetup->name }}</span>
@@ -69,6 +69,37 @@
         
                         <li class="nav-item dropdown">
                             <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                                role="button" id="droalumni" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="material-icons opacity-6 me-1 text-md fa-solid fa-graduation-cap"></i>
+                                Alumni 
+                                <img src="{{ asset('upload/down-arrow-dark.svg') }}" class="arrow ms-auto ms-md-2">
+        
+                            </a>
+
+                            
+                            
+                            <div class="dropdown-menu ms-n3 dropdown-menu-animation dropdown-md p-3 border-radius-lg mt-0 mt-lg-3  dropdown-menu-end" aria-labelledby="droalumni">
+                                <div class="d-none d-lg-block">
+                                  <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                                    Alumni
+                                  </h6>
+                                  <a href="{{route('alumni.page')}}" class="dropdown-item border-radius-md">
+                                    <span>Alumni</span>
+                                  </a>
+                                  <a href="{{route('alumnipost.page')}}" class="dropdown-item border-radius-md">
+                                    <span>Alumni Story</span>
+                                  </a>
+                                  <a href="{{route('gallary.page')}}" class="dropdown-item border-radius-md">
+                                    <span>Gallary</span>
+                                  </a>
+                                 
+                                </div>
+                               
+                            </div>
+            
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                                 role="button" id="dropdownMenuPages6" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="material-icons opacity-6 me-1 text-md fa-solid fa-circle-info"></i>
                                 About
@@ -83,48 +114,17 @@
                                   <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                                     About
                                   </h6>
-                                  <a href="../../pages/about-us.html" class="dropdown-item border-radius-md">
+                                  <a href="{{route('about.page')}}" class="dropdown-item border-radius-md">
                                     <span>About Us</span>
                                   </a>
-                                  <a href="../../pages/contact-us.html" class="dropdown-item border-radius-md">
+                                  <a href="{{route('contact.page')}}" class="dropdown-item border-radius-md">
                                     <span>Contact Us</span>
                                   </a>
                                   <a href="../../pages/author.html" class="dropdown-item border-radius-md">
                                     <span>F&Q</span>
                                   </a>
-                                  <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
-                                    Alumni
-                                  </h6>
-                                  <a href="{{route('gallary.page')}}" class="dropdown-item border-radius-md">
-                                    <span>Gallary</span>
-                                  </a>
-                                  <a href="{{route('alumni.page')}}" class="dropdown-item border-radius-md">
-                                    <span>Alumins </span>
-                                  </a>
-                                  <a href="{{route('alumnipost.page')}}" class="dropdown-item border-radius-md">
-                                    <span>Alumin Story</span>
-                                  </a>
                                 </div>
-                                <div class="d-lg-none">
-                                  <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                    Landing Pages
-                                  </h6>
-                                  <a href="../../pages/about-us.html" class="dropdown-item border-radius-md">
-                                    <span>About Us</span>
-                                  </a>
-                                  <a href="../../pages/contact-us.html" class="dropdown-item border-radius-md">
-                                    <span>Contact Us</span>
-                                  </a>
-                                  <a href="../../pages/author.html" class="dropdown-item border-radius-md">
-                                    <span>Author</span>
-                                  </a>
-                                  <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
-                                    Account
-                                  </h6>
-                                  <a href="../../pages/sign-in.html" class="dropdown-item border-radius-md">
-                                    <span>Sign In</span>
-                                  </a>
-                                </div>
+                               
                             </div>
             
                         </li>

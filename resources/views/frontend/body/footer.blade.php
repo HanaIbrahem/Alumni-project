@@ -1,75 +1,143 @@
-<footer class="pt-lg-10 pt-5 footer bg-gray">
-    <div class="container">
-      <div class="row" >
-        <div class="col-lg-4 col-md-6 col-12">
-          <!-- about company -->
-          <div class="mb-4">
-            <img src="{{asset($websitesetup->logo)}}" alt="" width="100" height="100" class="logo-inverse ">
-            <div class="mt-4">
-              <p>{{$websitesetup->name}}</p>
-              <!-- social media -->
-              <div class="mb-4">
-                <p>Contact</p>
-                <p class="mb-1">Email: <a href="" class="text-dark">support@soran.edu.iq.com</a></p>
-                <p>Phone: <span class="text-dark fw-semi-bold">(964) 123 456 789</span></p>
-               
-                {{-- <div class="d-flex">
-                  <a href="#"><img src="../../assets/images/svg/appstore.svg" alt="" class="img-fluid"></a>
-                  <a href="#" class="ms-2"><img src="../../assets/images/svg/playstore.svg" alt="" class="img-fluid"></a>
-                </div> --}}
+@php
+  
+  use App\Models\University;
+    $websitesetup=University::find(1);
+@endphp
+
+<footer class="footer pt-5 mt-5">
+  <div class="container">
+    <div class=" row">
+      <div class="col-md-3 mb-4 ms-auto">
+        <div>
+          <a href="{{route('/')}}">
+            <img src="{{asset(''.$websitesetup->logo)}}" class="mb-3 footer-logo" alt="{{$websitesetup->name}}">
+          </a>
+          <h6 class="font-weight-bolder mb-4">{{$websitesetup->name}}</h6>
+          <p>info@soran.edu.iq</p>
+        </div>
+        <div>
+          <ul class="d-flex flex-row ms-n3 nav">
+            <li class="nav-item">
+              <a class="nav-link pe-1" href="https://www.facebook.com/SoranUniversity?mibextid=ZbWKwL" target="_blank">
+                <i class="fab fa-facebook text-lg opacity-8" aria-hidden="true"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link pe-1" href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQHUIhxXIbMkNQAAAYfO2JCAN0RLdsUxTY5AV2rMDVnfuBGw1aMexVaYFdqcb3opNGqA_kHRKup9tWvcgs028DFKNwk1Obx3G1SWFDzOxrWtXNzwCor5TYu3OfXdCtoDwh5ycH0=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Funiversity-of-soran%2F" target="_blank">
+                <i class="fab fa-linkedin text-lg opacity-8" aria-hidden="true"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link pe-1" href="https://www.youtube.com/@SoranUniversity"  target="_blank">
+                <i class="fab fa-youtube text-lg opacity-8" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-3 col-sm-6 col-6 mb-4">
+        <div>
+          <h6 class="text-sm">Quck links</h6>
+          <ul class="flex-column ms-n3 nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('news.page')}}" target="_blank">
+                Career
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('news.page')}}" target="_blank">
+                News
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('event.page')}}" target="_blank">
+                Events
+              </a>
+            </li>
+        
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('login')}}" target="_blank">
+                Login
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-6 mb-4">
+        <div>
+          <h6 class="text-sm">Alumni</h6>
+          <ul class="flex-column ms-n3 nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('alumni.page')}}" target="_blank">
+                Alumni
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('alumnipost.page')}}" target="_blank">
+                Alumni Blog Posts
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('gallary.page')}}" target="_blank">
+                Gallary
+              </a>
+            </li>
+
+
+      
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-6 mb-4">
+        <div>
+          <h6 class="text-sm">Help &amp; Support</h6>
+          <ul class="flex-column ms-n3 nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('about.page')}}" target="_blank">
+                About Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('contact.page')}}" target="_blank">
+                Contact Us
+              </a>
+            </li>
+
+           
+
+            <li class="nav-item">
+              <a class="nav-link" href="" target="_blank">
+                FAq
+              </a>
+            </li>
+
+          
+
+          </ul>
+        </div>
+      </div>
+
     
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="offset-lg-1 col-lg-2 col-md-3 col-6">
-          <div class="mb-4">
-            <!-- list -->
-            <h3 class="fw-bold mb-3 ">Quck links</h3>
-            <ul class="list-unstyled nav nav-footer flex-column nav-x-0">
-              <li><a href="#" class="nav-link">About</a></li>
-              <li><a href="#" class="nav-link">Pricing</a></li>
-              <li><a href="#" class="nav-link">News</a></li>
-              <li><a href="#" class="nav-link">Careers</a></li>
-              <li><a href="#" class="nav-link">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-6">
-          <div class="mb-4">
-            <!-- list -->
-            <h3 class="fw-bold mb-3">Support</h3>
-            <ul class="list-unstyled nav nav-footer flex-column nav-x-0">
-              <li><a href="#" class="nav-link">Help and Support</a></li>
-              <li><a href="#" class="nav-link">Become Instructor</a></li>
-              <li><a href="#" class="nav-link">Get the app</a></li>
-              <li><a href="#" class="nav-link">FAQ’s</a></li>
-              <li><a href="#" class="nav-link">Contact</a></li>
-            </ul>
 
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-12">
-          <!-- contact info -->
-          <div class="mb-4">
-            <!-- list -->
-            <h3 class="fw-bold mb-3">Support</h3>
-            <ul class="list-unstyled nav nav-footer flex-column nav-x-0">
-              <li><a href="#" class="nav-link">Help and Support</a></li>
-              <li><a href="#" class="nav-link">Become Instructor</a></li>
-              <li><a href="#" class="nav-link">Get the app</a></li>
-              <li><a href="#" class="nav-link">FAQ’s</a></li>
-              <li><a href="#" class="nav-link">Contact</a></li>
-            </ul>
-
-          </div>
-         
+      <div class="col-12">
+        <div class="text-center">
+          <p class="text-dark my-4 text-sm font-weight-normal">
+            
+          </p>
         </div>
       </div>
-      <div class="row">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima repellat ut mollitia nulla nesciunt, numquam modi sint tempora, necessitatibus placeat, ipsum qui praesentium? Fugit molestias nam deserunt impedit, consequatur rem. </p>
-      </div>
-     
     </div>
-  </footer>
- 
+  </div>
+</footer>
+
+
+

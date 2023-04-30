@@ -6,13 +6,13 @@
 @section('main')
 
 <header class="position-relative">
-    <div class="page-header min-vh-75 position-relative"
-        style="background-image: url('https://images.unsplash.com/photo-1460794418188-1bb7dba2720d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80');"
+    <div class="page-header min-vh-25 position-relative"
+        style="background-image: url('{{asset('upload/Untitled.jpg')}}');"
         loading="lazy">
         <span class="mask bg-gradient-dark"></span>
         <div class="container mt-5">
             <div class="row justify-content-center">
-                <div class="col-lg-6 text-center mx-auto mt-n7">
+                {{-- <div class="col-lg-6 text-center mx-auto mt-n7">
                     <h1 class="text-white fadeIn2 fadeInBottom">
                         Your Career 
                     </h1>
@@ -20,7 +20,7 @@
                         It is our task to find your job opportunity in our community.
                     </p>
                   
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

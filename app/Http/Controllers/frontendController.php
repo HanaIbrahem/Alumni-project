@@ -218,4 +218,15 @@ class frontendController extends Controller
         return  redirect()->back();
     }
 
+
+    public function About(){
+
+        return view('frontend.about');
+    }
+
+    public function Contact(){
+
+        return view('frontend.contact');
+    }
+
 }
