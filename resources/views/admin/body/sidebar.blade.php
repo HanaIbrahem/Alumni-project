@@ -79,6 +79,14 @@
                 <li><a href="{{route('allusers.get')}}">Users List</a></li>
                 
             </ul>  
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="las la-sms"></i>
+                <span class="nav-text">Contact</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route('contact.get')}}">Contact List</a></li>
+                
+            </ul>  
             <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-144-layout"></i>
                     <span class="nav-text">Website</span>
@@ -86,7 +94,6 @@
                 <ul aria-expanded="false" class="mm-collapse mm-show left" style="">
                     <li class="mm-active"><a href="{{route('admin.home.setup')}}" class="">Logo&Title</a></li>
                     <li><a href="{{route('admin.home.faculty')}}">Faculty</a></li>
-                    <li><a href="#">Footer</a></li>
                 </ul>
 
             </li>             

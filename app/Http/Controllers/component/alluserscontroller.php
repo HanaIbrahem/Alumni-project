@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\post;
+
+use App\Models\contact;
 use DB;
 class alluserscontroller extends Controller
 {
@@ -69,5 +71,17 @@ class alluserscontroller extends Controller
        $posts->save();
        return redirect()->back();
 
+    }
+
+    public function ContactList(){
+
+        $contact = contact::latest()->get();  
+        return view('admin.components.users.contact-list',compact('contact'));
+    }
+    public function ContacRemove($id){
+
+        $contact = contact::find($id);  
+        $contact->delete();
+        return redirect()->back();
     }
 }

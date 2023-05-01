@@ -76,6 +76,10 @@
 
                                     </h4>
                                     <p>
+                                        <li class="d-inline align-items-center"><i class="fa-solid fa-eye"></i>{{$item->views}}</li>
+
+                                    </p>
+                                    <p>
                                         {!! Str::limit($item->detail, 300) !!}
                                         <a href="{{ route('news.show', $item->id) }}" class="text-primary"> Read More </a>
                                     </p>

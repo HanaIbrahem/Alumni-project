@@ -11,19 +11,24 @@ return new class extends Migration
      *
      * @return void
      */
+    
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('contact_users', function (Blueprint $table) {
             $table->id();
-            $table->text('title');
-            $table->string('type');
-            $table->longText('detail');  
-            $table->string('image');
-            $table->unsignedInteger('views')->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('name');
+            $table->string('email');
+            $table->text('message');
             $table->timestamps();
         });
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     /**
      * Reverse the migrations.
      *
@@ -31,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('contact_users');
     }
 };

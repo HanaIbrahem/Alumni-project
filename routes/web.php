@@ -169,6 +169,10 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashbord/users/post/{id}', [alluserscontroller::class,'Postshow'])->name('postsshow.get');
 
         
+        Route::get('/dashbord/contact', [alluserscontroller::class,'ContactList'])->name('contact.get');
+        Route::get('/dashbord/contact/{id}', [alluserscontroller::class,'ContacRemove'])->name('contactremove.get');
+
+
     });
 
     
@@ -216,10 +220,15 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile/update/info', [ProfileController::class, 'UpdateInfo'])->name('profile.update.info');
 
     // User second email
+    Route::get('profile/update/email', [ProfileController::class, 'EmailUpdate'])->name('updateemail.get');
+    Route::post('profile/update/email/stor', [ProfileController::class, 'EmailUpdateStor'])->name('updateemail.stor');
 
+    //users contact list
     Route::get('profile/contactlink', [ProfileController::class, 'ContactLinks'])->name('contactlinks.form');
     Route::post('profile/contactlinkupdate', [ProfileController::class, 'updateemail'])->name('contactlinks.update');
-    
+    Route::get('profile/contactliste', [ProfileController::class, 'contactlist'])->name('usercontacts.get');
+    Route::get('profile/contactliste/{id}', [ProfileController::class, 'contactremov'])->name('usercontactdestraoy');
+
 
     // post 
     //get all posts
@@ -230,6 +239,8 @@ Route::middleware('auth')->group(function () {
     Route::get('post/dele/{id}', [ProfileController::class, 'PostDelet'])->name('post.delet');
     Route::get('post/edit/{id}', [ProfileController::class, 'PostEdit'])->name('post.edit');
     Route::put('post/update', [ProfileController::class, 'PostUdate'])->name('post.update');
+
+
 
 
 
@@ -263,6 +274,9 @@ Route::prefix('/alumni/')->group(function (){
     Route::get('AlumniStudents/{type}',[frontendController::class,'AlumniGroupBy'])->name('alumnigroupby.page');
     Route::get('AlumniStudents/department/{dep}',[frontendController::class,'AlumniGroupByDep'])->name('alumnigroupbydep.page');
 
+    // Alumni Contact page 
+    Route::post('AlumniStudent/contact',[frontendController::class,'AlumniContact'])->name('alumnicontact.page');
+
     // show individual alumnis 
     Route::get('AlumniStudent/{id}',[frontendController::class,'AlumniShow'])->name('alumnishow.page');
 
@@ -272,6 +286,8 @@ Route::prefix('/alumni/')->group(function (){
     // about page 
     Route::get('about',[frontendController::class,'About'])->name('about.page');
     Route::get('cantact',[frontendController::class,'Contact'])->name('contact.page');
+    Route::post('cantact/us',[frontendController::class,'ContactPost'])->name('contactpost.page');
+
 
 
 });

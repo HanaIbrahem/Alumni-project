@@ -32,9 +32,10 @@
 </style>
 
 <header>
-  <div class="page-header min-vh-45 bg-light text-center">
+  <div class="page-header min-vh-45 bg-light text-center"  style="background-image: url('{{asset('upload/Untitled.jpg')}}');"
+  loading="lazy">
 
-      <div class="container">
+      <div class="container ">
           <div class="row" style="padding:10% 5%">
               <div class="col-lg-10 m-auto p-50 ">
                   <h2>Hello! Welcome to Soran University photo gallery With Creative & Unique Style</h2>

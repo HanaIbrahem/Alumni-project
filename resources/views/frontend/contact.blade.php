@@ -29,36 +29,38 @@
                 <div class="col-lg-7 d-flex justify-content-center flex-column">
                     <div class="card card-body d-flex justify-content-center shadow-lg p-5 blur align-items-center">
                         <h3 class="text-center">Contact us</h3>
-                        <form role="form" id="contact-form" method="post" autocomplete="off">
+                        <form action="{{route('contactpost.page')}}" id="contact-form" method="post" >
+                            @csrf
+                            @method('POST')
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="input-group input-group-static mb-4">
                                             <label>First Name</label>
-                                            <input class="form-control" placeholder="eg. Jack" aria-label="First Name..."
-                                                type="text">
+                                            <input class="form-control" placeholder="First Name" aria-label="First Name..."
+                                                type="text" name="fname">
                                         </div>
                                     </div>
                                     <div class="col-md-6 ps-2">
                                         <div class="input-group input-group-static">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="eg. Samuel"
-                                                aria-label="Last Name...">
+                                            <input type="text" class="form-control" placeholder="Last Name"
+                                                aria-label="Last Name..."  name="lname">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4">
                                     <div class="input-group input-group-static">
                                         <label>Email Address</label>
-                                        <input type="email" class="form-control" placeholder="hello@creative-tim.com">
+                                        <input type="email"  name="email" class="form-control" placeholder="hello@gmail.com">
                                     </div>
                                 </div>
                                 <div class="input-group input-group-static mb-4">
                                     <label>Your message</label>
-                                    <textarea name="message" class="form-control" id="message" rows="4"></textarea>
+                                    <textarea name="message"  name="message" class="form-control" id="message" rows="4"></textarea>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    {{-- <div class="col-md-12">
                                         <div class="form-check form-switch d-flex align-items-center mb-4">
                                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
                                                 checked="">
@@ -66,7 +68,7 @@
                                                 to the <a href="javascript:;" class="text-dark"><u>Terms and
                                                         Conditions</u></a>.</label>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12">
                                         <button type="submit" class="btn bg-gradient-dark w-100">Send Message</button>
                                     </div>

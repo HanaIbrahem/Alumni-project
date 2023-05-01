@@ -10,6 +10,8 @@ use App\Models\Gallary;
 use App\Models\Events;
 use App\Models\User;
 use App\Models\post;
+use App\Models\contact;
+use App\Models\ContactUser;
 use DB;
 class frontendController extends Controller
 {
@@ -45,6 +47,7 @@ class frontendController extends Controller
         $news=News::findOrFail($id);
 
         // catigory news
+        $news->increment('views');
         $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
         ->groupBy('type')->orderBy('count','desc')->limit(6)
         ->get();
@@ -89,6 +92,8 @@ class frontendController extends Controller
 
 
         $career=Career::findOrFail($id);
+        $career->increment('views');
+
         return view('frontend.career-show',compact('career'));
     }//Career Show
 
@@ -155,6 +160,7 @@ class frontendController extends Controller
     public function EventsShow($id){
 
         $event=Events::findOrFail($id);
+        $event->increment('views');
         return view('frontend.event-show',compact('event'));
     }
     
@@ -215,7 +221,29 @@ class frontendController extends Controller
         if (  $posts->show=="yes") {
             return view('frontend.alumni-post-show',compact('posts'));
         }
+
         return  redirect()->back();
+    }
+
+    public function AlumniContact(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+    
+        ContactUser::create([
+
+            'name' =>$request->name,
+            'message'=>$request->message,
+            'email'=>$request->email,
+            'user_id'=>$request->userid,
+            
+        ]); 
+
+    
+        return redirect()->back()->with('success', 'Your message has been sent.');
+
     }
 
 
@@ -227,6 +255,22 @@ class frontendController extends Controller
     public function Contact(){
 
         return view('frontend.contact');
+    }
+    public function ContactPost(Request $request){
+
+        $validatedData = $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+    
+        $contactRequest = contact::create($validatedData);
+    
+    
+        return redirect()->back()->with('success', 'Your message has been sent.');
+      
+      
     }
 
 }

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Validation\Rules\File;
 use App\Models\post;
+use App\Models\ContactUser;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
@@ -131,6 +133,52 @@ class ProfileController extends Controller
     }
 
     // Update second email !! Suporting email for users
+    public function EmailUpdate(){
+
+        return view('user_dashbord.update-email');
+    }
+    public function EmailUpdateStor(Request $request){
+
+        // Validate the request input
+        $request->validate([
+            'email' => 'required|email|unique:users,email,' . auth()->user()->id,
+            'password' => ['required', 'current-password'],
+
+        ]);
+    
+        // Generate a new email verification token
+        $token = Str::random(60);
+    
+        // Update the user's email and reset the email_verified_at field
+        auth()->user()->update([
+            'email' => $request->email,
+            'email_verified_at' => null,
+            'email_verification_token' => $token,
+        ]);
+        auth()->user()->sendEmailVerificationNotification();
+
+        // Send the email verification notification to the user's new email address
+    
+        // Redirect back with a success message
+        return back()->with('success', 'Your email has been updated. Please check your new email address for a verification link.');
+   
+    }
+
+    
+   
+    //contact list
+    public function contactlist(){
+
+        $contactlist = ContactUser::where('user_id', auth()->id())->latest()->paginate(10);
+        return view('user_dashbord.contactlist',compact('contactlist'));
+    }
+    public function contactremov($id){
+
+        $contactlist = ContactUser::find($id);
+        $contactlist->delete();
+        return  redirect()->back();
+
+    }
     public function ContactLinks(){
         
         return view('user_dashbord.contactlinks');

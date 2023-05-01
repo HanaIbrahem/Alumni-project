@@ -153,6 +153,7 @@
                                                             {{ $item->location }} <span
                                                                 class="text-muted">({{ $item->count }})</span>
                                                         </label>
+                                                        
                                                     </div>
                                                 @endforeach
                                                 {{-- end foreach --}}
@@ -236,6 +237,9 @@
                                                             <span class="me-2">
                                                                 <i class="fa-solid fa-location-dot op"></i><span
                                                                     class=" op">{{ $item->location }}</span></span>
+                                                            <span class="me-2">
+                                                                <li class="d-inline align-items-center"><i class="fa-solid fa-eye"></i>{{$item->views}}</li>
+                                                            </span>
                                                         </div>
                                                         <div>
                                                             <span

@@ -54,6 +54,10 @@
                                                 <i class="fa-solid fa-money"> </i><span class=" op">{{$career->salary_range}}</span></span>
                                             <span class="me-2">
                                                 <i class="fa-solid fa-location-dot op"></i><span class=" op">{{$career->location}}</span></span>
+
+                                            <span class="me-2">
+                                                <li class="d-inline align-items-center"><i class="fa-solid fa-eye"></i>{{$career->views}}</li>
+                                            </span>
                                         </div>
         
                                         {{-- <div>

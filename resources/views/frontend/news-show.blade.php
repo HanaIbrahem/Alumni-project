@@ -38,7 +38,7 @@
                      <li class="d-inline align-items-center m-4"><i class="fa fa-solid fa-quote-left"></i> {{ $news->type }}</li>
                      <li class="d-inline align-items-center"><i class="fa fa-clock"></i> <time datetime=""
                              class="text-warning">{{ $news->created_at->format('M j, Y') }}</time></li>
-                     {{-- <li class="d-inline align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li> --}}
+                    <li class="d-inline align-items-center"><i class="fa-solid fa-eye"></i>{{$news->views}}</li>
                  </ul>
               </div><!-- End meta top -->
               <div class="post-img">

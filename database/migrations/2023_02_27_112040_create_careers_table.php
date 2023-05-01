@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('salary_range');
             $table->string('location');
-
+            $table->unsignedInteger('views')->default(0);
             $table->longText('detail');  
             $table->string('image');
             $table->date('duration');
