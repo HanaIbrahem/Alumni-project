@@ -77,6 +77,10 @@ class User extends Authenticatable
         return $this->hasMany(ContactUser::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
     //send notification for users to verify hehe email address
     public function sendEmailVerificationNotification()
     {

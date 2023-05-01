@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="col-lg-7 col-md-7 my-sm-auto mt-3 ms-sm-3">
                                     <h4>
-                                        <a href="javascript:;" class="text-dark">{{ $item->title }}</a><br>
+                                        <a href="{{ route('news.show', $item->id) }}" class="text-dark">{{ $item->title }}</a><br>
                                         <small class="text-secondary text-small">{{ $item->type }}</small>
 
                                     </h4>

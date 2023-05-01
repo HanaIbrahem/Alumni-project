@@ -1,8 +1,6 @@
 @extends('frontend.body.master')
 
 @section('main')
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
     <header>
         <div class="page-header min-vh-50"
             style="background-image: url('{{asset('upload/Untitled.jpg')}}')"
@@ -55,11 +53,12 @@
                                         <a href="{{ route('event.show', $item->id) }}" class="text-dark">{{ $item->title }}</a>
                                     </h3>
 
-                                    <div id="{{$item->id}}" class="d-flex">
-                                        <div class="days me-3  text-primary  p-1"></div>
-                                        <div class="hours me-3  text-primary  p-1"></div>
-                                        <div class="minutes me-3  text-primary  p-1"></div>
-                                        <div class="seconds me-3  text-primary  p-1"></div>
+                                    <div id="" class="d-flex">
+                                     
+                                        <p class="author">
+                                            <span class="font-weight-bold text-warning">
+Expired at: {{ \Carbon\Carbon::parse($item->enddate)->format('M j, Y') }}                                        </p>
+
                                     </div>
 
                                     <p class="card-description">
@@ -71,6 +70,9 @@
                                     <p class="author">
                                         <span class="font-weight-bold text-warning">
                                             Event</span></a>, {{ $item->created_at->format('M j, Y') }}
+                                            <span class="ms-3 text-info">
+                                            <i class="fa-solid fa-eye"></i>{{$item->views}}
+                                            </span>
                                     </p>
 
                                 </div>
@@ -84,39 +86,7 @@
                                 @endphp
 
 
-                                <script>
-                                    // Set the countdown date and time
-                                    var countDownDate = new Date("{{ $created_at }}").getTime();
-
-                                    // Update the countdown every second
-                                    var x = setInterval(function() {
-
-                                        // Get the current date and time
-                                        var now = new Date().getTime();
-
-                                        // Calculate the distance between the current date and time and the countdown date and time
-                                        var distance = countDownDate - now;
-
-                                        // Calculate days, hours, minutes, and seconds
-                                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                                        var down={{$item->id}};
-                                        
-                                        // Display the countdown
-                                        document.getElementById(down).innerHTML = days + "d " + hours + "h " +
-                                            minutes + "m " + seconds + "s ";
-
-                                        // If the countdown is over, display a message
-                                        if (distance < 0) {
-                                            clearInterval(x);
-                                            document.getElementById("countdown").innerHTML = "<span class='text-danger'>EXPIRED !</span>";
-
-                                        }
-                                    }, 1000);
-                                </script>
+                    
 
                             </div>
                         @endforeach

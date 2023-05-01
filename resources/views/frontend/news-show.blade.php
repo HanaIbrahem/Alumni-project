@@ -39,6 +39,14 @@
                      <li class="d-inline align-items-center"><i class="fa fa-clock"></i> <time datetime=""
                              class="text-warning">{{ $news->created_at->format('M j, Y') }}</time></li>
                     <li class="d-inline align-items-center"><i class="fa-solid fa-eye"></i>{{$news->views}}</li>
+                    <li class="d-inline align-items-center">Comments:
+                      @if ($commentCounts && $commentCounts->comment_count != null)
+                      {{$commentCounts->comment_count}}
+    
+                      @endif
+                    </li>
+                
+                  
                  </ul>
               </div><!-- End meta top -->
               <div class="post-img">
@@ -50,6 +58,79 @@
               <div class="content">
                   {!! $news->detail !!}
               </div><!-- End meta bottom -->
+
+              <div class="row">
+                <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
+
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Comment section</h5>
+                        <!-- Comment form -->
+                        <form method="POST" action="{{route('comment.stor')}}">
+
+                            @csrf
+                            @method('POST')
+                            @if (count($errors))
+                    <div class="div alert-danger text-white">
+                        @foreach ($errors->all() as $message )
+                            <li>{{ $message}}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                    @if(session('error'))
+                    <div class="alert alert-warning alert-dismissible text-white fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    @endif
+                            <input type="hidden" name="post_id" value="{{$news->id}}">
+                            <input type="hidden" name="type" value="news">
+                          <div class="form-group">
+                            <textarea class="form-control py-3" name="content" placeholder="Write your comment..."></textarea>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Leav a comment</button>
+                        </form>
+                        <!-- Comment list -->
+                        <ul class="list-unstyled mt-3">
+                          
+                            @foreach ( $comments as $item)
+                            <li class="media ms-3 mb-3 " style="border-bottom: 1px solid #036393">
+                                <a href="{{route('alumnishow.page',$item->user->id)}}" class="avatar avatar-xs rounded-circle">
+                                    <img  class="avatar avatar-sm shadow me-2 border-radius-lg"
+                                    src="{{ !empty($item->user->image_profile)
+                                        ? url('upload/images/profile/' . $item->user->image_profile)
+                                        : url('upload/no_image.jpg') }}"
+                                    alt="{{$item->user->name}}" loading="lazy">
+                                    <h5 class="mt-0 mb-1">{{$item->user->name}}</h5>
+
+                                </a>
+                                <div class="media-body bg-light p-2 rounded-pill">
+                                 <p class="text-small"> {{$item->content}} </p>
+
+                                </div>
+                                <small>{{$item->created_at->format('M Y D')}}</small>
+                                @if(Auth::check() && Auth::user()->id == $item->user_id)
+                                <a href="{{route('comment.destroy',$item->id)}}"><i class="fa fa-trash"></i></a>
+
+                                @endif
+
+                            </li>
+                            @endforeach
+                          <!-- Add more comments here -->
+                        </ul>
+                      </div>
+                    </div>
+                    <ul class="pagination pagination-primary mt-4 ml-2">
+                        {{ $comments->links('vendor.pagination.custom') }}
+
+                    </ul>
+
+                </div>
+            </div>
+
 
           </article><!-- End blog post -->
           </div>
@@ -83,3 +164,6 @@
       </div>
     </div>
 @endsection
+
+
+

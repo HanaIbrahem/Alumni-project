@@ -22,6 +22,9 @@ use App\Http\Controllers\Home\HomeSetupController;
 // frontend controllers
 use App\Http\Controllers\frontendController;
 
+//comment controller
+
+use App\Http\Controllers\CommentController;
 /*
 
 
@@ -288,6 +291,9 @@ Route::prefix('/alumni/')->group(function (){
     Route::get('cantact',[frontendController::class,'Contact'])->name('contact.page');
     Route::post('cantact/us',[frontendController::class,'ContactPost'])->name('contactpost.page');
 
+    Route::post('comment',[CommentController::class,'store'])->name('comment.stor');
+
+    Route::get('comment/{id}',[CommentController::class,'destroy'])->name('comment.destroy');
 
 
 });

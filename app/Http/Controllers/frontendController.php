@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\post;
 use App\Models\contact;
 use App\Models\ContactUser;
+use App\Models\Comment;
 use DB;
 class frontendController extends Controller
 {
@@ -31,6 +32,8 @@ class frontendController extends Controller
         //     ->orderBy('created_at','desc')
         //     ->get();
 
+        
+       
         $news=News::latest()->paginate(6);
 
         // catigory news
@@ -47,12 +50,22 @@ class frontendController extends Controller
         $news=News::findOrFail($id);
 
         // catigory news
+
+        $comments = Comment::where('type', 'news')
+        ->where('post_id', $id)->paginate(10);
+       $commentCounts = DB::table('comments')
+           ->select('post_id', DB::raw('COUNT(*) as comment_count'))
+           ->where('type', '=', 'news') // Removed unnecessary '= k' part
+           ->where('post_id', '=', $id) // Fixed missing variable name for post_id
+           ->groupBy('post_id')
+           ->first(); // Changed from get() to first()
+       
         $news->increment('views');
         $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
         ->groupBy('type')->orderBy('count','desc')->limit(6)
         ->get();
 
-        return view('frontend.news-show',compact('news','recentnews','newsCount'));
+        return view('frontend.news-show',compact('news','commentCounts','comments','recentnews','newsCount'));
 
 
     }//end method
@@ -63,6 +76,7 @@ class frontendController extends Controller
         $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
         ->groupBy('type')->orderBy('count','desc')->limit(5)
         ->get();
+
 
         $news = News::where('type', "$type")
                     ->orderBy('created_at', 'desc')
@@ -93,8 +107,10 @@ class frontendController extends Controller
 
         $career=Career::findOrFail($id);
         $career->increment('views');
+        $comments = Comment::where('type', 'career')
+        ->where('post_id', $id)->paginate(10);
 
-        return view('frontend.career-show',compact('career'));
+        return view('frontend.career-show',compact('career','comments'));
     }//Career Show
 
 
@@ -159,9 +175,11 @@ class frontendController extends Controller
 
     public function EventsShow($id){
 
+        $comments = Comment::where('type', 'events')
+        ->where('post_id', $id)->paginate(10);
         $event=Events::findOrFail($id);
         $event->increment('views');
-        return view('frontend.event-show',compact('event'));
+        return view('frontend.event-show',compact('event','comments'));
     }
     
     // Start Alumni routes
@@ -225,6 +243,7 @@ class frontendController extends Controller
         return  redirect()->back();
     }
 
+    //contact
     public function AlumniContact(Request $request){
         $validatedData = $request->validate([
             'name' => 'required',
@@ -256,6 +275,8 @@ class frontendController extends Controller
 
         return view('frontend.contact');
     }
+
+    //contact post
     public function ContactPost(Request $request){
 
         $validatedData = $request->validate([
