@@ -77,7 +77,8 @@
             </a>
             <ul aria-expanded="false">
                 <li><a href="{{route('allusers.get')}}">Users List</a></li>
-                
+                <li><a href="{{route('adminlist.get')}}">Admin List</a></li>
+                <li><a href="{{route('adminregister.get')}}">Admin Register</a></li>
             </ul>  
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                 <i class="las la-sms"></i>

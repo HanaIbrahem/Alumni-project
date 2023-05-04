@@ -22,8 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('image_profile')->nullable();
             $table->string('cover_image')->nullable();
-            // $table->enum('gender', ['male', 'female']);
-            // $table->string('lname')->after('name');
+            $table->enum('role', ['superadmin', 'admin'])->default('admin');
             $table->text('bio')->nullable();
             $table->longText('about')->nullable();;
             $table->tinyInteger('stauts')->default(0);

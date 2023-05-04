@@ -33,8 +33,7 @@
                             <div class="col"></div>
                         </div>
                         <h3 class="mb-1 fw-bold">Sign in</h3>
-                        <span class="opacit">if you don't have an account?</span>
-                        <a href="{{route('admin.register')}}" class="text-primary ">Sign up</a>
+                        
                     </div>
 
                     {{-- Validation Errors --}}

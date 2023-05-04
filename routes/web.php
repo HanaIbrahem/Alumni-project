@@ -50,9 +50,8 @@ Route::get('/dashbord', [AdminController::class,'Dashbord'])->name('admin.dashbo
 
 Route::get('/logout', [AdminController::class,'Logout'])->name('admin.logout');
 
-Route::get('/register', [AdminController::class,'AdminRegister'])->name('admin.register');
+// Route::get('/register', [AdminController::class,'AdminRegister'])->name('admin.register');
 
-Route::post('/register/create', [AdminController::class,'AdminRegisterCreate'])->name('admin.register.create');
 
 // forget password Link
 Route::get('forgot-password', [PasswordResetLinkControllerAdmin::class, 'create'])
@@ -74,6 +73,7 @@ Route::get('/dashbord/profile', [AdminController::class,'profile'])->name('admin
 
 } );
 
+// Route::get('/admin-dashboard', [AdminController::class, 'dashboard'])->middleware(['auth', 'superadmin']);
 /*
 ---------------End Admin Cotroller -----------------------
 */
@@ -176,6 +176,13 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashbord/contact/{id}', [alluserscontroller::class,'ContacRemove'])->name('contactremove.get');
 
 
+        Route::get('/dashbord/admins', [alluserscontroller::class,'AdminList'])->name('adminlist.get');
+        Route::get('/dashbord/admin/register', [alluserscontroller::class,'AdminRegister'])->name('adminregister.get');
+
+        Route::post('/dashbord/admin/create', [AdminController::class,'AdminRegisterCreate'])->name('admin.register.create');
+        // to dlete admin
+        Route::get('/dashbord/admins/{id}', [alluserscontroller::class,'AdminDestroy'])->name('adminlist.destroy')->middleware(['admin', 'superadmin']);
+
     });
 
     
@@ -203,9 +210,9 @@ Route::post('/test', [HomeSetupController::class,'test'])->name('test');
 //get department for json
 
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('/');
+// Route::get('/', function () {
+//     return view('frontend.index');
+// })->name('/');
 
 
 Route::get('/dashboard', function () {
@@ -251,9 +258,11 @@ Route::middleware('auth')->group(function () {
 
 
 // foront end controller
+Route::get('/',[frontendController::class,'index'])->name('/');
 
 Route::prefix('/alumni/')->group(function (){
-
+    
+    
     // news routes 
     Route::get('news',[frontendController::class,'NewsPage'])->name('news.page');
     Route::get('news/{id}',[frontendController::class,'NewsShow'])->name('news.show');

@@ -4,8 +4,8 @@
     
     <header>
         <div class="page-header min-vh-45"
-            style="background-size: cover; transform: translate3d(0px, 0px, 0px);"
-            loading="lazy">
+        style="background-image: url('{{asset('upload/Untitled.jpg')}}')"
+        loading="lazy">
             <span class="mask bg-gradient-dark opacity-8"></span>
             <div class="container">
                 <div class="row">
@@ -61,7 +61,10 @@
                     : url('upload/no_image.jpg') }}"
                 alt="{{$posts->user->name}}" loading="lazy"> 
                 <p class="my-auto"><a href="{{route('alumnishow.page',$posts->user->id)}}">{{$posts->user->name}} </a></p>
-            </di
+            </div>
+            <div class="mt-4 col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
+                {!! $posts->content !!}
+            </div>
        </div>
     </div>
 @endsection

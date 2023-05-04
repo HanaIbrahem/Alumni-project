@@ -23,6 +23,14 @@ class frontendController extends Controller
      */
     public function index()
     {
+       $countObj = (object) [
+          'userCount' => DB::table('users')->count(),
+          'userGallary' => DB::table('gallaries')->count(),
+          'userCareer' => DB::table('careers')->count(),
+          'userEvent' => DB::table('events')->count()
+       ];
+
+        return view('frontend.index',compact('countObj'));
         //
     }
 

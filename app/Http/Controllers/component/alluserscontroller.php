@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\post;
-
+use App\Models\Admin;
 use App\Models\contact;
 use DB;
 class alluserscontroller extends Controller
@@ -82,6 +82,24 @@ class alluserscontroller extends Controller
 
         $contact = contact::find($id);  
         $contact->delete();
+        return redirect()->back();
+    }
+
+    // admin users list
+    public function AdminList(){
+
+        $admin=Admin::all();
+        return view('admin.users.admin-list',compact('admin'));
+    }
+
+    public function AdminRegister(){
+
+        return view('admin.users.admin-register');
+    }
+    public function AdminDestroy($id){
+
+        $admin=Admin::findOrFail($id);
+        $admin->delete();
         return redirect()->back();
     }
 }

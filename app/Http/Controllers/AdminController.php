@@ -47,7 +47,7 @@ class AdminController extends Controller
             'created_at'=>Carbon::now(),
         ]);
 
-        return redirect()->route('admin.dashbord')->with('error','Admin registered successfully');
+        return redirect()->back()->with('success', 'Admin registered successfully.');
 
         
         
@@ -67,7 +67,7 @@ class AdminController extends Controller
 
     public function Logout(){
         Auth::guard('admin')->logout();
-        return redirect()->route('login_form')->with('error','Admin logout successfully');
+        return redirect()->route('/')->with('error','Admin logout successfully');
 
 
     }//end methid 
