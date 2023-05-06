@@ -56,12 +56,13 @@
                 <div class="profile card card-body px-3 pt-3 pb-0">
                     <div class="profile-head">
                         <div class="photo-content">
-                            <div class="cover-photo"></div>
+                            <div class="cover-photo" style="background-image:url({{(!empty($admin->cover_image))?url('upload/images/cover/adminimg/'.$admin->cover_image):
+                                url('upload/no_image.jpg') }}) "></div>
                         </div>
                         <div class="profile-info">
                             <div class="profile-photo">
-                                <img src=" {{(!empty($admin->image_profile))?url('upload/images/profile/adminimg/'.$admin->image_profile):
-                                url('upload/no_image.jpg') }}"  width="20" alt="{{$admin->name}}">              
+                               <img src="{{(!empty($admin->image_profile))?url('upload/images/profile/adminimg/'.$admin->image_profile):
+                                           url('upload/no_image.jpg')}}" class="img-fluid rounded-circle img-thumbnail" alt="{{$admin->name}}">              
                             </div>
                             <div class="profile-details">
                                 <div class="profile-name px-3 pt-2">
@@ -69,17 +70,38 @@
                                     <p>Admin</p>
                                 </div>
                                 <div class="profile-email px-2 pt-2">
-                                    <h4 class="text-muted mb-0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="670e09010827021f060a170b024904080a">[email&nbsp;protected]</a></h4>
+                                    <h4 class="text-muted mb-0">{{$admin->email}}</h4>
                                     <p>Email</p>
                                 </div>
+                               
                                 <div class="dropdown ml-auto">
                                     <a href="#" class="btn btn-primary light sharp" data-toggle="dropdown" aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i> View profile</li>
-                                        <li class="dropdown-item"><i class="fa fa-users text-primary mr-2"></i> Add to close friends</li>
-                                        <li class="dropdown-item"><i class="fa fa-plus text-primary mr-2"></i> Add to group</li>
-                                        <li class="dropdown-item"><i class="fa fa-ban text-primary mr-2"></i> Block</li>
+                                        <a href="{{route('admin.profile')}}"><li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i> View profile</li>
+                                        </a>
+                                        <a href="{{route('admin.profile.edit')}}"> <li class="dropdown-item"><i class="fa fa-pencil text-primary mr-2"></i>Edit Profile</li>
+                                        </a>
+                                        <a href="{{route('admin.changepasswor')}}"><li class="dropdown-item"><i class="fa fa-lock text-primary mr-2"></i> Change Password</li>
+                                        </a>
                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-12">
+                            <div class="card bg-light">
+                                <div class="card-header">
+                                    <h5 class="card-title">{{$admin->bio}}</h5>
+            
+                                 
+                                   <p class="text-info text-sm">Last Update:{{$admin->updated_at->format('M j, Y')}}</p>
+            
+            
+                                </div>
+                               
+                            
+                                <div class="card-body mb-0">
+                                   {!!$admin->about !!}
                                 </div>
                             </div>
                         </div>

@@ -23,8 +23,9 @@ use App\Http\Controllers\Home\HomeSetupController;
 use App\Http\Controllers\frontendController;
 
 //comment controller
-
 use App\Http\Controllers\CommentController;
+// frontend search controller
+use App\Http\Controllers\SearchController;
 /*
 
 
@@ -300,10 +301,15 @@ Route::prefix('/alumni/')->group(function (){
     Route::get('cantact',[frontendController::class,'Contact'])->name('contact.page');
     Route::post('cantact/us',[frontendController::class,'ContactPost'])->name('contactpost.page');
 
+    //coment routes 
     Route::post('comment',[CommentController::class,'store'])->name('comment.stor');
-
     Route::get('comment/{id}',[CommentController::class,'destroy'])->name('comment.destroy');
 
+    // Search controller 
+    Route::post('news/search',[SearchController::class,'NewsSearch'])->name('news.search');
+    Route::post('event/search',[SearchController::class,'EventSearch'])->name('event.search');
+    Route::post('career/search',[SearchController::class,'CareerSearch'])->name('career.search');
+    Route::post('AlumniStudents/search',[SearchController::class,'AlumniSearch'])->name('alumni.search');
 
 });
 

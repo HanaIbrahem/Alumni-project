@@ -70,7 +70,10 @@
                         <div class="col-lg-4 mx-auto mt-5">
                             <div class="input-group input-group-dynamic mb-4">
                               <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
-                              <input class="form-control" placeholder="Search" type="text" >
+                              <form action="" method="post">
+                            
+                                <input class="form-control" placeholder="Search" id="search-input" type="text" name="search">
+                            </form>
                             </div>
                         </div>
                     
@@ -192,7 +195,7 @@
                             @foreach ($career as $item)
                                 <!-- card  start-->
         
-                                <div class="card card-bordered mb-3 card-hover cursor-pointer" >
+                                <div class="card card-bordered mb-3 card-hover cursor-pointer" data-aos="zo om-out"  data-aos-duration="1000">
                                     <!-- card body -->
                                     <div class="card-body" style="border-bottom: 1px solid #0066cc">
                                         <div>

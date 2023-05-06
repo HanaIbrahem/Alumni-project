@@ -88,6 +88,23 @@
                             
                     </div>
                 </div>
+                <div class="col-xl-12">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <h5 class="card-title">{{$admin->bio}}</h5>
+    
+                         
+                           <p class="text-info text-sm">Last Update:{{$admin->updated_at->format('M j, Y')}}</p>
+    
+    
+                        </div>
+                       
+                    
+                        <div class="card-body mb-0">
+                           {!!$admin->about !!}
+                        </div>
+                    </div>
+                </div>
              
             </div>
         </div>

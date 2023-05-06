@@ -57,7 +57,7 @@
 
 
                     @foreach ($news as $item)
-                        <div class="card card-plain card-blog mt-5">
+                        <div class="card card-plain card-blog mt-5" data-aos="zoom-in"  data-aos-duration="1000">
                             <div class="row">
                                 <div class="col-lg-4 col-md-4">
                                     <div class="card-image position-relative border-radius-lg">
@@ -110,7 +110,10 @@
                     </p>
                     <div class="input-group input-group-dynamic mb-4" style="width:100%">
                         <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
-                        <input class="form-control" placeholder="Search" type="text">
+                        <form action="{{ route('news.search') }}" method="post">
+                            @csrf
+                            <input class="form-control" placeholder="Search" id="search-input" type="text" name="search">
+                        </form>
                     </div>
                     <h3 class="sidebar-title">Categories</h3>
 

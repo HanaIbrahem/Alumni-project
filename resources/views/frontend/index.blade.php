@@ -50,7 +50,7 @@
         <div class="container my-5">
             <section class="py-5 mt-5">
                 <div class="container">
-                    <div class="row">
+                    <div class="row" data-aos="zoom-in"  data-aos-duration="1000">
                         <div class="col-lg-8 ms-auto me-auto">
                             <h3 class="title mb-4">Alimni Community</h3>
                             <p class="text-dark">
@@ -70,7 +70,7 @@
                     <!-- -------- START Features w/ 4 infos - just colored icons -------- -->
                     <section class="py-4">
                         <div class="container">
-                            <div class="row text-center" style="border-top: 2px solid #1A73E8">
+                            <div class="row text-center" data-aos="zoom-out"  data-aos-duration="1000"style="border-top: 2px solid #1A73E8">
                                 <div class="col-sm-12">
                                     <h3 class="mb-5">Our Community</h3>
                                 </div>
@@ -109,7 +109,7 @@
 
                     <section class="pt-3 pb-4 " id="">
                         <div class="container">
-                            <div class="row" >
+                            <div class="row " data-aos="fade-out"  data-aos-duration="1000">
                                 <div class="col-lg-12 mx-auto py-3">
                                     <div class="row">
                                         <div class="col-md-3 position-relative">

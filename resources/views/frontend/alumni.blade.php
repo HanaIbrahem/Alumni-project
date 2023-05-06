@@ -91,13 +91,23 @@
                     <div class="mt-6">
                         <div class="input-group input-group-dynamic mb-4" style="width:100%">
                             <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input class="form-control" placeholder="Search" type="text">
+                            <form action="{{route('alumni.search')}}" method="post">
+                                @csrf
+                                @method('POST')
+                                <input class="form-control" name="search" placeholder="Search" type="text">
+
+                                <div class="d-none">
+                                    <input type="submit" value="">
+                                </div>
+                                
+
+                            </form>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div class="row mt-4" style="background-color: #e7e2e2d4">
+            <div class="row mt-4" style="background-color: #ffffffd4">
 
                 @foreach ($alumni as $item)
                     <div class="col-md-4 mb-md-3 mb-7">

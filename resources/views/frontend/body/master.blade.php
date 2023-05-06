@@ -9,18 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{-- <link rel="stylesheet" href="{{asset('frontend/assets/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i">
-    <link rel="stylesheet" href="{{asset('frontend/assets/fonts/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/fonts/ionicons.min.css')}}"> --}}
 
     <link rel="stylesheet" href="{{asset('frontend/assets/vendor/slider/swiper-bundle.min.css')}}">
-
-    {{-- style for website --}}
-    {{-- <link rel="stylesheet" href="{{asset('frontend/assets/css/styles.css')}}">
-
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/main.css')}}"> --}}
-
     <link rel="stylesheet" href="{{asset('frontend/assets/css/material-kit.css')}}">
 
     <!-- Font ausom link -->
@@ -47,8 +37,8 @@
     {{-- Scripts --}}
 {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
     <script src="{{asset('frontend/assets/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/responsive-blog-card-slider-1.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/responsive-blog-card-slider.js')}}"></script>
+    {{-- <script src="{{asset('frontend/assets/js/responsive-blog-card-slider-1.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/responsive-blog-card-slider.js')}}"></script> --}}
 
 
     <script src="{{asset('frontend/assets/vendor/aos/aos.js')}}"></script>
