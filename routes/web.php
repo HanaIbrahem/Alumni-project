@@ -137,7 +137,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashbord/news/edit/{id}', [NewsController::class,'edit'])->name('news.edit');
         Route::put('/dashbord/news/update', [NewsController::class,'update'])->name('news.update');
         Route::get('/dashbord/news/destroy/{id}', [NewsController::class,'destroy'])->name('news.destroy');
-
+        Route::get('/dashbord/news/pin/{id}', [NewsController::class,'pin'])->name('news.pin');
 
         //career controllers
         Route::get('/dashbord/career', [CareerController::class,'index'])->name('career.get');
@@ -155,6 +155,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashbord/event/edit/{id}', [EventController::class,'edit'])->name('event.edit');
         Route::put('/dashbord/event/update', [EventController::class,'update'])->name('event.update');
         Route::get('/dashbord/event/destroy/{id}', [EventController::class,'destroy'])->name('event.destroy');
+        Route::get('/dashbord/event/pin/{id}', [EventController::class,'pin'])->name('event.pin');
 
         //Gallary controllers
         Route::get('/dashbord/gallary', [GallaryController::class,'index'])->name('gallary.get');
@@ -269,6 +270,10 @@ Route::prefix('/alumni/')->group(function (){
     Route::get('news/{id}',[frontendController::class,'NewsShow'])->name('news.show');
     Route::get('news/catygory/{id}',[frontendController::class,'NewsShowGroutBy'])->name('news.groupby');
 
+    Route::get('all/news',[frontendController::class,'LatestNews'])->name('recent.news');
+    Route::get('important/news',[frontendController::class,'ImportantNews'])->name('important.news');
+
+    
     // Career Roues
     Route::get('career',[frontendController::class,'CareerPpage'])->name('career.page');
     Route::post('career/catygory/',[frontendController::class,'CareerShowGroutBy'])->name('career.groupby');

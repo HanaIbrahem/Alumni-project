@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('type');
             $table->longText('detail');  
             $table->string('image');
+            $table->enum('pin', ['yes', 'no'])->default('no');
             $table->unsignedInteger('views')->default(0);
             $table->dateTime('startdate');
             $table->dateTime('enddate');

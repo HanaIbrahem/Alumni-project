@@ -45,6 +45,8 @@ class AdminController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now(),
+            
         ]);
 
         return redirect()->back()->with('success', 'Admin registered successfully.');

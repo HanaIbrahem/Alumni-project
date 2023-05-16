@@ -62,12 +62,19 @@ class NewsController extends Controller
         $save_url =$name_gen;
         $image->move(public_path('upload/images/news/'), $name_gen);
 
+        $pin = 'no';
+        if(request()->has('pin')) {
+            $pin = 'yes';
+        } 
+
         $news = News::create([
             'title' => $request->title,
             'detail' => $request->detail,
             'type' => $request->type,
             'image' => $save_url,
+            'pin'=>$pin,
             'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now(),
         ]);
         
        
@@ -159,5 +166,20 @@ class NewsController extends Controller
 
         $news->delete();
         return  redirect()->back();
+    }// end method
+
+    public function pin($id){
+        $news=News::find($id);
+        
+        if ($news->pin == "no") {
+            $news->pin = "yes";
+            $news->save();
+            return redirect()->back();
+        }
+        
+        $news->pin = "no";
+        $news->save();
+        return redirect()->back();
+
     }
 }

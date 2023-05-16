@@ -45,6 +45,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
+
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'detail' => ['required', 'string'],
@@ -62,6 +63,10 @@ class EventController extends Controller
         $save_url =$name_gen;
         $image->move(public_path('upload/images/event/'), $name_gen);
 
+        $pin = 'no';
+        if(request()->has('pin')) {
+            $pin = 'yes';
+        } 
         $event = Events::create([
             'title' => $request->title,
             'detail' => $request->detail,
@@ -69,7 +74,9 @@ class EventController extends Controller
             'image' => $save_url,
             'startdate'=>$request->startdate,
             'enddate'=>$request->expiredate,
+            'pin'=>$pin,
             'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now(),
         ]);
         
        
@@ -163,5 +170,20 @@ class EventController extends Controller
 
         $event->delete();
         return  redirect()->back();
+    }
+
+    public function pin($id){
+        $event=Events::find($id);
+        
+        if ($event->pin == "no") {
+            $event->pin = "yes";
+            $event->save();
+            return redirect()->back();
+        }
+        
+        $event->pin = "no";
+        $event->save();
+        return redirect()->back();
+
     }
 }

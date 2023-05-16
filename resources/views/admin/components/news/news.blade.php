@@ -75,6 +75,7 @@
                                         <th>Image</th>
                                         <th>Created At</th>
                                         <th>Updated At</th>
+                                        <th>Pin</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -89,8 +90,10 @@
                                                 width="50px" height="50px"></td>
                                             <td>{{$item->created_at}}</td>
                                             <td>{{$item->updated_at}}</td>
+                                            <td>{{$item->pin}}</td>
                                             <td>
                                                 <div class="d-flex">
+                                                    <a href="{{route('news.pin',$item->id)}}" class="btn btn-secondary shadow btn-xs sharp mr-1" id="pin-post-btn">pin</a>
                                                     <a href="{{route('news.edit',$item->id)}}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                                                     <a href="{{route('news.destroy',$item->id)}}" class="btn btn-danger shadow btn-xs sharp" id="delete"><i class="fa fa-trash"></i></a>
                                                 </div>												
@@ -119,4 +122,18 @@
 @section("database-libs-import")
 <script src="{{asset('backend/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('backend/js/plugins-init/datatables.init.js')}}"></script>
+
+
+<script>
+    $(document).on('click', '#pin-post-btn', function () {
+        var postId = $(this).data('post-id');
+        Swal.fire({
+  icon: 'success',
+  title: 'Post pinned successfully!',
+}).then((result) => {
+  // Redirect to the page where the pinned post is displayed
+  window.location.href = "/pinned-posts";
+});
+    });
+</script>
 @endsection

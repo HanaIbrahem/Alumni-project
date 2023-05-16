@@ -86,6 +86,15 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group mb-4">
+                                    <label class="col-sm-2 col-form-label card-title text-primary">Pin</label> <br>
+
+                                    <div class="custom-control custom-checkbox mb-3 checkbox-info">
+                                        <input type="checkbox" name="pin" class="custom-control-input" checked="" id="customCheckBox2">
+                                        <label class="custom-control-label" for="customCheckBox2">Pin</label>
+                                    </div>
+                                </div>
+                                
                                 <div class="input-group mb-3 mt-4  form-group col-sm-10">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Upload Image</span>

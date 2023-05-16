@@ -59,10 +59,7 @@
                                                 <li class="d-inline align-items-center"><i class="fa-solid fa-eye"></i>{{$career->views}}</li>
                                             </span>
                                             <span class="me-2">
-                                                @if ($commentCounts && $commentCounts->comment_count != null)
-                  {{$commentCounts->comment_count}}
-
-                  @endif
+                                             
                                             </span>
                                         </div>
         

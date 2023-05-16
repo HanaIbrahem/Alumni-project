@@ -14,6 +14,9 @@ use App\Models\contact;
 use App\Models\ContactUser;
 use App\Models\Comment;
 use DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactEmail;
+
 class frontendController extends Controller
 {
     /**
@@ -42,8 +45,7 @@ class frontendController extends Controller
 
         
        
-        $news=News::latest()->paginate(6);
-
+        $news = News::orderBy('pin', 'desc')->latest()->paginate(6);
         // catigory news
         $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
                            ->groupBy('type')->orderBy('count','desc')->limit(5)
@@ -93,6 +95,31 @@ class frontendController extends Controller
 
 
     }//end method
+
+    // all news 
+
+    public function LatestNews(){
+
+     
+        $news = News::latest()->paginate(6);
+        // catigory news
+        $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
+                           ->groupBy('type')->orderBy('count','desc')->limit(5)
+                           ->get();
+        
+        // $recent = News::latest()->take(10)->get();
+        return view('frontend.news',compact('news','newsCount'));
+    }
+
+    // important news 
+    public function ImportantNews(){
+        $news = News::where('pin', 'yes')->latest()->paginate(6);        // catigory news
+        $newsCount = News::select(DB::raw('type, COUNT(*) as count'))
+                           ->groupBy('type')->orderBy('count','desc')->limit(5)
+                           ->get();
+        
+        return view('frontend.news',compact('news','newsCount'));
+    }
 
     //Career Pages
     public function CareerPpage(){
@@ -177,7 +204,7 @@ class frontendController extends Controller
     //event page
     public function EventsPage(){
 
-        $event=Events::latest()->paginate(6);
+       $event = Events::orderBy('pin', 'desc')->latest()->paginate(6);
         return view('frontend.event',compact('event'));
     }//end method
 
@@ -253,22 +280,39 @@ class frontendController extends Controller
 
     //contact
     public function AlumniContact(Request $request){
+        // $validatedData = $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'message' => 'required',
+        // ]);
+    
+        // ContactUser::create([
+
+        //     'name' =>$request->name,
+        //     'message'=>$request->message,
+        //     'email'=>$request->email,
+        //     'user_id'=>$request->userid,
+            
+        // ]); 
+
         $validatedData = $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'message' => 'required',
+            'userid' => 'required|exists:users,id',
         ]);
     
-        ContactUser::create([
+        $message = ContactUser::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'message' => $request->input('message'),
+            'user_id' => $request->input('userid'),
+        ]);
 
-            'name' =>$request->name,
-            'message'=>$request->message,
-            'email'=>$request->email,
-            'user_id'=>$request->userid,
-            
-        ]); 
-
+        $user = User::find($request->input('userid'));
+        Mail::to($user->email)->send(new ContactEmail($request->input('email'), $user, $message));
     
+
         return redirect()->back()->with('success', 'Your message has been sent.');
 
     }

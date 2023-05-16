@@ -94,7 +94,6 @@
                             <h5 class="card-title">{{$admin->bio}}</h5>
     
                          
-                           <p class="text-info text-sm">Last Update:{{$admin->updated_at->format('M j, Y')}}</p>
     
     
                         </div>

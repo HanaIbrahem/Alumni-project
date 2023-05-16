@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('title');
             $table->string('type');
             $table->longText('detail');  
+            $table->enum('pin', ['yes', 'no'])->default('no');
             $table->string('image');
             $table->unsignedInteger('views')->default(0);
             $table->timestamps();
