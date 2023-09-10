@@ -12,12 +12,11 @@ Alumni can use the website as a platform to share their knowledge and support th
 community.
 
 ## Installation
-
  1. Make suare that you have a larevel 9 vendor folder.
  2. Create .env file from .env.example file and adjust database parameters.
  3. run >> php artisan migrate.
  4. Make suare the Configuration for sending emails in .env file.
-
+    
  ## Project views
 
  ### Admin dashbord
