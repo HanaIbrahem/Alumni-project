@@ -26,9 +26,8 @@ from the website.
 2• Manage job Opportunities: The admin can add, update, or delete job opportunities 
 on the website.
 3• Manage User Access: The admin can give or cancel user access to the website.
-4• Admin can also Change website conten
+4• Admin can also Change website content.
 
-![Image Alt Text]('https://raw.githubusercontent.com/username/repository/branch/path/to/image.jpg')
 
 
  
