@@ -17,7 +17,7 @@ community.
  3. run >> php artisan migrate.
  4. Make suare the Configuration for sending emails in .env file.
     
- ## Project views
+ ## Project 
 
  ### Admin dashbord
 Admin has complete control over the website, admin’s access is:
@@ -28,14 +28,30 @@ on the website.
 3• Manage User Access: The admin can give or cancel user access to the website.
 4• Admin can also Change website content.
 
-<p align="center"><img src="https://drive.google.com/file/d/1XzsvLJtwpzuQsyuzbd_tg0bsHeNmReY8/view?usp=sharing" width="400" alt="Laravel Logo"></p>
+![admin](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/fa0bb84a-a2a8-4fde-8fd9-ec7ada9a3e1c)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ ### User dashbord
+ The user has limited access to the website, it can see and update their data. User’s access is: 
+• Each user has own profile and portfolio.
+• Users can update their information.
+• Users can share here experiences by adding posts to their profile.
+• Users can view career opportunities, news, and events shared on the website.
+![user](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/e35117e0-6546-4cce-9d63-ef070feb1b69)
+
+ ### Website View
+
+ The user's view on a website consists of various pages and features. The primary page provides a brief description of the site's features and purpose. The events page lists upcoming activities relevant to the website's goal. The career page offers career opportunities relevant to the website's mission. The news page provides the latest news about the website's goals. The other members and their profiles page contains details about other website members. The alumni story page highlights the accomplishments and stories of alumni. The gallery page provides images related to the website's purpose. The contact us page provides contact information for the website's administrators. The about us page provides information about the website's purpose, history, and goals.
+
+#### Index page
+![index-1](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/6f70565a-632f-4e74-9f40-10189a135e4f)
+### Event page
+![index-2](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/d4a4a5fd-c447-4732-ac17-dd35d4917e9b)
+### News Letter page
+![index-3](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/76f7af0d-da60-4292-a345-ac3e647c92f1)
+### Contact Page
+![index-4](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/c3a0ed6d-85dd-4d78-9259-ba05df9ab17b)
+
+
 
  
 
