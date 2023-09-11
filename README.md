@@ -30,6 +30,7 @@ on the website.
 
  ![Image Alt Text](https://drive.google.com/file/d/1XzsvLJtwpzuQsyuzbd_tg0bsHeNmReY8/view?usp=drive_link)
 
+<img src="https://raw.githubusercontent.com/john-doe/my-repo/main/images/example.jpg" alt="Image Alt Text">
 
  
 
