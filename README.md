@@ -28,7 +28,7 @@ on the website.
 3• Manage User Access: The admin can give or cancel user access to the website.
 4• Admin can also Change website content.
 
-![admin](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/fa0bb84a-a2a8-4fde-8fd9-ec7ada9a3e1c)
+![admin](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/e9170046-7303-4eed-8d4d-238f98d61bd3)
 
  ### User dashbord
  The user has limited access to the website, it can see and update their data. User’s access is: 
@@ -36,20 +36,23 @@ on the website.
 • Users can update their information.
 • Users can share here experiences by adding posts to their profile.
 • Users can view career opportunities, news, and events shared on the website.
-![user](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/e35117e0-6546-4cce-9d63-ef070feb1b69)
+![user](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/72eb2bd4-5636-4614-873f-f2415b9b3df3)
 
  ### Website View
 
  The user's view on a website consists of various pages and features. The primary page provides a brief description of the site's features and purpose. The events page lists upcoming activities relevant to the website's goal. The career page offers career opportunities relevant to the website's mission. The news page provides the latest news about the website's goals. The other members and their profiles page contains details about other website members. The alumni story page highlights the accomplishments and stories of alumni. The gallery page provides images related to the website's purpose. The contact us page provides contact information for the website's administrators. The about us page provides information about the website's purpose, history, and goals.
 
 #### Index page
-![index-1](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/6f70565a-632f-4e74-9f40-10189a135e4f)
+![index-1](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/5ff51a27-92f4-4fd1-afff-b2936ad318a6)
+
 ### Event page
-![index-2](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/d4a4a5fd-c447-4732-ac17-dd35d4917e9b)
+![index-2](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/792cf27c-1aaf-4b25-86fe-2e17f21ae61c)
+
 ### News Letter page
-![index-3](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/76f7af0d-da60-4292-a345-ac3e647c92f1)
+![index-3](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/3e4674fa-cc51-4cb1-8b6f-2d3485dc4879)
+
 ### Contact Page
-![index-4](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/c3a0ed6d-85dd-4d78-9259-ba05df9ab17b)
+![index-4](https://github.com/HanaIbrahem/Alumni-project/assets/86159474/c11f9e55-aa30-4db8-83b5-30d9c6e08844)
 
 
 
