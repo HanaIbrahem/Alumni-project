@@ -28,8 +28,7 @@ on the website.
 3• Manage User Access: The admin can give or cancel user access to the website.
 4• Admin can also Change website conten
 
-https://drive.google.com/file/d/1XzsvLJtwpzuQsyuzbd_tg0bsHeNmReY8/view?usp=drive_link
-<img src="https://raw.githubusercontent.com/username/repository/branch/path/to/image.jpg" alt="Image Alt Text">
+![Image Alt Text]('https://raw.githubusercontent.com/username/repository/branch/path/to/image.jpg')
 
 
  
