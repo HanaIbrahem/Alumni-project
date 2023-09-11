@@ -28,7 +28,14 @@ on the website.
 3• Manage User Access: The admin can give or cancel user access to the website.
 4• Admin can also Change website content.
 
+<p align="center"><img src="https://drive.google.com/file/d/1XzsvLJtwpzuQsyuzbd_tg0bsHeNmReY8/view?usp=sharing" width="400" alt="Laravel Logo"></p>
 
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
  
 
